@@ -55,7 +55,7 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
 
     private static final String COLUMN_teleOpBalance = "teleOpBalance";
 
-    private static final String COLUMN_Defence = "Defence";
+    private static final String COLUMN_Defence = "Defence"; //this is broken
 
 
 
