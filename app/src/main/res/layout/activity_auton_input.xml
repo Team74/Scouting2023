@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AutonInput">
+
+    <TextView
+        android:id="@+id/team1Num_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:text="TextView"
+        android:textSize="20pt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/team2Num_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:textSize="20pt"
+        android:text="TextView"
+        app:layout_constraintStart_toEndOf="@+id/team1Num_txt"
+        app:layout_constraintTop_toTopOf="@+id/team1Num_txt" />
+
+    <TextView
+        android:id="@+id/team3Num_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20pt"
+        android:layout_marginStart="32dp"
+        android:text="TextView"
+        app:layout_constraintStart_toEndOf="@+id/team2Num_txt"
+        app:layout_constraintTop_toTopOf="@+id/team2Num_txt" />
+
+    <Button
+        android:id="@+id/minus_Button1_btn"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:text="-"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/team1Num_txt" />
+
+    <Button
+        android:id="@+id/plus_button1_btn"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:text="+"
+        app:layout_constraintStart_toEndOf="@+id/cone_total_tv"
+        app:layout_constraintTop_toTopOf="@+id/minus_Button1_btn" />
+
+    <TextView
+        android:id="@+id/cone_total_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="TextView"
+        app:layout_constraintStart_toEndOf="@+id/minus_Button1_btn"
+        app:layout_constraintTop_toTopOf="@+id/minus_Button1_btn" />
+</androidx.constraintlayout.widget.ConstraintLayout>

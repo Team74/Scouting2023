@@ -43,8 +43,8 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_teleOpConesLow = "teleOpConesLow";
     private static final String COLUMN_teleOpConesMid = "teleOpConesMid";
     private static final String COLUMN_teleOpConesHigh = "teleOpConesHigh";
-    private static final String COLUMN_teleOpConesTotal = "teleOpConesTotal";
-    //endregion
+    public static final String COLUMN_teleOpConesTotal = "teleOpConesTotal";
+    //endregion6
 
     //region TeleOp Cubes
     private static final String COLUMN_teleOpCubesLow = "teleOpCubesLow";
@@ -55,7 +55,7 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
 
     private static final String COLUMN_teleOpBalance = "teleOpBalance";
 
-    private static final String COLUMN_Defence = "Defence"; //this is broken
+    private static final String COLUMN_Defence = "Defence";
 
 
 
@@ -89,7 +89,7 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
                         COLUMN_teleOpCubesMid + " INTEGER, " + // 17
                         COLUMN_teleOpCubesHigh + " INTEGER, " + //18
                         COLUMN_teleOpCubesTotal + " INTEGER, " + //19
-                        COLUMN_teleOpBalance + " INTEGER, " + // 20
+                        COLUMN_teleOpBalance + " BOOLEAN, " + // 20
 
                         COLUMN_Defence + " INTEGER);"; // 21
 

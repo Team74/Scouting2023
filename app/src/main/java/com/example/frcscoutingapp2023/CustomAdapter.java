@@ -34,7 +34,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         this.numCubes = numCubes;
         this.balance = balance;
 
-        Log.d("test123",String.valueOf(numCones.get(1)) + " " + String.valueOf(numCubes.get(1)) + " " + String.valueOf(matchNum.get(1)) + " " + String.valueOf(teamNum.get(1)));
+        //Log.d("test123",String.valueOf(numCones.get(1)) + " " + String.valueOf(numCubes.get(1)) + " " + String.valueOf(matchNum.get(1)) + " " + String.valueOf(teamNum.get(1)));
 
     }
 

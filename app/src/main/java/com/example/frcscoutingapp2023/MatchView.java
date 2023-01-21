@@ -1,10 +1,13 @@
 package com.example.frcscoutingapp2023;
 
+import static com.example.frcscoutingapp2023.MyDataBaseHelper.COLUMN_teleOpConesTotal;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
@@ -39,7 +42,7 @@ public class MatchView extends AppCompatActivity {
         add_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MatchView.this, TeleOpInput.class);
+                Intent intent = new Intent(MatchView.this, PreMatchInput.class);
                 startActivity(intent);
             }
         });
@@ -57,7 +60,8 @@ public class MatchView extends AppCompatActivity {
         storeDataInArray();
 
 
-        customAdapter = new CustomAdapter(MatchView.this, MatchView.this, _id, matchNum, teamNum, scout_cones, scout_cubes, scout_balance);
+        customAdapter = new CustomAdapter(MatchView.this, MatchView.this,
+                _id, matchNum, teamNum, scout_cones, scout_cubes, scout_balance);
         recyclerView.setAdapter(customAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(MatchView.this));
 
@@ -73,6 +77,7 @@ public class MatchView extends AppCompatActivity {
         }
     }
 
+    @SuppressLint("Range")
     void storeDataInArray()
     {
         Cursor cursor = myDB.readAllData();
@@ -85,9 +90,9 @@ public class MatchView extends AppCompatActivity {
                 //syncs the array strings with the right column, make sure the ids match!
                 _id.add(cursor.getString(0));
 
-                scout_cones.add(cursor.getString(3));
-                scout_cubes.add(cursor.getString(4));
-                scout_balance.add(cursor.getString(5));
+                scout_cones.add(cursor.getString(cursor.getColumnIndex(COLUMN_teleOpConesTotal)));
+                scout_cubes.add(cursor.getString(19));
+                scout_balance.add(cursor.getString(20));
                 matchNum.add(cursor.getString(1));
                 teamNum.add(cursor.getString(2));
 

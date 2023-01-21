@@ -41,8 +41,8 @@
       android:id="@+id/coneInput_et"
       android:layout_width="220dp"
       android:layout_height="70dp"
-      android:layout_marginStart="72dp"
-      android:layout_marginTop="48dp"
+      android:layout_marginStart="248dp"
+      android:layout_marginTop="220dp"
       android:ems="10"
       android:hint="Cones"
       android:inputType="number"
@@ -89,5 +89,33 @@
       app:layout_constraintBottom_toBottomOf="@+id/cubeInput_et"
       app:layout_constraintEnd_toStartOf="@+id/cubeInput_et"
       app:layout_constraintTop_toTopOf="@+id/cubeInput_et" />
+
+  <TextView
+      android:id="@+id/team1txt_et"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="64dp"
+      android:layout_marginTop="32dp"
+      android:text="Team 1"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+  <TextView
+      android:id="@+id/team2txt_et2"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="64dp"
+      android:text="Team 2"
+      app:layout_constraintStart_toEndOf="@+id/team1txt_et"
+      app:layout_constraintTop_toTopOf="@+id/team1txt_et" />
+
+  <TextView
+      android:id="@+id/team3txt_et3"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="64dp"
+      android:text="Team 3"
+      app:layout_constraintStart_toEndOf="@+id/team2txt_et2"
+      app:layout_constraintTop_toTopOf="@+id/team2txt_et2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

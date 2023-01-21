@@ -28,7 +28,7 @@ public class TeleOpInput extends AppCompatActivity {
 
         pushButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) { //TODO make the input and string more different
+            public void onClick(View view) { //TODO make the input and string more different and clean it up
                 boolean canBalance = balanceInput.isChecked();
 
                 String matchInputNum =  matchInput.getText().toString();
