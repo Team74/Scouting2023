@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:id="@+id/mainLayout">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp">
+
+            <TextView
+                android:id="@+id/match_id_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/cones_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="Cones"
+                app:layout_constraintStart_toEndOf="@+id/match_id_txt"
+                app:layout_constraintTop_toTopOf="@+id/match_id_txt" />
+
+            <TextView
+                android:id="@+id/cubes_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="Cubes"
+                app:layout_constraintStart_toEndOf="@+id/cones_txt"
+                app:layout_constraintTop_toTopOf="@+id/cones_txt" />
+
+            <TextView
+                android:id="@+id/balance_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="Balance"
+                app:layout_constraintStart_toEndOf="@+id/cubes_txt"
+                app:layout_constraintTop_toTopOf="@+id/cubes_txt" />
+
+            <TextView
+                android:id="@+id/matchNum_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:text="MatchNum"
+                app:layout_constraintStart_toEndOf="@+id/balance_txt"
+                app:layout_constraintTop_toTopOf="@+id/balance_txt" />
+
+            <TextView
+                android:id="@+id/teamNum_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="TeamNum"
+                app:layout_constraintStart_toEndOf="@+id/matchNum_txt"
+                app:layout_constraintTop_toTopOf="@+id/matchNum_txt" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>
