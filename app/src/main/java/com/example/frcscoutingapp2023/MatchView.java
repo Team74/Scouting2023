@@ -90,7 +90,7 @@ public class MatchView extends AppCompatActivity {
                 //syncs the array strings with the right column, make sure the ids match!
                 _id.add(cursor.getString(0));
 
-                scout_cones.add(cursor.getString(cursor.getColumnIndex(COLUMN_teleOpConesTotal)));
+                scout_cones.add(cursor.getString(15));
                 scout_cubes.add(cursor.getString(19));
                 scout_balance.add(cursor.getString(20));
                 matchNum.add(cursor.getString(1));

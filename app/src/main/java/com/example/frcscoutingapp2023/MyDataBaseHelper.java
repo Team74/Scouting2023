@@ -89,7 +89,7 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
                         COLUMN_teleOpCubesMid + " INTEGER, " + // 17
                         COLUMN_teleOpCubesHigh + " INTEGER, " + //18
                         COLUMN_teleOpCubesTotal + " INTEGER, " + //19
-                        COLUMN_teleOpBalance + " BOOLEAN, " + // 20
+                        COLUMN_teleOpBalance + " INTEGER, " + // 20
 
                         COLUMN_Defence + " INTEGER);"; // 21
 
@@ -102,7 +102,7 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    void addMatch(int matchNum, int teamNum, int cones, int cubes, boolean balance)
+    void addMatch(int matchNum, int teamNum, int cones, int cubes, int balance)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();

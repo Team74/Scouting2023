@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">FRC Scouting App 2023</string>
+    <string-array name="balance">
+        <item>Did not Attempt</item>
+        <item>Failed Attempt</item>
+        <item>Engaged</item>
+        <item>Docked</item>
+    </string-array>
 </resources>
