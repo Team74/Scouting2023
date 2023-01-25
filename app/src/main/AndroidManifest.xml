@@ -15,6 +15,7 @@
         <activity
             android:name=".PostMatchInput"
             android:exported="false"
+            android:parentActivityName=".TeleOpInput"
             android:screenOrientation="landscape">
             <meta-data
                 android:name="android.app.lib_name"
@@ -23,6 +24,7 @@
         <activity
             android:name=".AutonInput"
             android:exported="false"
+            android:parentActivityName=".PreMatchInput"
             android:screenOrientation="landscape">
             <meta-data
                 android:name="android.app.lib_name"
@@ -31,6 +33,7 @@
         <activity
             android:name=".PreMatchInput"
             android:exported="false"
+            android:parentActivityName=".MatchView"
             android:screenOrientation="landscape">
             <meta-data
                 android:name="android.app.lib_name"
@@ -49,7 +52,7 @@
             android:name=".TeleOpInput"
             android:exported="false"
             android:label="Add Match"
-            android:parentActivityName=".MatchView"
+            android:parentActivityName=".AutonInput"
             android:screenOrientation="landscape">
             <meta-data
                 android:name="android.app.lib_name"

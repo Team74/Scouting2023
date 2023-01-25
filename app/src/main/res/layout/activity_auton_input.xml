@@ -9,7 +9,7 @@
     <Button
         android:id="@+id/HC_plus_btn4"
         android:layout_width="60dp"
-        android:layout_height="48dp"
+        android:layout_height="52dp"
         android:backgroundTint="@color/grey"
         android:text="+"
         app:layout_constraintStart_toEndOf="@+id/HC_total_tv4"
@@ -18,7 +18,7 @@
     <Button
         android:id="@+id/MC_minus_btn4"
         android:layout_width="60dp"
-        android:layout_height="48dp"
+        android:layout_height="52dp"
         android:backgroundTint="@color/grey"
         android:text="-"
         app:layout_constraintStart_toStartOf="@+id/HC_minus_btn4"
@@ -40,7 +40,7 @@
     <Button
         android:id="@+id/LC_plus_btn4"
         android:layout_width="60dp"
-        android:layout_height="48dp"
+        android:layout_height="52dp"
         android:backgroundTint="@color/grey"
         android:text="+"
         app:layout_constraintStart_toEndOf="@+id/MC_total_tv4"
@@ -63,7 +63,7 @@
     <Button
         android:id="@+id/MCu_plus_btn4"
         android:layout_width="60dp"
-        android:layout_height="48dp"
+        android:layout_height="52dp"
         android:backgroundTint="@color/grey"
         android:text="+"
         app:layout_constraintStart_toStartOf="@+id/HCu_plus_btn4"
@@ -72,7 +72,7 @@
     <Button
         android:id="@+id/LCu_minus_btn4"
         android:layout_width="60dp"
-        android:layout_height="48dp"
+        android:layout_height="52dp"
         android:backgroundTint="@color/grey"
         android:text="-"
         app:layout_constraintStart_toStartOf="@+id/MCu_minus_btn4"
@@ -81,7 +81,7 @@
     <Button
         android:id="@+id/LCu_plus_btn5"
         android:layout_width="60dp"
-        android:layout_height="48dp"
+        android:layout_height="52dp"
         android:backgroundTint="@color/grey"
         android:text="+"
         app:layout_constraintStart_toStartOf="@+id/MCu_plus_btn4"
@@ -99,7 +99,7 @@
     <Button
         android:id="@+id/HCu_minus_btn4"
         android:layout_width="60dp"
-        android:layout_height="48dp"
+        android:layout_height="52dp"
         android:layout_marginTop="24dp"
         android:backgroundTint="@color/grey"
         android:text="-"
@@ -122,7 +122,7 @@
     <Button
         android:id="@+id/HCu_plus_btn4"
         android:layout_width="60dp"
-        android:layout_height="48dp"
+        android:layout_height="52dp"
         android:backgroundTint="@color/grey"
         android:text="+"
         app:layout_constraintStart_toStartOf="@+id/LC_plus_btn4"
@@ -131,7 +131,7 @@
     <Button
         android:id="@+id/HC_minus_btn4"
         android:layout_width="60dp"
-        android:layout_height="48dp"
+        android:layout_height="52dp"
         android:layout_marginStart="16dp"
         android:backgroundTint="@color/grey"
         android:text="-"
@@ -167,7 +167,7 @@
     <Button
         android:id="@+id/LC_minus_btn4"
         android:layout_width="60dp"
-        android:layout_height="48dp"
+        android:layout_height="52dp"
         android:backgroundTint="@color/grey"
         android:text="-"
         app:layout_constraintStart_toStartOf="@+id/MC_minus_btn4"
@@ -176,7 +176,7 @@
     <Button
         android:id="@+id/MC_plus_btn4"
         android:layout_width="60dp"
-        android:layout_height="48dp"
+        android:layout_height="52dp"
         android:backgroundTint="@color/grey"
         android:text="+"
         app:layout_constraintStart_toEndOf="@+id/MC_total_tv4"
@@ -198,7 +198,7 @@
     <Button
         android:id="@+id/MCu_minus_btn4"
         android:layout_width="60dp"
-        android:layout_height="48dp"
+        android:layout_height="52dp"
         android:backgroundTint="@color/grey"
         android:text="-"
         app:layout_constraintStart_toStartOf="@+id/HCu_minus_btn4"
@@ -207,7 +207,7 @@
     <Button
         android:id="@+id/LCu_minus_btn"
         android:layout_width="60dp"
-        android:layout_height="48dp"
+        android:layout_height="52dp"
         android:backgroundTint="@color/grey"
         android:text="-"
         app:layout_constraintStart_toStartOf="@+id/MCu_minus_btn"
@@ -216,7 +216,7 @@
     <Button
         android:id="@+id/LCu_plus_btn"
         android:layout_width="60dp"
-        android:layout_height="48dp"
+        android:layout_height="52dp"
         android:backgroundTint="@color/grey"
         android:text="+"
         app:layout_constraintStart_toStartOf="@+id/MCu_plus_btn"
@@ -239,7 +239,7 @@
     <Button
         android:id="@+id/MCu_minus_btn"
         android:layout_width="60dp"
-        android:layout_height="48dp"
+        android:layout_height="52dp"
         android:backgroundTint="@color/grey"
         android:text="-"
         app:layout_constraintStart_toStartOf="@+id/HCu_minus_btn"
@@ -248,7 +248,7 @@
     <Button
         android:id="@+id/MCu_plus_btn"
         android:layout_width="60dp"
-        android:layout_height="48dp"
+        android:layout_height="52dp"
         android:backgroundTint="@color/grey"
         android:text="+"
         app:layout_constraintStart_toStartOf="@+id/HCu_plus_btn"
@@ -271,7 +271,7 @@
     <Button
         android:id="@+id/HCu_minus_btn"
         android:layout_width="60dp"
-        android:layout_height="48dp"
+        android:layout_height="52dp"
         android:layout_marginTop="24dp"
         android:backgroundTint="@color/grey"
         android:text="-"
@@ -281,7 +281,7 @@
     <Button
         android:id="@+id/HCu_plus_btn"
         android:layout_width="60dp"
-        android:layout_height="48dp"
+        android:layout_height="52dp"
         android:layout_marginTop="24dp"
         android:backgroundTint="@color/grey"
         android:text="+"
@@ -305,7 +305,7 @@
     <Button
         android:id="@+id/LC_minus_btn"
         android:layout_width="60dp"
-        android:layout_height="48dp"
+        android:layout_height="52dp"
         android:backgroundTint="@color/grey"
         android:text="-"
         app:layout_constraintStart_toStartOf="@+id/MC_minus_btn"
@@ -314,7 +314,7 @@
     <Button
         android:id="@+id/LC_plus_btn"
         android:layout_width="60dp"
-        android:layout_height="48dp"
+        android:layout_height="52dp"
         android:backgroundTint="@color/grey"
         android:text="+"
         app:layout_constraintStart_toStartOf="@+id/MC_plus_btn"
@@ -337,7 +337,7 @@
     <Button
         android:id="@+id/MC_minus_btn"
         android:layout_width="60dp"
-        android:layout_height="48dp"
+        android:layout_height="52dp"
         android:backgroundTint="@color/grey"
         android:text="-"
         app:layout_constraintStart_toStartOf="@+id/HC_minus_btn"
@@ -346,7 +346,7 @@
     <Button
         android:id="@+id/MC_plus_btn"
         android:layout_width="60dp"
-        android:layout_height="48dp"
+        android:layout_height="52dp"
         android:backgroundTint="@color/grey"
         android:text="+"
         app:layout_constraintStart_toStartOf="@+id/HC_plus_btn"
@@ -402,7 +402,7 @@
     <Button
         android:id="@+id/HC_minus_btn"
         android:layout_width="60dp"
-        android:layout_height="48dp"
+        android:layout_height="52dp"
         android:layout_marginTop="16dp"
         android:backgroundTint="@color/grey"
         android:text="-"
@@ -412,7 +412,7 @@
     <Button
         android:id="@+id/HC_plus_btn"
         android:layout_width="60dp"
-        android:layout_height="48dp"
+        android:layout_height="52dp"
         android:backgroundTint="@color/grey"
         android:text="+"
         app:layout_constraintStart_toEndOf="@+id/HC_total_tv"

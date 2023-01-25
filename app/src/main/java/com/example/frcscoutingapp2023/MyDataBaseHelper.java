@@ -55,7 +55,7 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
 
     private static final String COLUMN_teleOpBalance = "teleOpBalance";
 
-    private static final String COLUMN_Defence = "Defence";
+    private static final String COLUMN_Defense = "Defence";
 
 
 
@@ -91,7 +91,7 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
                         COLUMN_teleOpCubesTotal + " INTEGER, " + //19
                         COLUMN_teleOpBalance + " INTEGER, " + // 20
 
-                        COLUMN_Defence + " INTEGER);"; // 21
+                        COLUMN_Defense + " INTEGER);"; // 21
 
         db.execSQL(query);
     }
@@ -102,18 +102,39 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    void addMatch(int matchNum, int teamNum, int cones, int cubes, int balance)
+    void addMatch(int matchNum, int teamNum, int autoHighCones, int autoMidCones, int autoLowCones, int autoHighCubes, int autoMidCubes, int autoLowCubes,
+                  int teleHighCones, int teleMidCones, int teleLowCones, int teleHighCubes, int teleMidCubes, int teleLowCubes, int autoBalance, int teleBalance)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
+        int autoConesTotal = autoHighCones + autoMidCones + autoLowCones;
+        int autoCubesTotal = autoHighCubes + autoMidCubes + autoLowCubes;
 
-        cv.put(COLUMN_teleOpConesTotal, cones);
-        cv.put(COLUMN_teleOpCubesTotal, cubes);
-        cv.put(COLUMN_teleOpBalance, balance);
+        int teleConesTotal = teleHighCones + teleMidCones + teleLowCones;
+        int teleCubesTotal = teleHighCubes + teleMidCubes + teleLowCubes;
+
         cv.put(COLUMN_MATCHNUM, matchNum);
         cv.put(COLUMN_TEAMNUM, teamNum);
 
+        cv.put(COLUMN_autoConesLow, autoLowCones);
+        cv.put(COLUMN_autoConesMid, autoMidCones);
+        cv.put(COLUMN_autoConesHigh, autoHighCones);
+        cv.put(COLUMN_autoConesTotal, autoConesTotal);
+        cv.put(COLUMN_autoCubesLow, autoLowCubes);
+        cv.put(COLUMN_autoCubesMid, autoMidCubes);
+        cv.put(COLUMN_autoCubesHigh, autoHighCubes);
+        cv.put(COLUMN_autoCubesTotal, autoCubesTotal);
+        cv.put(COLUMN_autoBalance, autoBalance);
+        cv.put(COLUMN_teleOpConesLow, teleLowCones);
+        cv.put(COLUMN_teleOpConesMid, teleMidCones);
+        cv.put(COLUMN_teleOpConesHigh, teleHighCones);
+        cv.put(COLUMN_teleOpConesTotal, teleConesTotal);
+        cv.put(COLUMN_teleOpCubesLow, teleLowCubes);
+        cv.put(COLUMN_teleOpCubesMid, teleMidCubes);
+        cv.put(COLUMN_teleOpCubesHigh, teleHighCubes);
+        cv.put(COLUMN_teleOpCubesTotal, teleCubesTotal);
+        cv.put(COLUMN_teleOpBalance, teleBalance);
 
         long result = db.insert(TABLE_NAME, null, cv);
         if(result == -1)//failed

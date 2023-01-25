@@ -1,18 +1,14 @@
 package com.example.frcscoutingapp2023;
 
-import static com.example.frcscoutingapp2023.MyDataBaseHelper.COLUMN_teleOpConesTotal;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -27,7 +23,7 @@ public class MatchView extends AppCompatActivity {
     FloatingActionButton add_button;
 
     MyDataBaseHelper myDB;
-    ArrayList<String> _id, matchNum, teamNum, scout_cones, scout_cubes, scout_balance;//todo make it not just strings
+    ArrayList<String> _id, matchNum, teamNum, autonTotal, teleCones, teleCubes, scout_balance;//todo make it not just strings
 
     CustomAdapter customAdapter;
 
@@ -52,8 +48,9 @@ public class MatchView extends AppCompatActivity {
         _id = new ArrayList<>();
         matchNum = new ArrayList<>();
         teamNum = new ArrayList<>();
-        scout_cones = new ArrayList<>();
-        scout_cubes = new ArrayList<>();
+        autonTotal = new ArrayList<>();
+        teleCones = new ArrayList<>();
+        teleCubes = new ArrayList<>();
         scout_balance = new ArrayList<>();
 
 
@@ -61,7 +58,7 @@ public class MatchView extends AppCompatActivity {
 
 
         customAdapter = new CustomAdapter(MatchView.this, MatchView.this,
-                _id, matchNum, teamNum, scout_cones, scout_cubes, scout_balance);
+                _id, matchNum, teamNum, autonTotal, teleCones, teleCubes, scout_balance);
         recyclerView.setAdapter(customAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(MatchView.this));
 
@@ -85,13 +82,14 @@ public class MatchView extends AppCompatActivity {
         {
             Toast.makeText(this, "No Data", Toast.LENGTH_SHORT).show();
         }else{
-            while(cursor.moveToNext())
+            while(cursor.moveToNext()) //TODO make it strings and not ids
             {
                 //syncs the array strings with the right column, make sure the ids match!
                 _id.add(cursor.getString(0));
 
-                scout_cones.add(cursor.getString(15));
-                scout_cubes.add(cursor.getString(19));
+                autonTotal.add(String.valueOf(cursor.getInt(10) + cursor.getInt(6)));
+                teleCones.add(cursor.getString(15));
+                teleCubes.add(cursor.getString(19));
                 scout_balance.add(cursor.getString(20));
                 matchNum.add(cursor.getString(1));
                 teamNum.add(cursor.getString(2));

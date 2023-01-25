@@ -45,7 +45,8 @@ public class PostMatchInput extends AppCompatActivity {
                 int teleOpBalance = getIntent().getIntExtra("teleOpBalance", 0);
 
                 MyDataBaseHelper myDB = new MyDataBaseHelper(PostMatchInput.this);
-                myDB.addMatch(matchNum, team1Num, autoHighCones, teleOpMidCubes, teleOpBalance);
+                myDB.addMatch(matchNum, team1Num, autoHighCones, autoMidCones, autoLowCones, autoHighCubes, autoMidCubes, autoLowCubes, teleOpHighCones,
+                        teleOpMidCones, teleOpLowCones, teleOpHighCubes, teleOpMidCubes, teleOpLowCubes, autoBalance, teleOpBalance);
 
                 Intent intent = new Intent(PostMatchInput.this, MatchView.class);
                 activity.startActivityForResult(intent, 1);
