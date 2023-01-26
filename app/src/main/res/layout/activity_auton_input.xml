@@ -7,25 +7,61 @@
     tools:context=".AutonInput">
 
     <Button
-        android:id="@+id/HC_plus_btn4"
+        android:id="@+id/HC_plus_3_btn"
         android:layout_width="60dp"
         android:layout_height="52dp"
         android:backgroundTint="@color/grey"
         android:text="+"
-        app:layout_constraintStart_toEndOf="@+id/HC_total_tv4"
-        app:layout_constraintTop_toTopOf="@+id/HC_minus_btn4" />
+        app:layout_constraintStart_toEndOf="@+id/HC_total_3_tv"
+        app:layout_constraintTop_toTopOf="@+id/HC_minus_3_btn" />
 
     <Button
-        android:id="@+id/MC_minus_btn4"
+        android:id="@+id/MCu_plus_3_btn"
+        android:layout_width="60dp"
+        android:layout_height="52dp"
+        android:backgroundTint="@color/grey"
+        android:text="+"
+        app:layout_constraintStart_toEndOf="@+id/MCu_total_3_tv"
+        app:layout_constraintTop_toTopOf="@+id/MCu_minus_3_btn" />
+
+    <Button
+        android:id="@+id/MCu_minus_3_btn"
         android:layout_width="60dp"
         android:layout_height="52dp"
         android:backgroundTint="@color/grey"
         android:text="-"
-        app:layout_constraintStart_toStartOf="@+id/HC_minus_btn4"
-        app:layout_constraintTop_toBottomOf="@+id/HC_minus_btn4" />
+        app:layout_constraintStart_toStartOf="@+id/HCu_minus_3_btn"
+        app:layout_constraintTop_toBottomOf="@+id/HCu_minus_3_btn" />
+
+    <Button
+        android:id="@+id/MC_minus_3_btn"
+        android:layout_width="60dp"
+        android:layout_height="52dp"
+        android:backgroundTint="@color/grey"
+        android:text="-"
+        app:layout_constraintStart_toStartOf="@+id/HC_minus_3_btn"
+        app:layout_constraintTop_toBottomOf="@+id/HC_minus_3_btn" />
+
+    <Button
+        android:id="@+id/HCu_plus_3_btn"
+        android:layout_width="60dp"
+        android:layout_height="52dp"
+        android:backgroundTint="@color/grey"
+        android:text="+"
+        app:layout_constraintStart_toEndOf="@+id/HCu_total_3_tv"
+        app:layout_constraintTop_toTopOf="@+id/HCu_minus_3_btn" />
+
+    <Button
+        android:id="@+id/LCu_minus_3_btn"
+        android:layout_width="60dp"
+        android:layout_height="52dp"
+        android:backgroundTint="@color/grey"
+        android:text="-"
+        app:layout_constraintStart_toStartOf="@+id/MCu_minus_3_btn"
+        app:layout_constraintTop_toBottomOf="@+id/MCu_minus_3_btn" />
 
     <TextView
-        android:id="@+id/LCu_total_tv4"
+        android:id="@+id/MC_total_3_tv"
         android:layout_width="75dp"
         android:layout_height="32dp"
         android:background="@color/black"
@@ -33,22 +69,12 @@
         android:gravity="center_horizontal|center_vertical"
         android:text="TextView"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/LCu_minus_btn4"
-        app:layout_constraintStart_toEndOf="@+id/LCu_minus_btn4"
-        app:layout_constraintTop_toTopOf="@+id/LCu_minus_btn4" />
-
-    <Button
-        android:id="@+id/LC_plus_btn4"
-        android:layout_width="60dp"
-        android:layout_height="52dp"
-        android:backgroundTint="@color/grey"
-        android:text="+"
-        app:layout_constraintStart_toEndOf="@+id/MC_total_tv4"
-        app:layout_constraintStart_toStartOf="@+id/MC_plus_btn4"
-        app:layout_constraintTop_toBottomOf="@+id/MC_minus_btn4" />
+        app:layout_constraintBottom_toBottomOf="@+id/MC_minus_3_btn"
+        app:layout_constraintStart_toEndOf="@+id/MC_minus_3_btn"
+        app:layout_constraintTop_toTopOf="@+id/MC_minus_3_btn" />
 
     <TextView
-        android:id="@+id/LC_total_tv4"
+        android:id="@+id/LC_total_3_tv"
         android:layout_width="75dp"
         android:layout_height="32dp"
         android:background="@color/black"
@@ -56,58 +82,40 @@
         android:gravity="center_horizontal|center_vertical"
         android:text="TextView"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/LC_minus_btn4"
-        app:layout_constraintStart_toEndOf="@+id/LC_minus_btn4"
-        app:layout_constraintTop_toBottomOf="@+id/MC_minus_btn4" />
+        app:layout_constraintBottom_toBottomOf="@+id/LC_minus_3_btn"
+        app:layout_constraintStart_toEndOf="@+id/LC_minus_3_btn"
+        app:layout_constraintTop_toBottomOf="@+id/MC_minus_3_btn" />
 
     <Button
-        android:id="@+id/MCu_plus_btn4"
+        android:id="@+id/MC_plus_3_btn"
         android:layout_width="60dp"
         android:layout_height="52dp"
         android:backgroundTint="@color/grey"
         android:text="+"
-        app:layout_constraintStart_toStartOf="@+id/HCu_plus_btn4"
-        app:layout_constraintTop_toBottomOf="@+id/HCu_minus_btn4" />
+        app:layout_constraintStart_toEndOf="@+id/MC_total_3_tv"
+        app:layout_constraintTop_toTopOf="@+id/MC_minus_3_btn" />
 
     <Button
-        android:id="@+id/LCu_minus_btn4"
+        android:id="@+id/HCu_minus_3_btn"
         android:layout_width="60dp"
         android:layout_height="52dp"
-        android:backgroundTint="@color/grey"
-        android:text="-"
-        app:layout_constraintStart_toStartOf="@+id/MCu_minus_btn4"
-        app:layout_constraintTop_toBottomOf="@+id/MCu_minus_btn4" />
-
-    <Button
-        android:id="@+id/LCu_plus_btn5"
-        android:layout_width="60dp"
-        android:layout_height="52dp"
-        android:backgroundTint="@color/grey"
-        android:text="+"
-        app:layout_constraintStart_toStartOf="@+id/MCu_plus_btn4"
-        app:layout_constraintTop_toTopOf="@+id/LCu_minus_btn4" />
-
-    <Spinner
-        android:id="@+id/autoTeam1Balance4"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        app:layout_constraintEnd_toEndOf="@+id/LCu_plus_btn5"
-        app:layout_constraintStart_toStartOf="@+id/LCu_minus_btn4"
-        app:layout_constraintTop_toBottomOf="@+id/LCu_total_tv4" />
-
-    <Button
-        android:id="@+id/HCu_minus_btn4"
-        android:layout_width="60dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="24dp"
         android:backgroundTint="@color/grey"
         android:text="-"
-        app:layout_constraintStart_toStartOf="@+id/LC_minus_btn4"
-        app:layout_constraintTop_toBottomOf="@+id/LC_minus_btn4" />
+        app:layout_constraintStart_toStartOf="@+id/LC_minus_3_btn"
+        app:layout_constraintTop_toBottomOf="@+id/LC_minus_3_btn" />
+
+    <Button
+        android:id="@+id/LCu_plus_3_btn"
+        android:layout_width="60dp"
+        android:layout_height="52dp"
+        android:backgroundTint="@color/grey"
+        android:text="+"
+        app:layout_constraintStart_toEndOf="@+id/LCu_total_3_tv"
+        app:layout_constraintTop_toBottomOf="@+id/MCu_minus_3_btn" />
 
     <TextView
-        android:id="@+id/MC_total_tv4"
+        android:id="@+id/MCu_total_3_tv"
         android:layout_width="75dp"
         android:layout_height="32dp"
         android:background="@color/black"
@@ -115,31 +123,66 @@
         android:gravity="center_horizontal|center_vertical"
         android:text="TextView"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/LC_minus_btn4"
-        app:layout_constraintStart_toEndOf="@+id/MC_minus_btn4"
-        app:layout_constraintTop_toTopOf="@+id/MC_minus_btn4" />
+        app:layout_constraintBottom_toBottomOf="@+id/MCu_minus_3_btn"
+        app:layout_constraintStart_toEndOf="@+id/MCu_minus_3_btn"
+        app:layout_constraintTop_toTopOf="@+id/MCu_minus_3_btn" />
 
     <Button
-        android:id="@+id/HCu_plus_btn4"
+        android:id="@+id/LC_plus_3_btn"
         android:layout_width="60dp"
         android:layout_height="52dp"
         android:backgroundTint="@color/grey"
         android:text="+"
-        app:layout_constraintStart_toStartOf="@+id/LC_plus_btn4"
-        app:layout_constraintTop_toTopOf="@+id/HCu_minus_btn4" />
+        app:layout_constraintStart_toEndOf="@+id/LC_total_3_tv"
+        app:layout_constraintTop_toBottomOf="@+id/MC_minus_3_btn" />
 
     <Button
-        android:id="@+id/HC_minus_btn4"
+        android:id="@+id/LC_minus_3_btn"
+        android:layout_width="60dp"
+        android:layout_height="52dp"
+        android:backgroundTint="@color/grey"
+        android:text="-"
+        app:layout_constraintStart_toStartOf="@+id/MC_minus_3_btn"
+        app:layout_constraintTop_toBottomOf="@+id/MC_minus_3_btn" />
+
+    <TextView
+        android:id="@+id/HCu_total_3_tv"
+        android:layout_width="75dp"
+        android:layout_height="32dp"
+        android:background="@color/black"
+        android:backgroundTint="@color/black"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="TextView"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/HCu_minus_3_btn"
+        app:layout_constraintStart_toEndOf="@+id/HCu_minus_3_btn"
+        app:layout_constraintTop_toTopOf="@+id/HCu_minus_3_btn" />
+
+    <TextView
+        android:id="@+id/HC_total_3_tv"
+        android:layout_width="75dp"
+        android:layout_height="32dp"
+        android:background="@color/black"
+        android:backgroundTint="@color/black"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="TextView"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/HC_minus_3_btn"
+        app:layout_constraintStart_toEndOf="@+id/HC_minus_3_btn"
+        app:layout_constraintTop_toTopOf="@+id/HC_minus_3_btn" />
+
+    <Button
+        android:id="@+id/HC_minus_3_btn"
         android:layout_width="60dp"
         android:layout_height="52dp"
         android:layout_marginStart="16dp"
         android:backgroundTint="@color/grey"
         android:text="-"
-        app:layout_constraintStart_toEndOf="@+id/HC_plus_btn"
-        app:layout_constraintTop_toTopOf="@+id/HC_plus_btn" />
+        app:layout_constraintStart_toEndOf="@+id/HC_plus_2_btn"
+        app:layout_constraintTop_toTopOf="@+id/HC_plus_2_btn" />
 
     <TextView
-        android:id="@+id/MCu_total_tv4"
+        android:id="@+id/LCu_total_3_tv"
         android:layout_width="75dp"
         android:layout_height="32dp"
         android:background="@color/black"
@@ -147,43 +190,39 @@
         android:gravity="center_horizontal|center_vertical"
         android:text="TextView"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/LCu_minus_btn4"
-        app:layout_constraintStart_toEndOf="@+id/MCu_minus_btn4"
-        app:layout_constraintTop_toBottomOf="@+id/HCu_minus_btn4" />
+        app:layout_constraintBottom_toBottomOf="@+id/LCu_minus_3_btn"
+        app:layout_constraintStart_toEndOf="@+id/LCu_minus_3_btn"
+        app:layout_constraintTop_toBottomOf="@+id/MCu_minus_3_btn" />
 
-    <TextView
-        android:id="@+id/HCu_total_tv4"
-        android:layout_width="75dp"
-        android:layout_height="32dp"
-        android:background="@color/black"
-        android:backgroundTint="@color/black"
-        android:gravity="center_horizontal|center_vertical"
-        android:text="TextView"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/HCu_minus_btn4"
-        app:layout_constraintStart_toEndOf="@+id/HCu_minus_btn4"
-        app:layout_constraintTop_toTopOf="@+id/HCu_minus_btn4" />
+    <Spinner
+        android:id="@+id/autoTeam3Balance"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="@+id/LCu_plus_3_btn"
+        app:layout_constraintStart_toStartOf="@+id/LCu_minus_3_btn"
+        app:layout_constraintTop_toBottomOf="@+id/LCu_total_3_tv" />
 
     <Button
-        android:id="@+id/LC_minus_btn4"
-        android:layout_width="60dp"
-        android:layout_height="52dp"
-        android:backgroundTint="@color/grey"
-        android:text="-"
-        app:layout_constraintStart_toStartOf="@+id/MC_minus_btn4"
-        app:layout_constraintTop_toBottomOf="@+id/MC_minus_btn4" />
-
-    <Button
-        android:id="@+id/MC_plus_btn4"
+        android:id="@+id/HC_plus_2_btn"
         android:layout_width="60dp"
         android:layout_height="52dp"
         android:backgroundTint="@color/grey"
         android:text="+"
-        app:layout_constraintStart_toEndOf="@+id/MC_total_tv4"
-        app:layout_constraintTop_toTopOf="@+id/MC_minus_btn4" />
+        app:layout_constraintStart_toEndOf="@+id/HC_total_2_tv"
+        app:layout_constraintTop_toTopOf="@+id/HC_minus_2_btn" />
+
+    <Button
+        android:id="@+id/MC_minus_2_btn"
+        android:layout_width="60dp"
+        android:layout_height="52dp"
+        android:backgroundTint="@color/grey"
+        android:text="-"
+        app:layout_constraintStart_toStartOf="@+id/HC_minus_2_btn"
+        app:layout_constraintTop_toBottomOf="@+id/HC_minus_2_btn" />
 
     <TextView
-        android:id="@+id/HC_total_tv4"
+        android:id="@+id/LCu_total_2_tv"
         android:layout_width="75dp"
         android:layout_height="32dp"
         android:background="@color/black"
@@ -191,39 +230,22 @@
         android:gravity="center_horizontal|center_vertical"
         android:text="TextView"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/MC_minus_btn4"
-        app:layout_constraintStart_toEndOf="@+id/HC_minus_btn4"
-        app:layout_constraintTop_toTopOf="@+id/HC_minus_btn4" />
+        app:layout_constraintBottom_toBottomOf="@+id/LCu_minus_2_btn"
+        app:layout_constraintStart_toEndOf="@+id/LCu_minus_2_btn"
+        app:layout_constraintTop_toTopOf="@+id/LCu_minus_2_btn" />
 
     <Button
-        android:id="@+id/MCu_minus_btn4"
-        android:layout_width="60dp"
-        android:layout_height="52dp"
-        android:backgroundTint="@color/grey"
-        android:text="-"
-        app:layout_constraintStart_toStartOf="@+id/HCu_minus_btn4"
-        app:layout_constraintTop_toBottomOf="@+id/HCu_minus_btn4" />
-
-    <Button
-        android:id="@+id/LCu_minus_btn"
-        android:layout_width="60dp"
-        android:layout_height="52dp"
-        android:backgroundTint="@color/grey"
-        android:text="-"
-        app:layout_constraintStart_toStartOf="@+id/MCu_minus_btn"
-        app:layout_constraintTop_toBottomOf="@+id/MCu_minus_btn" />
-
-    <Button
-        android:id="@+id/LCu_plus_btn"
+        android:id="@+id/LC_plus_2_btn"
         android:layout_width="60dp"
         android:layout_height="52dp"
         android:backgroundTint="@color/grey"
         android:text="+"
-        app:layout_constraintStart_toStartOf="@+id/MCu_plus_btn"
-        app:layout_constraintTop_toBottomOf="@+id/MCu_plus_btn" />
+        app:layout_constraintStart_toEndOf="@+id/MC_total_2_tv"
+        app:layout_constraintStart_toStartOf="@+id/MC_plus_2_btn"
+        app:layout_constraintTop_toBottomOf="@+id/MC_minus_2_btn" />
 
     <TextView
-        android:id="@+id/LCu_total_tv"
+        android:id="@+id/LC_total_2_tv"
         android:layout_width="75dp"
         android:layout_height="32dp"
         android:background="@color/black"
@@ -231,65 +253,240 @@
         android:gravity="center_horizontal|center_vertical"
         android:text="TextView"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/LCu_minus_btn"
-        app:layout_constraintEnd_toStartOf="@+id/LCu_plus_btn"
-        app:layout_constraintStart_toEndOf="@+id/LCu_minus_btn"
-        app:layout_constraintTop_toTopOf="@+id/LCu_minus_btn" />
+        app:layout_constraintBottom_toBottomOf="@+id/LC_minus_2_btn"
+        app:layout_constraintStart_toEndOf="@+id/LC_minus_2_btn"
+        app:layout_constraintTop_toBottomOf="@+id/MC_minus_2_btn" />
 
     <Button
-        android:id="@+id/MCu_minus_btn"
-        android:layout_width="60dp"
-        android:layout_height="52dp"
-        android:backgroundTint="@color/grey"
-        android:text="-"
-        app:layout_constraintStart_toStartOf="@+id/HCu_minus_btn"
-        app:layout_constraintTop_toBottomOf="@+id/HCu_minus_btn" />
-
-    <Button
-        android:id="@+id/MCu_plus_btn"
+        android:id="@+id/MCu_plus_2_btn"
         android:layout_width="60dp"
         android:layout_height="52dp"
         android:backgroundTint="@color/grey"
         android:text="+"
-        app:layout_constraintStart_toStartOf="@+id/HCu_plus_btn"
-        app:layout_constraintTop_toBottomOf="@+id/HCu_plus_btn" />
-
-    <TextView
-        android:id="@+id/MCu_total_tv"
-        android:layout_width="75dp"
-        android:layout_height="32dp"
-        android:background="@color/black"
-        android:backgroundTint="@color/black"
-        android:gravity="center_horizontal|center_vertical"
-        android:text="TextView"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/LCu_minus_btn"
-        app:layout_constraintEnd_toStartOf="@+id/MCu_plus_btn"
-        app:layout_constraintStart_toEndOf="@+id/MCu_minus_btn"
-        app:layout_constraintTop_toTopOf="@+id/MCu_minus_btn" />
+        app:layout_constraintStart_toStartOf="@+id/HCu_plus_2_btn"
+        app:layout_constraintTop_toBottomOf="@+id/HCu_minus_2_btn" />
 
     <Button
-        android:id="@+id/HCu_minus_btn"
+        android:id="@+id/LCu_minus_2_btn"
+        android:layout_width="60dp"
+        android:layout_height="52dp"
+        android:backgroundTint="@color/grey"
+        android:text="-"
+        app:layout_constraintStart_toStartOf="@+id/MCu_minus_2_btn"
+        app:layout_constraintTop_toBottomOf="@+id/MCu_minus_2_btn" />
+
+    <Button
+        android:id="@+id/LCu_plus_2_btn"
+        android:layout_width="60dp"
+        android:layout_height="52dp"
+        android:backgroundTint="@color/grey"
+        android:text="+"
+        app:layout_constraintStart_toStartOf="@+id/MCu_plus_2_btn"
+        app:layout_constraintTop_toTopOf="@+id/LCu_minus_2_btn" />
+
+    <Spinner
+        android:id="@+id/autoTeam2Balance"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="@+id/LCu_plus_2_btn"
+        app:layout_constraintStart_toStartOf="@+id/LCu_minus_2_btn"
+        app:layout_constraintTop_toBottomOf="@+id/LCu_total_2_tv" />
+
+    <Button
+        android:id="@+id/HCu_minus_2_btn"
         android:layout_width="60dp"
         android:layout_height="52dp"
         android:layout_marginTop="24dp"
         android:backgroundTint="@color/grey"
         android:text="-"
-        app:layout_constraintStart_toStartOf="@+id/LC_minus_btn"
-        app:layout_constraintTop_toBottomOf="@+id/LC_minus_btn" />
+        app:layout_constraintStart_toStartOf="@+id/LC_minus_2_btn"
+        app:layout_constraintTop_toBottomOf="@+id/LC_minus_2_btn" />
+
+    <TextView
+        android:id="@+id/MC_total_2_tv"
+        android:layout_width="75dp"
+        android:layout_height="32dp"
+        android:background="@color/black"
+        android:backgroundTint="@color/black"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="TextView"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/LC_minus_2_btn"
+        app:layout_constraintStart_toEndOf="@+id/MC_minus_2_btn"
+        app:layout_constraintTop_toTopOf="@+id/MC_minus_2_btn" />
 
     <Button
-        android:id="@+id/HCu_plus_btn"
+        android:id="@+id/HCu_plus_2_btn"
+        android:layout_width="60dp"
+        android:layout_height="52dp"
+        android:backgroundTint="@color/grey"
+        android:text="+"
+        app:layout_constraintStart_toStartOf="@+id/LC_plus_2_btn"
+        app:layout_constraintTop_toTopOf="@+id/HCu_minus_2_btn" />
+
+    <Button
+        android:id="@+id/HC_minus_2_btn"
+        android:layout_width="60dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="16dp"
+        android:backgroundTint="@color/grey"
+        android:text="-"
+        app:layout_constraintStart_toEndOf="@+id/HC_plus_1_btn"
+        app:layout_constraintTop_toTopOf="@+id/HC_plus_1_btn" />
+
+    <TextView
+        android:id="@+id/MCu_total_2_tv"
+        android:layout_width="75dp"
+        android:layout_height="32dp"
+        android:background="@color/black"
+        android:backgroundTint="@color/black"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="TextView"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/LCu_minus_2_btn"
+        app:layout_constraintStart_toEndOf="@+id/MCu_minus_2_btn"
+        app:layout_constraintTop_toBottomOf="@+id/HCu_minus_2_btn" />
+
+    <TextView
+        android:id="@+id/HCu_total_2_tv"
+        android:layout_width="75dp"
+        android:layout_height="32dp"
+        android:background="@color/black"
+        android:backgroundTint="@color/black"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="TextView"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/HCu_minus_2_btn"
+        app:layout_constraintStart_toEndOf="@+id/HCu_minus_2_btn"
+        app:layout_constraintTop_toTopOf="@+id/HCu_minus_2_btn" />
+
+    <Button
+        android:id="@+id/LC_minus_2_btn"
+        android:layout_width="60dp"
+        android:layout_height="52dp"
+        android:backgroundTint="@color/grey"
+        android:text="-"
+        app:layout_constraintStart_toStartOf="@+id/MC_minus_2_btn"
+        app:layout_constraintTop_toBottomOf="@+id/MC_minus_2_btn" />
+
+    <Button
+        android:id="@+id/MC_plus_2_btn"
+        android:layout_width="60dp"
+        android:layout_height="52dp"
+        android:backgroundTint="@color/grey"
+        android:text="+"
+        app:layout_constraintStart_toEndOf="@+id/MC_total_2_tv"
+        app:layout_constraintTop_toTopOf="@+id/MC_minus_2_btn" />
+
+    <TextView
+        android:id="@+id/HC_total_2_tv"
+        android:layout_width="75dp"
+        android:layout_height="32dp"
+        android:background="@color/black"
+        android:backgroundTint="@color/black"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="TextView"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/MC_minus_2_btn"
+        app:layout_constraintStart_toEndOf="@+id/HC_minus_2_btn"
+        app:layout_constraintTop_toTopOf="@+id/HC_minus_2_btn" />
+
+    <Button
+        android:id="@+id/MCu_minus_2_btn"
+        android:layout_width="60dp"
+        android:layout_height="52dp"
+        android:backgroundTint="@color/grey"
+        android:text="-"
+        app:layout_constraintStart_toStartOf="@+id/HCu_minus_2_btn"
+        app:layout_constraintTop_toBottomOf="@+id/HCu_minus_2_btn" />
+
+    <Button
+        android:id="@+id/LCu_minus_1_btn"
+        android:layout_width="60dp"
+        android:layout_height="52dp"
+        android:backgroundTint="@color/grey"
+        android:text="-"
+        app:layout_constraintStart_toStartOf="@+id/MCu_minus_1_btn"
+        app:layout_constraintTop_toBottomOf="@+id/MCu_minus_1_btn" />
+
+    <Button
+        android:id="@+id/LCu_plus_1_btn"
+        android:layout_width="60dp"
+        android:layout_height="52dp"
+        android:backgroundTint="@color/grey"
+        android:text="+"
+        app:layout_constraintStart_toStartOf="@+id/MCu_plus_1_btn"
+        app:layout_constraintTop_toBottomOf="@+id/MCu_plus_1_btn" />
+
+    <TextView
+        android:id="@+id/LCu_total_1_tv"
+        android:layout_width="75dp"
+        android:layout_height="32dp"
+        android:background="@color/black"
+        android:backgroundTint="@color/black"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="TextView"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/LCu_minus_1_btn"
+        app:layout_constraintEnd_toStartOf="@+id/LCu_plus_1_btn"
+        app:layout_constraintStart_toEndOf="@+id/LCu_minus_1_btn"
+        app:layout_constraintTop_toTopOf="@+id/LCu_minus_1_btn" />
+
+    <Button
+        android:id="@+id/MCu_minus_1_btn"
+        android:layout_width="60dp"
+        android:layout_height="52dp"
+        android:backgroundTint="@color/grey"
+        android:text="-"
+        app:layout_constraintStart_toStartOf="@+id/HCu_minus_1_btn"
+        app:layout_constraintTop_toBottomOf="@+id/HCu_minus_1_btn" />
+
+    <Button
+        android:id="@+id/MCu_plus_1_btn"
+        android:layout_width="60dp"
+        android:layout_height="52dp"
+        android:backgroundTint="@color/grey"
+        android:text="+"
+        app:layout_constraintStart_toStartOf="@+id/HCu_plus_1_btn"
+        app:layout_constraintTop_toBottomOf="@+id/HCu_plus_1_btn" />
+
+    <TextView
+        android:id="@+id/MCu_total_1_tv"
+        android:layout_width="75dp"
+        android:layout_height="32dp"
+        android:background="@color/black"
+        android:backgroundTint="@color/black"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="TextView"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/LCu_minus_1_btn"
+        app:layout_constraintEnd_toStartOf="@+id/MCu_plus_1_btn"
+        app:layout_constraintStart_toEndOf="@+id/MCu_minus_1_btn"
+        app:layout_constraintTop_toTopOf="@+id/MCu_minus_1_btn" />
+
+    <Button
+        android:id="@+id/HCu_minus_1_btn"
+        android:layout_width="60dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="@color/grey"
+        android:text="-"
+        app:layout_constraintStart_toStartOf="@+id/LC_minus_1_btn"
+        app:layout_constraintTop_toBottomOf="@+id/LC_minus_1_btn" />
+
+    <Button
+        android:id="@+id/HCu_plus_1_btn"
         android:layout_width="60dp"
         android:layout_height="52dp"
         android:layout_marginTop="24dp"
         android:backgroundTint="@color/grey"
         android:text="+"
-        app:layout_constraintStart_toStartOf="@+id/LC_plus_btn"
-        app:layout_constraintTop_toBottomOf="@+id/LC_plus_btn" />
+        app:layout_constraintStart_toStartOf="@+id/LC_plus_1_btn"
+        app:layout_constraintTop_toBottomOf="@+id/LC_plus_1_btn" />
 
     <TextView
-        android:id="@+id/HCu_total_tv"
+        android:id="@+id/HCu_total_1_tv"
         android:layout_width="75dp"
         android:layout_height="32dp"
         android:background="@color/black"
@@ -297,31 +494,31 @@
         android:gravity="center_horizontal|center_vertical"
         android:text="TextView"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/MCu_minus_btn"
-        app:layout_constraintEnd_toStartOf="@+id/HCu_plus_btn"
-        app:layout_constraintStart_toEndOf="@+id/HCu_minus_btn"
-        app:layout_constraintTop_toTopOf="@+id/HCu_minus_btn" />
+        app:layout_constraintBottom_toTopOf="@+id/MCu_minus_1_btn"
+        app:layout_constraintEnd_toStartOf="@+id/HCu_plus_1_btn"
+        app:layout_constraintStart_toEndOf="@+id/HCu_minus_1_btn"
+        app:layout_constraintTop_toTopOf="@+id/HCu_minus_1_btn" />
 
     <Button
-        android:id="@+id/LC_minus_btn"
+        android:id="@+id/LC_minus_1_btn"
         android:layout_width="60dp"
         android:layout_height="52dp"
         android:backgroundTint="@color/grey"
         android:text="-"
-        app:layout_constraintStart_toStartOf="@+id/MC_minus_btn"
-        app:layout_constraintTop_toBottomOf="@+id/MC_minus_btn" />
+        app:layout_constraintStart_toStartOf="@+id/MC_minus_1_btn"
+        app:layout_constraintTop_toBottomOf="@+id/MC_minus_1_btn" />
 
     <Button
-        android:id="@+id/LC_plus_btn"
+        android:id="@+id/LC_plus_1_btn"
         android:layout_width="60dp"
         android:layout_height="52dp"
         android:backgroundTint="@color/grey"
         android:text="+"
-        app:layout_constraintStart_toStartOf="@+id/MC_plus_btn"
-        app:layout_constraintTop_toBottomOf="@+id/MC_plus_btn" />
+        app:layout_constraintStart_toStartOf="@+id/MC_plus_1_btn"
+        app:layout_constraintTop_toBottomOf="@+id/MC_plus_1_btn" />
 
     <TextView
-        android:id="@+id/LC_total_tv"
+        android:id="@+id/LC_total_1_tv"
         android:layout_width="75dp"
         android:layout_height="32dp"
         android:background="@color/black"
@@ -329,31 +526,31 @@
         android:gravity="center_horizontal|center_vertical"
         android:text="TextView"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/LC_minus_btn"
-        app:layout_constraintEnd_toStartOf="@+id/LC_plus_btn"
-        app:layout_constraintStart_toEndOf="@+id/LC_minus_btn"
-        app:layout_constraintTop_toTopOf="@+id/LC_minus_btn" />
+        app:layout_constraintBottom_toBottomOf="@+id/LC_minus_1_btn"
+        app:layout_constraintEnd_toStartOf="@+id/LC_plus_1_btn"
+        app:layout_constraintStart_toEndOf="@+id/LC_minus_1_btn"
+        app:layout_constraintTop_toTopOf="@+id/LC_minus_1_btn" />
 
     <Button
-        android:id="@+id/MC_minus_btn"
+        android:id="@+id/MC_minus_1_btn"
         android:layout_width="60dp"
         android:layout_height="52dp"
         android:backgroundTint="@color/grey"
         android:text="-"
-        app:layout_constraintStart_toStartOf="@+id/HC_minus_btn"
-        app:layout_constraintTop_toBottomOf="@+id/HC_minus_btn" />
+        app:layout_constraintStart_toStartOf="@+id/HC_minus_1_btn"
+        app:layout_constraintTop_toBottomOf="@+id/HC_minus_1_btn" />
 
     <Button
-        android:id="@+id/MC_plus_btn"
+        android:id="@+id/MC_plus_1_btn"
         android:layout_width="60dp"
         android:layout_height="52dp"
         android:backgroundTint="@color/grey"
         android:text="+"
-        app:layout_constraintStart_toStartOf="@+id/HC_plus_btn"
-        app:layout_constraintTop_toTopOf="@+id/MC_minus_btn" />
+        app:layout_constraintStart_toStartOf="@+id/HC_plus_1_btn"
+        app:layout_constraintTop_toTopOf="@+id/MC_minus_1_btn" />
 
     <TextView
-        android:id="@+id/MC_total_tv"
+        android:id="@+id/MC_total_1_tv"
         android:layout_width="75dp"
         android:layout_height="32dp"
         android:background="@color/black"
@@ -361,10 +558,10 @@
         android:gravity="center_horizontal|center_vertical"
         android:text="TextView"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/LC_minus_btn"
-        app:layout_constraintEnd_toStartOf="@+id/MC_plus_btn"
-        app:layout_constraintStart_toEndOf="@+id/MC_minus_btn"
-        app:layout_constraintTop_toTopOf="@+id/MC_minus_btn" />
+        app:layout_constraintBottom_toTopOf="@+id/LC_minus_1_btn"
+        app:layout_constraintEnd_toStartOf="@+id/MC_plus_1_btn"
+        app:layout_constraintStart_toEndOf="@+id/MC_minus_1_btn"
+        app:layout_constraintTop_toTopOf="@+id/MC_minus_1_btn" />
 
     <TextView
         android:id="@+id/team1Num_txt"
@@ -381,26 +578,26 @@
         android:id="@+id/team2Num_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="188dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginBottom="24dp"
         android:text="Team 2"
         android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/team1Num_txt"
-        app:layout_constraintTop_toTopOf="@+id/team1Num_txt" />
+        app:layout_constraintBottom_toTopOf="@+id/HC_total_2_tv"
+        app:layout_constraintEnd_toEndOf="@+id/HC_plus_2_btn"
+        app:layout_constraintStart_toStartOf="@+id/HC_minus_2_btn" />
 
     <TextView
         android:id="@+id/team3Num_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="128dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="24dp"
         android:text="Team 3"
         android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/team2Num_txt"
-        app:layout_constraintTop_toTopOf="@+id/team2Num_txt" />
+        app:layout_constraintBottom_toTopOf="@+id/HC_total_3_tv"
+        app:layout_constraintEnd_toEndOf="@+id/HC_plus_3_btn"
+        app:layout_constraintStart_toStartOf="@+id/HC_minus_3_btn" />
 
     <Button
-        android:id="@+id/HC_minus_btn"
+        android:id="@+id/HC_minus_1_btn"
         android:layout_width="60dp"
         android:layout_height="52dp"
         android:layout_marginTop="16dp"
@@ -410,16 +607,16 @@
         app:layout_constraintTop_toBottomOf="@+id/team1Num_txt" />
 
     <Button
-        android:id="@+id/HC_plus_btn"
+        android:id="@+id/HC_plus_1_btn"
         android:layout_width="60dp"
         android:layout_height="52dp"
         android:backgroundTint="@color/grey"
         android:text="+"
-        app:layout_constraintStart_toEndOf="@+id/HC_total_tv"
-        app:layout_constraintTop_toTopOf="@+id/HC_minus_btn" />
+        app:layout_constraintStart_toEndOf="@+id/HC_total_1_tv"
+        app:layout_constraintTop_toTopOf="@+id/HC_minus_1_btn" />
 
     <TextView
-        android:id="@+id/HC_total_tv"
+        android:id="@+id/HC_total_1_tv"
         android:layout_width="75dp"
         android:layout_height="32dp"
         android:background="@color/black"
@@ -427,9 +624,9 @@
         android:gravity="center_horizontal|center_vertical"
         android:text="TextView"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/MC_minus_btn"
-        app:layout_constraintStart_toEndOf="@+id/HC_minus_btn"
-        app:layout_constraintTop_toTopOf="@+id/HC_minus_btn"
+        app:layout_constraintBottom_toTopOf="@+id/MC_minus_1_btn"
+        app:layout_constraintStart_toEndOf="@+id/HC_minus_1_btn"
+        app:layout_constraintTop_toTopOf="@+id/HC_minus_1_btn"
         app:layout_constraintVertical_bias="0.517" />
 
     <Button
@@ -448,9 +645,9 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:text="High Cones"
-        app:layout_constraintBottom_toTopOf="@+id/MC_minus_btn"
-        app:layout_constraintEnd_toStartOf="@+id/HC_minus_btn"
-        app:layout_constraintTop_toTopOf="@+id/HC_minus_btn" />
+        app:layout_constraintBottom_toTopOf="@+id/MC_minus_1_btn"
+        app:layout_constraintEnd_toStartOf="@+id/HC_minus_1_btn"
+        app:layout_constraintTop_toTopOf="@+id/HC_minus_1_btn" />
 
     <TextView
         android:id="@+id/textView10"
@@ -458,9 +655,9 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:text="Mid Cones"
-        app:layout_constraintBottom_toTopOf="@+id/LC_minus_btn"
-        app:layout_constraintEnd_toStartOf="@+id/MC_minus_btn"
-        app:layout_constraintTop_toTopOf="@+id/MC_minus_btn" />
+        app:layout_constraintBottom_toTopOf="@+id/LC_minus_1_btn"
+        app:layout_constraintEnd_toStartOf="@+id/MC_minus_1_btn"
+        app:layout_constraintTop_toTopOf="@+id/MC_minus_1_btn" />
 
     <TextView
         android:id="@+id/textView11"
@@ -468,9 +665,9 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:text="Low Cones"
-        app:layout_constraintBottom_toTopOf="@+id/HCu_minus_btn"
-        app:layout_constraintEnd_toStartOf="@+id/LC_minus_btn"
-        app:layout_constraintTop_toTopOf="@+id/LC_minus_btn" />
+        app:layout_constraintBottom_toTopOf="@+id/HCu_minus_1_btn"
+        app:layout_constraintEnd_toStartOf="@+id/LC_minus_1_btn"
+        app:layout_constraintTop_toTopOf="@+id/LC_minus_1_btn" />
 
     <TextView
         android:id="@+id/textView12"
@@ -479,9 +676,9 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:text="High Cubes"
-        app:layout_constraintBottom_toTopOf="@+id/MCu_minus_btn"
-        app:layout_constraintEnd_toStartOf="@+id/HCu_minus_btn"
-        app:layout_constraintTop_toTopOf="@+id/HCu_minus_btn" />
+        app:layout_constraintBottom_toTopOf="@+id/MCu_minus_1_btn"
+        app:layout_constraintEnd_toStartOf="@+id/HCu_minus_1_btn"
+        app:layout_constraintTop_toTopOf="@+id/HCu_minus_1_btn" />
 
     <TextView
         android:id="@+id/textView13"
@@ -489,9 +686,9 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:text="Mid Cubes"
-        app:layout_constraintBottom_toTopOf="@+id/LCu_minus_btn"
-        app:layout_constraintEnd_toStartOf="@+id/MCu_minus_btn"
-        app:layout_constraintTop_toTopOf="@+id/MCu_minus_btn" />
+        app:layout_constraintBottom_toTopOf="@+id/LCu_minus_1_btn"
+        app:layout_constraintEnd_toStartOf="@+id/MCu_minus_1_btn"
+        app:layout_constraintTop_toTopOf="@+id/MCu_minus_1_btn" />
 
     <TextView
         android:id="@+id/textView14"
@@ -499,18 +696,18 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:text="Low Cubes"
-        app:layout_constraintBottom_toBottomOf="@+id/LCu_minus_btn"
-        app:layout_constraintEnd_toStartOf="@+id/LCu_minus_btn"
-        app:layout_constraintTop_toTopOf="@+id/LCu_minus_btn" />
+        app:layout_constraintBottom_toBottomOf="@+id/LCu_minus_1_btn"
+        app:layout_constraintEnd_toStartOf="@+id/LCu_minus_1_btn"
+        app:layout_constraintTop_toTopOf="@+id/LCu_minus_1_btn" />
 
     <Spinner
         android:id="@+id/autoTeam1Balance"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        app:layout_constraintEnd_toEndOf="@+id/LCu_plus_btn"
-        app:layout_constraintStart_toStartOf="@+id/LCu_minus_btn"
-        app:layout_constraintTop_toBottomOf="@+id/LCu_total_tv" />
+        app:layout_constraintEnd_toEndOf="@+id/LCu_plus_1_btn"
+        app:layout_constraintStart_toStartOf="@+id/LCu_minus_1_btn"
+        app:layout_constraintTop_toBottomOf="@+id/LCu_total_1_tv" />
 
     <ImageView
         android:id="@+id/imageView4"
