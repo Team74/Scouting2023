@@ -82,7 +82,8 @@ public class MatchView extends AppCompatActivity {
         {
             Toast.makeText(this, "No Data", Toast.LENGTH_SHORT).show();
         }else{
-            while(cursor.moveToNext()) //TODO make it strings and not ids
+            cursor.moveToLast();
+            do
             {
                 //syncs the array strings with the right column, make sure the ids match!
                 _id.add(cursor.getString(0));
@@ -93,9 +94,9 @@ public class MatchView extends AppCompatActivity {
                 scout_balance.add(cursor.getString(20));
                 matchNum.add(cursor.getString(1));
                 teamNum.add(cursor.getString(2));
-
-
             }
+            while(cursor.moveToPrevious()); //TODO make it strings and not ids
+
         }
     }
 }
