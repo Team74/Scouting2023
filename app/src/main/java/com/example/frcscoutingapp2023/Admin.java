@@ -39,7 +39,8 @@ public class Admin extends AppCompatActivity {
             public void onClick(View view) {
                 if(passwordInput.getText().toString().equals("chaos74"))
                 {
-                    Toast.makeText(context, "You may Enter", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(Admin.this, AdminPage.class);
+                    startActivity(intent);
                 }else{
                     Toast.makeText(context, "Not Correct", Toast.LENGTH_SHORT).show();
                 }

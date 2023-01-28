@@ -13,6 +13,9 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 public class MyDataBaseHelper extends SQLiteOpenHelper {
     //read the read me for info on how to add columns
@@ -106,8 +109,29 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    void addMatch(int matchNum, int teamNum, int autoHighCones, int autoMidCones, int autoLowCones, int autoHighCubes, int autoMidCubes, int autoLowCubes,
-                  int teleHighCones, int teleMidCones, int teleLowCones, int teleHighCubes, int teleMidCubes, int teleLowCubes, int autoBalance, int teleBalance)
+    void addMatch(int matchNum, int teamNum,
+                  int autoHighCones, int autoMidCones, int autoLowCones,
+                  int autoHighCubes, int autoMidCubes, int autoLowCubes,
+                  int teleHighCones, int teleMidCones, int teleLowCones,
+                  int teleHighCubes, int teleMidCubes, int teleLowCubes,
+                  int autoBalance, int teleBalance) {
+        addMatch(matchNum, teamNum,
+            autoHighCones, autoMidCones, autoLowCones,
+            autoHighCubes, autoMidCubes, autoLowCubes,
+            teleHighCones, teleMidCones, teleLowCones,
+            teleHighCubes, teleMidCubes, teleLowCubes,
+            autoBalance, teleBalance,
+            true);
+    }
+
+
+    void addMatch(int matchNum, int teamNum,
+                  int autoHighCones, int autoMidCones, int autoLowCones,
+                  int autoHighCubes, int autoMidCubes, int autoLowCubes,
+                  int teleHighCones, int teleMidCones, int teleLowCones,
+                  int teleHighCubes, int teleMidCubes, int teleLowCubes,
+                  int autoBalance, int teleBalance,
+                  boolean dispToast)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -141,11 +165,14 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
         cv.put(COLUMN_teleOpBalance, teleBalance);
 
         long result = db.insert(TABLE_NAME, null, cv);
-        if(result == -1)//failed
-        {
-            Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
-        }else{
-            Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show();
+
+        if (dispToast) {
+            if (result == -1)//failed
+            {
+                Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
@@ -183,5 +210,94 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
         }
     }
 
+    void createSampleData()
+    {
+        // delete any old data
+        SQLiteDatabase db = this.getWritableDatabase();
+        onUpgrade(db, 0, 0);
+
+        int[] sampleTeamNumbers = { 1, 74, 56, 88, 5565 };  // some sample #s
+
+        // we're going to generate some random ints
+        Random r = new Random();
+
+        // create a list of 40 team numbers.
+        List<Integer> teamNumbers = new ArrayList<Integer>();
+
+        // first get any team numbers that exist in the current team data
+        int[] currentTeamNumbers = {};  // tbd !!! daoTeamData.getAllTeamNumbers();
+        for(int current : currentTeamNumbers) {
+            teamNumbers.add(Integer.valueOf(current));
+        }
+
+        // then include any numbers in our sampleTeamNumbers array not already in list
+        for(int sample : sampleTeamNumbers) {
+            Integer teamNumber = Integer.valueOf(sample);
+            if (!teamNumbers.contains(teamNumber)) { // no  dupes!
+                teamNumbers.add(teamNumber);
+            }
+        }
+
+        // lastly, add random team numbers until we have 40
+        while (teamNumbers.size() < 40) {
+            Integer teamNumber = Integer.valueOf(r.nextInt(8000) + 1); // 1-8000
+            if (!teamNumbers.contains(teamNumber)) { // no dupes!
+                teamNumbers.add(teamNumber);
+            }
+        }
+
+        // for each number create a name
+        for(int teamNumber : teamNumbers) {
+            // generate a random team name
+            String[] name0 = {"", "The "};
+            String[] name1 = {"Fighting ", "Flying ", "Byting ", "Blazing ", "Amazing ", "Soaring "};
+            String[] name2 = {"", "Techo-", "Robo-", "Electro-", "Mechanical ", "Lightning ", "Gigga-", "Steel ", "Iron ", "Wired-", "Cyber "};
+            String[] name3 = {"Ants", "Bees", "Cats", "Dogs", "Eagles", "Fish", "Bots", "Gears", "Pistons", "Wrenches", "Cogs", "Inventors"};
+            String[] name4 = {"", " Team", " Group", " Squad", " Crew", " Force", " Alliance", " Club"};
+            String teamName = name0[r.nextInt(r.nextInt(name0.length) + 1)] // skew toward front of name0 list
+                    + ((r.nextInt(4) < 3) ? "" : name1[r.nextInt(name1.length)]) // 25% chance of having something from name1 list
+                    + name2[r.nextInt(name2.length)]
+                    + name3[r.nextInt(name3.length)]
+                    + name4[r.nextInt(r.nextInt(r.nextInt(name4.length) + 1) + 1)];  // really skew toward front of name4 list
+            if (teamNumber == 74) {
+                teamName = "Team C.H.A.O.S.";
+            }
+            // TBD: it's just sample data, but still might be good to check for duplicate names
+            // and generate a new one
+        }
+
+        // generate some random match data
+        for(int matchNum=1; matchNum<=60; matchNum++) {
+
+            // each match gets 6 team number
+            for(int i=0; i<6; i++){
+                // get random team number from our list
+                int teamNum = teamNumbers.get(r.nextInt(teamNumbers.size()));
+                // tbd check if it's been used for this match already
+
+                // now add random match data for that team
+                addMatch(matchNum
+                        , teamNum
+                        , r.nextInt(1) // int autoHighCones,
+                        , r.nextInt(1) // int autoMidCones,
+                        , r.nextInt(1) // int autoLowCones,
+                        , r.nextInt(1) // int autoHighCubes,
+                        , r.nextInt(1) // int autoMidCubes,
+                        , r.nextInt(1) // int autoLowCubes,
+                        , r.nextInt(6) // int teleHighCones,
+                        , r.nextInt(6) // int teleMidCones,
+                        , r.nextInt(6) // int teleLowCones,
+                        , r.nextInt(6) // int teleHighCubes,
+                        , r.nextInt(6) // int teleMidCubes,
+                        , r.nextInt(6) // int teleLowCubes,
+                        , r.nextInt(1) // int autoBalance,  // (r.nextInt(2)==0) ? false : true;
+                        , r.nextInt(1) // int teleBalance
+                        , false
+                );
+            }
+        }
+
+        Toast.makeText(context, "Sample Data Created", Toast.LENGTH_SHORT).show();
+    }
 
 }
