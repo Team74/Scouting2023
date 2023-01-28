@@ -17,4 +17,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/toAdmin_btn"
+        android:layout_width="200dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="32dp"
+        android:text="Admin"
+        android:textSize="34sp"
+        app:layout_constraintStart_toEndOf="@+id/matchInputButton"
+        app:layout_constraintTop_toTopOf="@+id/matchInputButton" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

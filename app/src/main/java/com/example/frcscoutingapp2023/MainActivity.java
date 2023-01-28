@@ -9,24 +9,29 @@ import android.widget.Button;
 
 //This is the main menu with the buttons to go to different screens
 public class MainActivity extends AppCompatActivity {
-    private Button button;
+    private Button button, adminButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        button = (Button) findViewById(R.id.matchInputButton);
+        button = findViewById(R.id.matchInputButton);
+        adminButton = findViewById(R.id.toAdmin_btn);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openActivity0(); //match input screen
+                Intent intent = new Intent(MainActivity.this, MatchView.class);
+                startActivity(intent);
+            }
+        });
+
+        adminButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, Admin.class);
+                startActivity(intent);
             }
         });
     }
-    public void openActivity0()
-    {
-        Intent intent = new Intent(this, MatchView.class);
-        startActivity(intent);
-    }
-};
+}

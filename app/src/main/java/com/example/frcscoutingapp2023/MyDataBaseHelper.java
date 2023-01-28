@@ -6,15 +6,19 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.provider.Settings;
 import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
+import java.io.File;
+
 public class MyDataBaseHelper extends SQLiteOpenHelper {
     //read the read me for info on how to add columns
 
     private  Context context;
+
     private static final String DATABASE_NAME = "FRC_Scouting.db";
     private static final int VERSION = 1;
     private static final String TABLE_NAME = "Match_Data";
@@ -178,4 +182,6 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
             Toast.makeText(context, "Updated", Toast.LENGTH_SHORT).show();
         }
     }
+
+
 }

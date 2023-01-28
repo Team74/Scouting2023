@@ -48,6 +48,8 @@ public class TeleOpInput extends AppCompatActivity implements AdapterView.OnItem
 
     Activity activity = TeleOpInput.this; //make sure the activity is defined
 
+    boolean gotData = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -229,7 +231,7 @@ public class TeleOpInput extends AppCompatActivity implements AdapterView.OnItem
             }
         });
 
-        //end region
+        //endregion
 
         //region Plus and Minus Buttons Cubes
 
@@ -281,7 +283,7 @@ public class TeleOpInput extends AppCompatActivity implements AdapterView.OnItem
             }
         });
 
-        //end region
+        //endregion
 
         //region Plus and Minus Buttons Cones 2
 
@@ -589,21 +591,26 @@ public class TeleOpInput extends AppCompatActivity implements AdapterView.OnItem
 
     }
 
-
+   
     void getAndSetIntentData()//TODO make sure it works with partial data
     {
-        if (getIntent().hasExtra("MatchNum")) //TODO clean up
+        if ((getIntent().hasExtra("MatchNum")) || gotData == true) //TODO clean up
         {
-            //Setting intent from data
-            team1Name = String.valueOf(getIntent().getIntExtra("Team1Num", 0));
-            team1Num_tv.setText(team1Name);
+            //region Getting
+            int team1Num = getIntent().getIntExtra("Team1Num", 0);
+            int team2Num = getIntent().getIntExtra("Team2Num", 0);
+            int team3Num = getIntent().getIntExtra("Team3Num", 0);
+            int matchNum = getIntent().getIntExtra("MatchNum", 0);
 
-            team2Name = String.valueOf(getIntent().getIntExtra("Team2Num", 0));
-            team2Num_tv.setText(team2Name);
+            //endregion
 
-            team3Name = String.valueOf(getIntent().getIntExtra("Team3Num", 0));
-            team3Num_tv.setText(team3Name);
-
+            //region Setting
+            
+            team1Num_tv.setText(String.valueOf(team1Num));
+            team2Num_tv.setText(String.valueOf(team2Num));
+            team3Num_tv.setText(String.valueOf(team3Num));
+            
+            //endregion
         } else {
             Toast.makeText(this, "No or Partial Data", Toast.LENGTH_SHORT).show();
         }
@@ -635,6 +642,15 @@ public class TeleOpInput extends AppCompatActivity implements AdapterView.OnItem
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if (resultCode == RESULT_OK) {
+            Log.d("testing", "this was good");
+        }
+        super.onActivityResult(requestCode, resultCode, data);
     }
 
 }

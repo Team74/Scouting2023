@@ -57,7 +57,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="Button"
+        android:text="Next"
         app:layout_constraintEnd_toEndOf="@+id/matchNum_input_et"
         app:layout_constraintStart_toStartOf="@+id/matchNum_input_et"
         app:layout_constraintTop_toBottomOf="@+id/matchNum_input_et" />

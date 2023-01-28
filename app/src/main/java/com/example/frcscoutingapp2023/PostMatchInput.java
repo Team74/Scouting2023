@@ -1,10 +1,12 @@
 package com.example.frcscoutingapp2023;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -19,7 +21,7 @@ public class PostMatchInput extends AppCompatActivity {
         setContentView(R.layout.activity_post_match_input);
         
         pushBtn = findViewById(R.id.push_btn);
-        
+
         pushBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -63,7 +65,7 @@ public class PostMatchInput extends AppCompatActivity {
                 int teleOpMidCubes2 = getIntent().getIntExtra("teleOpMidCubes2", 0);
                 int teleOpLowCubes2 = getIntent().getIntExtra("teleOpLowCubes2", 0);
                 int teleOpBalance2 = getIntent().getIntExtra("teleOpBalance2", 0);
-                
+
                 myDB.addMatch(matchNum, team2Num, autoHighCones2, autoMidCones2, autoLowCones2, autoHighCubes2, autoMidCubes2, autoLowCubes2, teleOpHighCones2,
                         teleOpMidCones2, teleOpLowCones2, teleOpHighCubes2, teleOpMidCubes2, teleOpLowCubes2, autoBalance2, teleOpBalance2);
 
@@ -86,10 +88,81 @@ public class PostMatchInput extends AppCompatActivity {
                 myDB.addMatch(matchNum, team3Num, autoHighCones3, autoMidCones3, autoLowCones3, autoHighCubes3, autoMidCubes3, autoLowCubes3, teleOpHighCones3,
                         teleOpMidCones3, teleOpLowCones3, teleOpHighCubes3, teleOpMidCubes3, teleOpLowCubes3, autoBalance3, teleOpBalance3);
 
-
                 Intent intent = new Intent(PostMatchInput.this, MatchView.class);
                 activity.startActivityForResult(intent, 1);
+                /*
+                //region intent
+                Intent intent = new Intent(PostMatchInput.this, TeleOpInput.class);
+                intent.putExtra("Team1Num", team1Num);
+                intent.putExtra("Team2Num", team2Num);
+                intent.putExtra("Team3Num", team3Num);
+                intent.putExtra("MatchNum", matchNum);
+
+                intent.putExtra("autoHighCones1", autoHighCones1);
+                intent.putExtra("autoMidCones1", autoMidCones1);
+                intent.putExtra("autoLowCones1", autoLowCones1);
+                intent.putExtra("autoHighCubes1", autoHighCubes1);
+                intent.putExtra("autoMidCubes1", autoMidCubes1);
+                intent.putExtra("autoLowCubes1", autoLowCubes1);
+                intent.putExtra("autoBalance1", autoBalance1);
+
+                intent.putExtra("teleOpHighCones1", teleOpHighCones1);
+                intent.putExtra("teleOpMidCones1", teleOpMidCones1);
+                intent.putExtra("teleOpLowCones1", teleOpLowCones1);
+                intent.putExtra("teleOpHighCubes1", teleOpHighCubes1);
+                intent.putExtra("teleOpMidCubes1", teleOpMidCubes1);
+                intent.putExtra("teleOpLowCubes1", teleOpLowCubes1);
+                intent.putExtra("teleOpBalance1", teleOpBalance1);
+
+                intent.putExtra("autoHighCones2", autoHighCones2);
+                intent.putExtra("autoMidCones2", autoMidCones2);
+                intent.putExtra("autoLowCones2", autoLowCones2);
+                intent.putExtra("autoHighCubes2", autoHighCubes2);
+                intent.putExtra("autoMidCubes2", autoMidCubes2);
+                intent.putExtra("autoLowCubes2", autoLowCubes2);
+                intent.putExtra("autoBalance2", autoBalance2);
+
+                intent.putExtra("teleOpHighCones2", teleOpHighCones2);
+                intent.putExtra("teleOpMidCones2", teleOpMidCones2);
+                intent.putExtra("teleOpLowCones2", teleOpLowCones2);
+                intent.putExtra("teleOpHighCubes2", teleOpHighCubes2);
+                intent.putExtra("teleOpMidCubes2", teleOpMidCubes2);
+                intent.putExtra("teleOpLowCubes2", teleOpLowCubes2);
+                intent.putExtra("teleOpBalance2", teleOpBalance2);
+
+                intent.putExtra("autoHighCones3", autoHighCones3);
+                intent.putExtra("autoMidCones3", autoMidCones3);
+                intent.putExtra("autoLowCones3", autoLowCones3);
+                intent.putExtra("autoHighCubes3", autoHighCubes3);
+                intent.putExtra("autoMidCubes3", autoMidCubes3);
+                intent.putExtra("autoLowCubes3", autoLowCubes3);
+                intent.putExtra("autoBalance3", autoBalance3);
+
+                intent.putExtra("teleOpHighCones3", teleOpHighCones3);
+                intent.putExtra("teleOpMidCones3", teleOpMidCones3);
+                intent.putExtra("teleOpLowCones3", teleOpLowCones3);
+                intent.putExtra("teleOpHighCubes3", teleOpHighCubes3);
+                intent.putExtra("teleOpMidCubes3", teleOpMidCubes3);
+                intent.putExtra("teleOpLowCubes3", teleOpLowCubes3);
+                intent.putExtra("teleOpBalance3", teleOpBalance3);
+                //endregion
+                   */
             }
         });
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        finish();
+        Log.d("testing", "back button");
+    }
+
+    @Override
+    public void finish()
+    {
+        Intent data = new Intent();
+        setResult(Activity.RESULT_OK, data);
+        super.finish();
     }
 }

@@ -571,9 +571,12 @@
       android:layout_marginStart="250dp"
       android:layout_marginTop="8dp"
       android:text="Team 1"
+      android:textColor="#323232"
       android:textSize="20sp"
+      android:textStyle="bold"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent" />
+      app:layout_constraintTop_toTopOf="parent"
+      tools:textColor="#5A5A5A" />
 
   <TextView
       android:id="@+id/team2Num_txt"
@@ -581,10 +584,13 @@
       android:layout_height="wrap_content"
       android:layout_marginBottom="24dp"
       android:text="Team 2"
+      android:textColor="#323232"
       android:textSize="20sp"
+      android:textStyle="bold"
       app:layout_constraintBottom_toTopOf="@+id/HC_total_2_tv"
       app:layout_constraintEnd_toEndOf="@+id/HC_plus_2_btn"
-      app:layout_constraintStart_toStartOf="@+id/HC_minus_2_btn" />
+      app:layout_constraintStart_toStartOf="@+id/HC_minus_2_btn"
+      tools:textColor="#5A5A5A" />
 
   <TextView
       android:id="@+id/team3Num_txt"
@@ -592,10 +598,13 @@
       android:layout_height="wrap_content"
       android:layout_marginBottom="24dp"
       android:text="Team 3"
+      android:textColor="#323232"
       android:textSize="20sp"
+      android:textStyle="bold"
       app:layout_constraintBottom_toTopOf="@+id/HC_total_3_tv"
       app:layout_constraintEnd_toEndOf="@+id/HC_plus_3_btn"
-      app:layout_constraintStart_toStartOf="@+id/HC_minus_3_btn" />
+      app:layout_constraintStart_toStartOf="@+id/HC_minus_3_btn"
+      tools:textColor="#5A5A5A" />
 
   <Button
       android:id="@+id/HC_minus_1_btn"
@@ -634,11 +643,11 @@
       android:id="@+id/toTeleOp_btn"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_marginEnd="808dp"
+      android:layout_marginStart="16dp"
       android:layout_marginBottom="16dp"
-      android:text="Tele Op"
+      android:text="Post Match"
       app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toEndOf="parent" />
+      app:layout_constraintStart_toStartOf="parent" />
 
   <TextView
       android:id="@+id/textView9"
@@ -646,6 +655,8 @@
       android:layout_height="wrap_content"
       android:layout_marginEnd="8dp"
       android:text="High Cones"
+      android:textColor="#323232"
+      android:textStyle="bold"
       app:layout_constraintBottom_toTopOf="@+id/MC_minus_1_btn"
       app:layout_constraintEnd_toStartOf="@+id/HC_minus_1_btn"
       app:layout_constraintTop_toTopOf="@+id/HC_minus_1_btn" />
@@ -656,6 +667,8 @@
       android:layout_height="wrap_content"
       android:layout_marginEnd="8dp"
       android:text="Mid Cones"
+      android:textColor="#323232"
+      android:textStyle="bold"
       app:layout_constraintBottom_toTopOf="@+id/LC_minus_1_btn"
       app:layout_constraintEnd_toStartOf="@+id/MC_minus_1_btn"
       app:layout_constraintTop_toTopOf="@+id/MC_minus_1_btn" />
@@ -666,6 +679,8 @@
       android:layout_height="wrap_content"
       android:layout_marginEnd="8dp"
       android:text="Low Cones"
+      android:textColor="#323232"
+      android:textStyle="bold"
       app:layout_constraintBottom_toTopOf="@+id/HCu_minus_1_btn"
       app:layout_constraintEnd_toStartOf="@+id/LC_minus_1_btn"
       app:layout_constraintTop_toTopOf="@+id/LC_minus_1_btn" />
@@ -677,9 +692,11 @@
       android:layout_marginTop="8dp"
       android:layout_marginEnd="8dp"
       android:text="High Cubes"
+      android:textStyle="bold"
       app:layout_constraintBottom_toTopOf="@+id/MCu_minus_1_btn"
       app:layout_constraintEnd_toStartOf="@+id/HCu_minus_1_btn"
-      app:layout_constraintTop_toTopOf="@+id/HCu_minus_1_btn" />
+      app:layout_constraintTop_toTopOf="@+id/HCu_minus_1_btn"
+      android:textColor="#323232" />
 
   <TextView
       android:id="@+id/textView13"
@@ -687,6 +704,8 @@
       android:layout_height="wrap_content"
       android:layout_marginEnd="8dp"
       android:text="Mid Cubes"
+      android:textColor="#323232"
+      android:textStyle="bold"
       app:layout_constraintBottom_toTopOf="@+id/LCu_minus_1_btn"
       app:layout_constraintEnd_toStartOf="@+id/MCu_minus_1_btn"
       app:layout_constraintTop_toTopOf="@+id/MCu_minus_1_btn" />
@@ -697,6 +716,8 @@
       android:layout_height="wrap_content"
       android:layout_marginEnd="8dp"
       android:text="Low Cubes"
+      android:textColor="#323232"
+      android:textStyle="bold"
       app:layout_constraintBottom_toBottomOf="@+id/LCu_minus_1_btn"
       app:layout_constraintEnd_toStartOf="@+id/LCu_minus_1_btn"
       app:layout_constraintTop_toTopOf="@+id/LCu_minus_1_btn" />

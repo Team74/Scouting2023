@@ -1,9 +1,14 @@
 package com.example.frcscoutingapp2023;
 
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -172,7 +177,8 @@ public class AutonInput extends AppCompatActivity implements AdapterView.OnItemS
         highCube3.setText(String.valueOf(highCubeInt3));
         midCube3.setText(String.valueOf(midCubeInt3));
         lowCube3.setText(String.valueOf(lowCubeInt3));
-        
+
+
 
         //USE FIND AND REPLACE!! so much faster. ctrl r or edit - find - replace
         //region Plus and Minus Buttons Cones 1
