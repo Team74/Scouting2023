@@ -24,45 +24,45 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "FRC_Scouting.db";
     private static final int VERSION = 1;
-    private static final String TABLE_NAME = "Match_Data";
+    public static final String TABLE_NAME = "Match_Data";
 
-    private static final String COLUMN_ID = "_id";
-    private static final String COLUMN_MATCHNUM = "match_num";
-    private static final String COLUMN_TEAMNUM = "team_num";
+    public static final String COLUMN_ID = "_id";
+    public static final String COLUMN_MATCHNUM = "match_num";
+    public static final String COLUMN_TEAMNUM = "team_num";
 
     //region Auto Cones
-    private static final String COLUMN_autoConesLow = "autoConesLow";
-    private static final String COLUMN_autoConesMid = "autoConesMid";
-    private static final String COLUMN_autoConesHigh = "autoConesHigh";
-    private static final String COLUMN_autoConesTotal = "autoConesTotal";
+    public static final String COLUMN_autoConesLow = "autoConesLow";
+    public static final String COLUMN_autoConesMid = "autoConesMid";
+    public static final String COLUMN_autoConesHigh = "autoConesHigh";
+    public static final String COLUMN_autoConesTotal = "autoConesTotal";
     //endregion
 
     //region Auto Cubes
-    private static final String COLUMN_autoCubesLow = "autoCubesLow";
-    private static final String COLUMN_autoCubesMid = "autoCubesMid";
-    private static final String COLUMN_autoCubesHigh = "autoCubesHigh";
-    private static final String COLUMN_autoCubesTotal = "autoCubesTotal";
+    public static final String COLUMN_autoCubesLow = "autoCubesLow";
+    public static final String COLUMN_autoCubesMid = "autoCubesMid";
+    public static final String COLUMN_autoCubesHigh = "autoCubesHigh";
+    public static final String COLUMN_autoCubesTotal = "autoCubesTotal";
     //endregion
 
-    private static final String COLUMN_autoBalance = "autoBalance";
+    public static final String COLUMN_autoBalance = "autoBalance";
 
     //region TeleOp Cones
-    private static final String COLUMN_teleOpConesLow = "teleOpConesLow";
-    private static final String COLUMN_teleOpConesMid = "teleOpConesMid";
-    private static final String COLUMN_teleOpConesHigh = "teleOpConesHigh";
+    public static final String COLUMN_teleOpConesLow = "teleOpConesLow";
+    public static final String COLUMN_teleOpConesMid = "teleOpConesMid";
+    public static final String COLUMN_teleOpConesHigh = "teleOpConesHigh";
     public static final String COLUMN_teleOpConesTotal = "teleOpConesTotal";
     //endregion6
 
     //region TeleOp Cubes
-    private static final String COLUMN_teleOpCubesLow = "teleOpCubesLow";
-    private static final String COLUMN_teleOpCubesMid = "teleOpCubesMid";
-    private static final String COLUMN_teleOpCubesHigh = "teleOpCubesHigh";
-    private static final String COLUMN_teleOpCubesTotal = "teleOpCubesTotal";
+    public static final String COLUMN_teleOpCubesLow = "teleOpCubesLow";
+    public static final String COLUMN_teleOpCubesMid = "teleOpCubesMid";
+    public static final String COLUMN_teleOpCubesHigh = "teleOpCubesHigh";
+    public static final String COLUMN_teleOpCubesTotal = "teleOpCubesTotal";
     //endregion
 
-    private static final String COLUMN_teleOpBalance = "teleOpBalance";
+    public static final String COLUMN_teleOpBalance = "teleOpBalance";
 
-    private static final String COLUMN_Defense = "Defence";
+    public static final String COLUMN_Defense = "Defence";
 
 
 
