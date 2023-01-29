@@ -15,6 +15,7 @@
         android:ems="10"
         android:hint="Team 1"
         android:inputType="number"
+        android:nextFocusDown="@id/team2_input_et"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -36,6 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:ems="10"
+        android:nextFocusDown="@id/team3_input_et"
         android:hint="Team 2"
         android:inputType="number"
         app:layout_constraintStart_toEndOf="@+id/team1_input_et"
@@ -46,6 +48,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
+        android:nextFocusDown="@id/matchNum_input_et"
         android:ems="10"
         android:hint="Team 3"
         android:inputType="number"

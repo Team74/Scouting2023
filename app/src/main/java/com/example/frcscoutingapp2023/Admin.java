@@ -43,6 +43,7 @@ public class Admin extends AppCompatActivity {
                     startActivity(intent);
                 }else{
                     Toast.makeText(context, "Not Correct", Toast.LENGTH_SHORT).show();
+                    passwordInput.getText().clear();
                 }
             }
         });
