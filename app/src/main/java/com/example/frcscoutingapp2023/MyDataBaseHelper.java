@@ -189,17 +189,46 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
-    void updateData(String matchNum, String teamNum, String row_id, String cones, String cubes, String balance)
+    void updateData(int MatchID, int matchNum, int teamNum,
+                    int autoHighCones, int autoMidCones, int autoLowCones,
+                    int autoHighCubes, int autoMidCubes, int autoLowCubes,
+                    int teleHighCones, int teleMidCones, int teleLowCones,
+                    int teleHighCubes, int teleMidCubes, int teleLowCubes,
+                    int autoBalance, int teleBalance)
     {
-        Log.d("Update123", "got data");
+        Log.d("Update123", String.valueOf(teamNum));
+        String row_id = String.valueOf(MatchID);
+
+        int autoConesTotal = autoHighCones + autoMidCones + autoLowCones;
+        int autoCubesTotal = autoHighCubes + autoMidCubes + autoLowCubes;
+
+        int teleConesTotal = teleHighCones + teleMidCones + teleLowCones;
+        int teleCubesTotal = teleHighCubes + teleMidCubes + teleLowCubes;
+
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
-        cv.put(COLUMN_teleOpConesTotal, cones);
-        cv.put(COLUMN_teleOpConesTotal, cubes);
-        cv.put(COLUMN_teleOpBalance, balance);
         cv.put(COLUMN_MATCHNUM, matchNum);
         cv.put(COLUMN_TEAMNUM, teamNum);
+
+        cv.put(COLUMN_autoConesLow, autoLowCones);
+        cv.put(COLUMN_autoConesMid, autoMidCones);
+        cv.put(COLUMN_autoConesHigh, autoHighCones);
+        cv.put(COLUMN_autoConesTotal, autoConesTotal);
+        cv.put(COLUMN_autoCubesLow, autoLowCubes);
+        cv.put(COLUMN_autoCubesMid, autoMidCubes);
+        cv.put(COLUMN_autoCubesHigh, autoHighCubes);
+        cv.put(COLUMN_autoCubesTotal, autoCubesTotal);
+        cv.put(COLUMN_autoBalance, autoBalance);
+        cv.put(COLUMN_teleOpConesLow, teleLowCones);
+        cv.put(COLUMN_teleOpConesMid, teleMidCones);
+        cv.put(COLUMN_teleOpConesHigh, teleHighCones);
+        cv.put(COLUMN_teleOpConesTotal, teleConesTotal);
+        cv.put(COLUMN_teleOpCubesLow, teleLowCubes);
+        cv.put(COLUMN_teleOpCubesMid, teleMidCubes);
+        cv.put(COLUMN_teleOpCubesHigh, teleHighCubes);
+        cv.put(COLUMN_teleOpCubesTotal, teleCubesTotal);
+        cv.put(COLUMN_teleOpBalance, teleBalance);
 
         long result = db.update(TABLE_NAME, cv, "_id=?", new String[]{row_id});
         if(result == -1)

@@ -1,9 +1,9 @@
 package com.example.frcscoutingapp2023;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,7 +48,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull MyViewHolder holder, @SuppressLint("RecyclerView") final int position) {
 
         holder.match_id_txt.setText(String.valueOf(match_id.get(position)));
         holder.autonTotal_txt.setText(String.valueOf(autonTotal.get(position)));
@@ -81,8 +81,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         holder.mainLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, UpdateData.class);
-                intent.putExtra("id", String.valueOf(match_id.get(position)));
+                Intent intent = new Intent(context, UpdatePreMatchData.class);
+                intent.putExtra("id", Integer.parseInt(match_id.get(position).toString()));
                 intent.putExtra("matchNum", String.valueOf(matchNum.get(position)));
                 intent.putExtra("teamNum", String.valueOf(teamNum.get(position)));
                 intent.putExtra("cones", String.valueOf(numCones.get(position)));

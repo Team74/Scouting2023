@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UpdateAutonData">
+
+    <Button
+        android:id="@+id/LCu_minus_1_btn"
+        android:layout_width="60dp"
+        android:layout_height="52dp"
+        android:backgroundTint="@color/grey"
+        android:text="-"
+        app:layout_constraintStart_toStartOf="@+id/MCu_minus_1_btn"
+        app:layout_constraintTop_toBottomOf="@+id/MCu_minus_1_btn" />
+
+    <Button
+        android:id="@+id/LCu_plus_1_btn"
+        android:layout_width="60dp"
+        android:layout_height="52dp"
+        android:backgroundTint="@color/grey"
+        android:text="+"
+        app:layout_constraintStart_toStartOf="@+id/MCu_plus_1_btn"
+        app:layout_constraintTop_toBottomOf="@+id/MCu_plus_1_btn" />
+
+    <TextView
+        android:id="@+id/LCu_total_1_tv"
+        android:layout_width="75dp"
+        android:layout_height="32dp"
+        android:background="@color/black"
+        android:backgroundTint="@color/black"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="TextView"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/LCu_minus_1_btn"
+        app:layout_constraintEnd_toStartOf="@+id/LCu_plus_1_btn"
+        app:layout_constraintStart_toEndOf="@+id/LCu_minus_1_btn"
+        app:layout_constraintTop_toTopOf="@+id/LCu_minus_1_btn" />
+
+    <Button
+        android:id="@+id/MCu_minus_1_btn"
+        android:layout_width="60dp"
+        android:layout_height="52dp"
+        android:backgroundTint="@color/grey"
+        android:text="-"
+        app:layout_constraintStart_toStartOf="@+id/HCu_minus_1_btn"
+        app:layout_constraintTop_toBottomOf="@+id/HCu_minus_1_btn" />
+
+    <Button
+        android:id="@+id/MCu_plus_1_btn"
+        android:layout_width="60dp"
+        android:layout_height="52dp"
+        android:backgroundTint="@color/grey"
+        android:text="+"
+        app:layout_constraintStart_toStartOf="@+id/HCu_plus_1_btn"
+        app:layout_constraintTop_toBottomOf="@+id/HCu_plus_1_btn" />
+
+    <TextView
+        android:id="@+id/MCu_total_1_tv"
+        android:layout_width="75dp"
+        android:layout_height="32dp"
+        android:background="@color/black"
+        android:backgroundTint="@color/black"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="TextView"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/LCu_minus_1_btn"
+        app:layout_constraintEnd_toStartOf="@+id/MCu_plus_1_btn"
+        app:layout_constraintStart_toEndOf="@+id/MCu_minus_1_btn"
+        app:layout_constraintTop_toTopOf="@+id/MCu_minus_1_btn" />
+
+    <Button
+        android:id="@+id/HCu_minus_1_btn"
+        android:layout_width="60dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="@color/grey"
+        android:text="-"
+        app:layout_constraintStart_toStartOf="@+id/LC_minus_1_btn"
+        app:layout_constraintTop_toBottomOf="@+id/LC_minus_1_btn" />
+
+    <Button
+        android:id="@+id/HCu_plus_1_btn"
+        android:layout_width="60dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="@color/grey"
+        android:text="+"
+        app:layout_constraintStart_toStartOf="@+id/LC_plus_1_btn"
+        app:layout_constraintTop_toBottomOf="@+id/LC_plus_1_btn" />
+
+    <TextView
+        android:id="@+id/HCu_total_1_tv"
+        android:layout_width="75dp"
+        android:layout_height="32dp"
+        android:background="@color/black"
+        android:backgroundTint="@color/black"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="TextView"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/MCu_minus_1_btn"
+        app:layout_constraintEnd_toStartOf="@+id/HCu_plus_1_btn"
+        app:layout_constraintStart_toEndOf="@+id/HCu_minus_1_btn"
+        app:layout_constraintTop_toTopOf="@+id/HCu_minus_1_btn" />
+
+    <Button
+        android:id="@+id/LC_minus_1_btn"
+        android:layout_width="60dp"
+        android:layout_height="52dp"
+        android:backgroundTint="@color/grey"
+        android:text="-"
+        app:layout_constraintStart_toStartOf="@+id/MC_minus_1_btn"
+        app:layout_constraintTop_toBottomOf="@+id/MC_minus_1_btn" />
+
+    <Button
+        android:id="@+id/LC_plus_1_btn"
+        android:layout_width="60dp"
+        android:layout_height="52dp"
+        android:backgroundTint="@color/grey"
+        android:text="+"
+        app:layout_constraintStart_toStartOf="@+id/MC_plus_1_btn"
+        app:layout_constraintTop_toBottomOf="@+id/MC_plus_1_btn" />
+
+    <TextView
+        android:id="@+id/LC_total_1_tv"
+        android:layout_width="75dp"
+        android:layout_height="32dp"
+        android:background="@color/black"
+        android:backgroundTint="@color/black"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="TextView"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/LC_minus_1_btn"
+        app:layout_constraintEnd_toStartOf="@+id/LC_plus_1_btn"
+        app:layout_constraintStart_toEndOf="@+id/LC_minus_1_btn"
+        app:layout_constraintTop_toTopOf="@+id/LC_minus_1_btn" />
+
+    <Button
+        android:id="@+id/MC_minus_1_btn"
+        android:layout_width="60dp"
+        android:layout_height="52dp"
+        android:backgroundTint="@color/grey"
+        android:text="-"
+        app:layout_constraintStart_toStartOf="@+id/HC_minus_1_btn"
+        app:layout_constraintTop_toBottomOf="@+id/HC_minus_1_btn" />
+
+    <Button
+        android:id="@+id/MC_plus_1_btn"
+        android:layout_width="60dp"
+        android:layout_height="52dp"
+        android:backgroundTint="@color/grey"
+        android:text="+"
+        app:layout_constraintStart_toStartOf="@+id/HC_plus_1_btn"
+        app:layout_constraintTop_toTopOf="@+id/MC_minus_1_btn" />
+
+    <TextView
+        android:id="@+id/MC_total_1_tv"
+        android:layout_width="75dp"
+        android:layout_height="32dp"
+        android:background="@color/black"
+        android:backgroundTint="@color/black"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="TextView"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/LC_minus_1_btn"
+        app:layout_constraintEnd_toStartOf="@+id/MC_plus_1_btn"
+        app:layout_constraintStart_toEndOf="@+id/MC_minus_1_btn"
+        app:layout_constraintTop_toTopOf="@+id/MC_minus_1_btn" />
+
+    <TextView
+        android:id="@+id/team1Num_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="250dp"
+        android:layout_marginTop="8dp"
+        android:text="Team 1"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/HC_minus_1_btn"
+        android:layout_width="60dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/grey"
+        android:text="-"
+        app:layout_constraintStart_toStartOf="@+id/team1Num_txt"
+        app:layout_constraintTop_toBottomOf="@+id/team1Num_txt" />
+
+    <Button
+        android:id="@+id/HC_plus_1_btn"
+        android:layout_width="60dp"
+        android:layout_height="52dp"
+        android:backgroundTint="@color/grey"
+        android:text="+"
+        app:layout_constraintStart_toEndOf="@+id/HC_total_1_tv"
+        app:layout_constraintTop_toTopOf="@+id/HC_minus_1_btn" />
+
+    <TextView
+        android:id="@+id/HC_total_1_tv"
+        android:layout_width="75dp"
+        android:layout_height="32dp"
+        android:background="@color/black"
+        android:backgroundTint="@color/black"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="TextView"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/MC_minus_1_btn"
+        app:layout_constraintStart_toEndOf="@+id/HC_minus_1_btn"
+        app:layout_constraintTop_toTopOf="@+id/HC_minus_1_btn"
+        app:layout_constraintVertical_bias="0.517" />
+
+    <Button
+        android:id="@+id/toTeleOp_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="Tele Op"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="High Cones"
+        app:layout_constraintBottom_toTopOf="@+id/MC_minus_1_btn"
+        app:layout_constraintEnd_toStartOf="@+id/HC_minus_1_btn"
+        app:layout_constraintTop_toTopOf="@+id/HC_minus_1_btn" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="Mid Cones"
+        app:layout_constraintBottom_toTopOf="@+id/LC_minus_1_btn"
+        app:layout_constraintEnd_toStartOf="@+id/MC_minus_1_btn"
+        app:layout_constraintTop_toTopOf="@+id/MC_minus_1_btn" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="Low Cones"
+        app:layout_constraintBottom_toTopOf="@+id/HCu_minus_1_btn"
+        app:layout_constraintEnd_toStartOf="@+id/LC_minus_1_btn"
+        app:layout_constraintTop_toTopOf="@+id/LC_minus_1_btn" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="High Cubes"
+        app:layout_constraintBottom_toTopOf="@+id/MCu_minus_1_btn"
+        app:layout_constraintEnd_toStartOf="@+id/HCu_minus_1_btn"
+        app:layout_constraintTop_toTopOf="@+id/HCu_minus_1_btn" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="Mid Cubes"
+        app:layout_constraintBottom_toTopOf="@+id/LCu_minus_1_btn"
+        app:layout_constraintEnd_toStartOf="@+id/MCu_minus_1_btn"
+        app:layout_constraintTop_toTopOf="@+id/MCu_minus_1_btn" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="Low Cubes"
+        app:layout_constraintBottom_toBottomOf="@+id/LCu_minus_1_btn"
+        app:layout_constraintEnd_toStartOf="@+id/LCu_minus_1_btn"
+        app:layout_constraintTop_toTopOf="@+id/LCu_minus_1_btn" />
+
+    <Spinner
+        android:id="@+id/autoTeam1Balance"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="@+id/LCu_plus_1_btn"
+        app:layout_constraintStart_toStartOf="@+id/LCu_minus_1_btn"
+        app:layout_constraintTop_toBottomOf="@+id/LCu_total_1_tv" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="81dp"
+        android:layout_height="85dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView11"
+        app:layout_constraintEnd_toStartOf="@+id/textView10"
+        app:layout_constraintTop_toTopOf="@+id/textView9"
+        app:srcCompat="@drawable/frc_cone_pic" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="94dp"
+        android:layout_height="84dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView14"
+        app:layout_constraintEnd_toStartOf="@+id/textView13"
+        app:layout_constraintTop_toTopOf="@+id/textView12"
+        app:srcCompat="@drawable/frc_cube_pic" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
