@@ -29,21 +29,21 @@ public class UpdatePostMatchData extends AppCompatActivity {
                 int matchNum = getIntent().getIntExtra("MatchNum", 0);
                 int matchId = getIntent().getIntExtra("MatchID", 0);
 
-                int autoHighCones1 = getIntent().getIntExtra("autoHighCones1", 0);
-                int autoMidCones1 = getIntent().getIntExtra("autoMidCones1", 0);
+                int autoHighCones1 = getIntent().getIntExtra("autoConesHigh", 0);
+                int autoMidCones1 = getIntent().getIntExtra("autoConesMid", 0);
                 int autoLowCones1 = getIntent().getIntExtra("autoConesLow", 0);
-                int autoHighCubes1 = getIntent().getIntExtra("autoHighCubes1", 0);
-                int autoMidCubes1 = getIntent().getIntExtra("autoMidCubes1", 0);
-                int autoLowCubes1 = getIntent().getIntExtra("autoLowCubes1", 0);
-                int autoBalance1 = getIntent().getIntExtra("autoBalance1", 0);
+                int autoHighCubes1 = getIntent().getIntExtra("autoCubesHigh", 0);
+                int autoMidCubes1 = getIntent().getIntExtra("autoCubesMid", 0);
+                int autoLowCubes1 = getIntent().getIntExtra("autoCubesLow", 0);
+                int autoBalance1 = getIntent().getIntExtra("autoBalance", 0);
 
-                int teleOpHighCones1 = getIntent().getIntExtra("teleOpHighCones1", 0);
-                int teleOpMidCones1 = getIntent().getIntExtra("teleOpMidCones1", 0);
-                int teleOpLowCones1 = getIntent().getIntExtra("teleOpLowCones1", 0);
-                int teleOpHighCubes1 = getIntent().getIntExtra("teleOpHighCubes1", 0);
-                int teleOpMidCubes1 = getIntent().getIntExtra("teleOpMidCubes1", 0);
-                int teleOpLowCubes1 = getIntent().getIntExtra("teleOpLowCubes1", 0);
-                int teleOpBalance1 = getIntent().getIntExtra("teleOpBalance1", 0);
+                int teleOpHighCones1 = getIntent().getIntExtra("teleConesHigh", 0);
+                int teleOpMidCones1 = getIntent().getIntExtra("teleConesMid", 0);
+                int teleOpLowCones1 = getIntent().getIntExtra("teleConesLow", 0);
+                int teleOpHighCubes1 = getIntent().getIntExtra("teleCubesHigh", 0);
+                int teleOpMidCubes1 = getIntent().getIntExtra("teleCubesMid", 0);
+                int teleOpLowCubes1 = getIntent().getIntExtra("teleCubesLow", 0);
+                int teleOpBalance1 = getIntent().getIntExtra("teleBalance", 0);
 
                 MyDataBaseHelper myDB = new MyDataBaseHelper(UpdatePostMatchData.this);
                 myDB.updateData(matchId, matchNum, team1Num, autoHighCones1, autoMidCones1, autoLowCones1, autoHighCubes1, autoMidCubes1, autoLowCubes1, teleOpHighCones1,

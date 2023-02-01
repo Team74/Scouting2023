@@ -215,21 +215,21 @@ public class UpdateTeleOpData extends AppCompatActivity implements AdapterView.O
                 intent.putExtra("MatchNum", matchNum);
                 intent.putExtra("MatchID", matchID);
 
-                intent.putExtra("teleHighCones1", highConeInt1);
-                intent.putExtra("teleMidCones1", midConeInt1);
-                intent.putExtra("teleLowCones1", lowConeInt1);
-                intent.putExtra("teleHighCubes1", highCubeInt1);
-                intent.putExtra("teleMidCubes1", midCubeInt1);
-                intent.putExtra("teleLowCubes1", lowCubeInt1);
-                intent.putExtra("teleBalance1", team1BalanceInt);
+                intent.putExtra("teleConesHigh", highConeInt1);
+                intent.putExtra("teleConesMid", midConeInt1);
+                intent.putExtra("teleConesLow", lowConeInt1);
+                intent.putExtra("teleCubesHigh", highCubeInt1);
+                intent.putExtra("teleCubesMid", midCubeInt1);
+                intent.putExtra("teleCubeLow", lowCubeInt1);
+                intent.putExtra("teleBalance", team1BalanceInt);
 
-                intent.putExtra("autoHighCones1", autoHighConeInt);
-                intent.putExtra("autoMidCones1", autoMidConeInt);
+                intent.putExtra("autoConesHigh", autoHighConeInt);
+                intent.putExtra("autoConesMid", autoMidConeInt);
                 intent.putExtra("autoConesLow", autoLowConeInt);
-                intent.putExtra("autoHighCubes1", autoHighCubeInt);
-                intent.putExtra("autoMidCubes1", autoMidCubeInt);
-                intent.putExtra("autoLowCubes1", autoLowCubeInt);
-                intent.putExtra("autoBalance1", autoTeamBalanceInt);
+                intent.putExtra("autoCubesHigh", autoHighCubeInt);
+                intent.putExtra("autoCubesMid", autoMidCubeInt);
+                intent.putExtra("autoCubesLow", autoLowCubeInt);
+                intent.putExtra("autoBalance", autoTeamBalanceInt);
 
                 activity.startActivityForResult(intent, 1);
             }
@@ -246,13 +246,13 @@ public class UpdateTeleOpData extends AppCompatActivity implements AdapterView.O
             teamName = String.valueOf(getIntent().getIntExtra("Team1Num", 0));
             teamNum_tv.setText(teamName);
 
-            lowConeInt1 = getIntent().getIntExtra("teleLowCones1", 0);
-            midConeInt1 = getIntent().getIntExtra("teleMidCones1", 0);
-            highConeInt1 = getIntent().getIntExtra("teleHighCones1", 0);
-            lowCubeInt1 = getIntent().getIntExtra("teleLowCubes1", 0);
-            midCubeInt1 = getIntent().getIntExtra("teleMidCubes1", 0);
-            highCubeInt1 = getIntent().getIntExtra("teleHighCubes1", 0);
-            team1BalanceInt = getIntent().getIntExtra("teleBalance1", 0);
+            lowConeInt1 = getIntent().getIntExtra("teleConesLow", 0);
+            midConeInt1 = getIntent().getIntExtra("teleConesMid", 0);
+            highConeInt1 = getIntent().getIntExtra("teleConesHigh", 0);
+            lowCubeInt1 = getIntent().getIntExtra("teleCubesLow", 0);
+            midCubeInt1 = getIntent().getIntExtra("teleCubesMid", 0);
+            highCubeInt1 = getIntent().getIntExtra("teleCubesHigh", 0);
+            team1BalanceInt = getIntent().getIntExtra("teleBalance", 0);
 
             matchID = getIntent().getIntExtra("MatchID", 0);
 

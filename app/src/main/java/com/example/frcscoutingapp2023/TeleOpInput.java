@@ -585,6 +585,8 @@ public class TeleOpInput extends AppCompatActivity implements AdapterView.OnItem
                 intent.putExtra("teleOpBalance3", team3BalanceInt);
                 //endregion
 
+                Log.d("testing123", String.valueOf(autoLowCubes1));
+
                 activity.startActivityForResult(intent, 1);
             }
         });

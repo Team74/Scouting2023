@@ -136,6 +136,8 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
+        Log.d("testing123", String.valueOf(autoLowCubes));
+
         int autoConesTotal = autoHighCones + autoMidCones + autoLowCones;
         int autoCubesTotal = autoHighCubes + autoMidCubes + autoLowCubes;
 

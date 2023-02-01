@@ -534,6 +534,8 @@ public class AutonInput extends AppCompatActivity implements AdapterView.OnItemS
                 intent.putExtra("autoLowCubes3", lowCubeInt3);
                 intent.putExtra("autoBalance3", team3BalanceInt);
 
+                Log.d("testing123", String.valueOf(lowCubeInt1));
+
                 activity.startActivityForResult(intent, 1);
             }
         });

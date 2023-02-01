@@ -46,6 +46,8 @@ public class PostMatchInput extends AppCompatActivity {
                 int teleOpLowCubes1 = getIntent().getIntExtra("teleOpLowCubes1", 0);
                 int teleOpBalance1 = getIntent().getIntExtra("teleOpBalance1", 0);
 
+                Log.d("testing123", String.valueOf(autoLowCubes1));
+
                 MyDataBaseHelper myDB = new MyDataBaseHelper(PostMatchInput.this);
                 myDB.addMatch(matchNum, team1Num, autoHighCones1, autoMidCones1, autoLowCones1, autoHighCubes1, autoMidCubes1, autoLowCubes1, teleOpHighCones1,
                         teleOpMidCones1, teleOpLowCones1, teleOpHighCubes1, teleOpMidCubes1, teleOpLowCubes1, autoBalance1, teleOpBalance1);

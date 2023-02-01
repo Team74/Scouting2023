@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -153,6 +154,7 @@ public class UpdatePreMatchData extends AppCompatActivity {
         teleCubesLowInt = Integer.parseInt(al_teleCubesLow.get(matchId-1).toString());
         teleCubesMidInt = Integer.parseInt(al_teleCubesMid.get(matchId-1).toString());
         teleCubesHighInt = Integer.parseInt(al_teleCubesHigh.get(matchId-1).toString());
+        Log.d("testing123", String.valueOf(autoCubesLowInt));
         
     }
 

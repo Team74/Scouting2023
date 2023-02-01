@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
+import android.icu.text.SymbolTable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -81,6 +82,8 @@ public class UpdateAutonData extends AppCompatActivity implements AdapterView.On
         highCone1.setText(String.valueOf(highConeInt1));
 
         getAndSetIntentData();
+
+        Log.d("testing", String.valueOf(lowCubeInt1));
 
         highCone1.setText(String.valueOf(highConeInt1));
         midCone1.setText(String.valueOf(midConeInt1));
@@ -215,21 +218,21 @@ public class UpdateAutonData extends AppCompatActivity implements AdapterView.On
                 intent.putExtra("MatchNum", matchNum);
                 intent.putExtra("MatchID", matchId);
 
-                intent.putExtra("autoHighCones1", highConeInt1);
-                intent.putExtra("autoMidCones1", midConeInt1);
+                intent.putExtra("autoConesHigh", highConeInt1);
+                intent.putExtra("autoConesMid", midConeInt1);
                 intent.putExtra("autoConesLow", lowConeInt1);
-                intent.putExtra("autoHighCubes1", highCubeInt1);
-                intent.putExtra("autoMidCubes1", midCubeInt1);
-                intent.putExtra("autoLowCubes1", lowCubeInt1);
-                intent.putExtra("autoBalance1", team1BalanceInt);
+                intent.putExtra("autoCubesHigh", highCubeInt1);
+                intent.putExtra("autoCubesMid", midCubeInt1);
+                intent.putExtra("autoCubeLow", lowCubeInt1);
+                intent.putExtra("autoBalance", team1BalanceInt);
 
-                intent.putExtra("teleHighCones1", teleHighConeInt);
-                intent.putExtra("teleMidCones1", teleMidConeInt);
-                intent.putExtra("teleLowCones1", teleLowConeInt);
-                intent.putExtra("teleHighCubes1", teleHighCubeInt);
-                intent.putExtra("teleMidCubes1", teleMidCubeInt);
-                intent.putExtra("teleLowCubes1", teleLowCubeInt);
-                intent.putExtra("teleBalance1", teleTeamBalanceInt);
+                intent.putExtra("teleConesHigh", teleHighConeInt);
+                intent.putExtra("teleConesMid", teleMidConeInt);
+                intent.putExtra("teleConesLow", teleLowConeInt);
+                intent.putExtra("teleCubesHigh", teleHighCubeInt);
+                intent.putExtra("teleCubesMid", teleMidCubeInt);
+                intent.putExtra("teleCubesLow", teleLowCubeInt);
+                intent.putExtra("teleBalance", teleTeamBalanceInt);
                 
                 activity.startActivityForResult(intent, 1);
             }
