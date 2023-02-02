@@ -223,7 +223,7 @@ public class UpdateAutonData extends AppCompatActivity implements AdapterView.On
                 intent.putExtra("autoConesLow", lowConeInt1);
                 intent.putExtra("autoCubesHigh", highCubeInt1);
                 intent.putExtra("autoCubesMid", midCubeInt1);
-                intent.putExtra("autoCubeLow", lowCubeInt1);
+                intent.putExtra("autoCubesLow", lowCubeInt1);
                 intent.putExtra("autoBalance", team1BalanceInt);
 
                 intent.putExtra("teleConesHigh", teleHighConeInt);

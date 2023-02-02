@@ -220,7 +220,7 @@ public class UpdateTeleOpData extends AppCompatActivity implements AdapterView.O
                 intent.putExtra("teleConesLow", lowConeInt1);
                 intent.putExtra("teleCubesHigh", highCubeInt1);
                 intent.putExtra("teleCubesMid", midCubeInt1);
-                intent.putExtra("teleCubeLow", lowCubeInt1);
+                intent.putExtra("teleCubesLow", lowCubeInt1);
                 intent.putExtra("teleBalance", team1BalanceInt);
 
                 intent.putExtra("autoConesHigh", autoHighConeInt);
