@@ -3,6 +3,7 @@ package com.example.frcscoutingapp2023;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
@@ -26,10 +27,17 @@ public class TeamReview extends ScoutingReportActivity {
 
     void UpdateTable() {
         // get all the data records from the DB
-        String columns[] = { myDB.COLUMN_MATCHNUM, myDB.COLUMN_TEAMNUM, myDB.COLUMN_teleOpConesTotal };
-        String headings[] = { "Match #", "Team #", "Total Telop Cones" };
+        String columns[] = { myDB.COLUMN_TEAMNUM, "Max_teleOpConesTotal"};
+        String headings[] = { "Team #", "Max Cones" };
 
-        Cursor cursor = myDB.readAllData();
+        String query = "SELECT " + myDB.COLUMN_TEAMNUM +
+                " , MAX(teleOpConesTotal) AS Max_teleOpConesTotal " +
+                " FROM " + myDB.TABLE_NAME +
+                " GROUP BY " + myDB.COLUMN_TEAMNUM +
+                " ORDER BY team_num DESC ";
+
+        SQLiteDatabase db = myDB.getReadableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
 
         // add the header strings as a row to our table
         AddHeaderStringsAsRowToReportTable(R.id.teamReviewTable,
