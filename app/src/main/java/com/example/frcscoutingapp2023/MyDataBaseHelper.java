@@ -106,34 +106,51 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    void addMatch(int matchNum, int teamNum,
+    long addMatch(int matchNum, int teamNum,
                   int autoHighCones, int autoMidCones, int autoLowCones,
                   int autoHighCubes, int autoMidCubes, int autoLowCubes,
                   int teleHighCones, int teleMidCones, int teleLowCones,
                   int teleHighCubes, int teleMidCubes, int teleLowCubes,
                   int autoBalance, int teleBalance) {
-        addMatch(matchNum, teamNum,
+        long result = addMatch(matchNum, teamNum,
             autoHighCones, autoMidCones, autoLowCones,
             autoHighCubes, autoMidCubes, autoLowCubes,
             teleHighCones, teleMidCones, teleLowCones,
             teleHighCubes, teleMidCubes, teleLowCubes,
             autoBalance, teleBalance,
-            true);
+            true);  // we want to see a toast!
+        return result;
     }
 
-
-    void addMatch(int matchNum, int teamNum,
+    long addMatch(int matchNum, int teamNum,
                   int autoHighCones, int autoMidCones, int autoLowCones,
                   int autoHighCubes, int autoMidCubes, int autoLowCubes,
                   int teleHighCones, int teleMidCones, int teleLowCones,
                   int teleHighCubes, int teleMidCubes, int teleLowCubes,
                   int autoBalance, int teleBalance,
-                  boolean dispToast)
+                  boolean dispToast) {
+        Log.d("insertData", String.valueOf(teamNum));
+        long result = addOrUpdateMatch(matchNum, teamNum,
+                autoHighCones, autoMidCones, autoLowCones,
+                autoHighCubes, autoMidCubes, autoLowCubes,
+                teleHighCones, teleMidCones, teleLowCones,
+                teleHighCubes, teleMidCubes, teleLowCubes,
+                autoBalance, teleBalance,
+                dispToast,  // user specified toasting
+                -1);  // we want to do an insert
+        return result;
+    }
+
+    long addOrUpdateMatch(int matchNum, int teamNum,
+                  int autoHighCones, int autoMidCones, int autoLowCones,
+                  int autoHighCubes, int autoMidCubes, int autoLowCubes,
+                  int teleHighCones, int teleMidCones, int teleLowCones,
+                  int teleHighCubes, int teleMidCubes, int teleLowCubes,
+                  int autoBalance, int teleBalance,
+                  boolean dispToast, int MatchID)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
-
-        Log.d("testing123", String.valueOf(autoLowCubes));
 
         int autoConesTotal = autoHighCones + autoMidCones + autoLowCones;
         int autoCubesTotal = autoHighCubes + autoMidCubes + autoLowCubes;
@@ -163,7 +180,15 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
         cv.put(COLUMN_teleOpCubesTotal, teleCubesTotal);
         cv.put(COLUMN_teleOpBalance, teleBalance);
 
-        long result = db.insert(TABLE_NAME, null, cv);
+        long result;
+
+        // if a valid match id was passed in, do an update
+        if (MatchID < 0) {
+            result = db.insert(TABLE_NAME, null, cv);
+        } else {
+            String row_id = String.valueOf(MatchID);
+            result = db.update(TABLE_NAME, cv, "_id=?", new String[]{row_id});
+        }
 
         if (dispToast) {
             if (result == -1)//failed
@@ -173,6 +198,8 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
                 Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show();
             }
         }
+
+        return result;
     }
 
     Cursor readAllData()
@@ -215,54 +242,23 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
     }
 
 
-    void updateData(int MatchID, int matchNum, int teamNum,
+    long updateData(int MatchID, int matchNum, int teamNum,
                     int autoHighCones, int autoMidCones, int autoLowCones,
                     int autoHighCubes, int autoMidCubes, int autoLowCubes,
                     int teleHighCones, int teleMidCones, int teleLowCones,
                     int teleHighCubes, int teleMidCubes, int teleLowCubes,
                     int autoBalance, int teleBalance)
     {
-        Log.d("Update123", String.valueOf(teamNum));
-        String row_id = String.valueOf(MatchID);
-
-        int autoConesTotal = autoHighCones + autoMidCones + autoLowCones;
-        int autoCubesTotal = autoHighCubes + autoMidCubes + autoLowCubes;
-
-        int teleConesTotal = teleHighCones + teleMidCones + teleLowCones;
-        int teleCubesTotal = teleHighCubes + teleMidCubes + teleLowCubes;
-
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues cv = new ContentValues();
-
-        cv.put(COLUMN_MATCHNUM, matchNum);
-        cv.put(COLUMN_TEAMNUM, teamNum);
-
-        cv.put(COLUMN_autoConesLow, autoLowCones);
-        cv.put(COLUMN_autoConesMid, autoMidCones);
-        cv.put(COLUMN_autoConesHigh, autoHighCones);
-        cv.put(COLUMN_autoConesTotal, autoConesTotal);
-        cv.put(COLUMN_autoCubesLow, autoLowCubes);
-        cv.put(COLUMN_autoCubesMid, autoMidCubes);
-        cv.put(COLUMN_autoCubesHigh, autoHighCubes);
-        cv.put(COLUMN_autoCubesTotal, autoCubesTotal);
-        cv.put(COLUMN_autoBalance, autoBalance);
-        cv.put(COLUMN_teleOpConesLow, teleLowCones);
-        cv.put(COLUMN_teleOpConesMid, teleMidCones);
-        cv.put(COLUMN_teleOpConesHigh, teleHighCones);
-        cv.put(COLUMN_teleOpConesTotal, teleConesTotal);
-        cv.put(COLUMN_teleOpCubesLow, teleLowCubes);
-        cv.put(COLUMN_teleOpCubesMid, teleMidCubes);
-        cv.put(COLUMN_teleOpCubesHigh, teleHighCubes);
-        cv.put(COLUMN_teleOpCubesTotal, teleCubesTotal);
-        cv.put(COLUMN_teleOpBalance, teleBalance);
-
-        long result = db.update(TABLE_NAME, cv, "_id=?", new String[]{row_id});
-        if(result == -1)
-        {
-            Toast.makeText(context, "Failed To Update", Toast.LENGTH_SHORT).show();
-        }else{
-            Toast.makeText(context, "Updated", Toast.LENGTH_SHORT).show();
-        }
+        Log.d("updateData", String.valueOf(teamNum));
+        long result = addOrUpdateMatch(matchNum, teamNum,
+                autoHighCones, autoMidCones, autoLowCones,
+                autoHighCubes, autoMidCubes, autoLowCubes,
+                teleHighCones, teleMidCones, teleLowCones,
+                teleHighCubes, teleMidCubes, teleLowCubes,
+                autoBalance, teleBalance,
+                true,  // we want to see a toast!
+                MatchID);  // we want to update this match id
+        return result;
     }
 
     void createSampleData()
