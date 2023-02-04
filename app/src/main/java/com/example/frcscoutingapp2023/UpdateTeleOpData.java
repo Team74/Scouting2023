@@ -88,6 +88,7 @@ public class UpdateTeleOpData extends AppCompatActivity implements AdapterView.O
         highCube1.setText(String.valueOf(highCubeInt1));
         midCube1.setText(String.valueOf(midCubeInt1));
         lowCube1.setText(String.valueOf(lowCubeInt1));
+        teamBalance.setSelection(team1BalanceInt);
 
 
         //USE FIND AND REPLACE!! so much faster. ctrl r or edit - find - replace
@@ -231,6 +232,7 @@ public class UpdateTeleOpData extends AppCompatActivity implements AdapterView.O
                 intent.putExtra("autoCubesLow", autoLowCubeInt);
                 intent.putExtra("autoBalance", autoTeamBalanceInt);
 
+                Log.d("testing123", "Team Balance Int " + String.valueOf(autoTeamBalanceInt));
                 activity.startActivityForResult(intent, 1);
             }
         });

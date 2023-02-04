@@ -147,6 +147,7 @@ public class UpdatePreMatchData extends AppCompatActivity {
         autoCubesLowInt = Integer.parseInt(al_autoCubesLow.get(matchId-1).toString());
         autoCubesMidInt = Integer.parseInt(al_autoCubesMid.get(matchId-1).toString());
         autoCubesHighInt = Integer.parseInt(al_autoCubesHigh.get(matchId-1).toString());
+        autoBalanceInt = Integer.parseInt(al_autoBalance.get(matchId-1).toString());
 
         teleConesLowInt = Integer.parseInt(al_teleConesLow.get(matchId-1).toString());
         teleConesMidInt = Integer.parseInt(al_teleConesMid.get(matchId-1).toString());
@@ -154,6 +155,7 @@ public class UpdatePreMatchData extends AppCompatActivity {
         teleCubesLowInt = Integer.parseInt(al_teleCubesLow.get(matchId-1).toString());
         teleCubesMidInt = Integer.parseInt(al_teleCubesMid.get(matchId-1).toString());
         teleCubesHighInt = Integer.parseInt(al_teleCubesHigh.get(matchId-1).toString());
+        teleBalanceInt = Integer.parseInt(al_teleBalance.get(matchId-1).toString());
         Log.d("testing123", String.valueOf(autoCubesLowInt));
         
     }

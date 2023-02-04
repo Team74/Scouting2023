@@ -198,6 +198,9 @@ public class UpdateAutonData extends AppCompatActivity implements AdapterView.On
 
         //endregion
 
+        Log.d("testing123", "Team Balance Int " + String.valueOf(team1BalanceInt));
+        teamBalance.setSelection(team1BalanceInt);
+
         teamBalance.setOnItemSelectedListener(this);
 
         toTeleOp.setOnClickListener(new View.OnClickListener() {

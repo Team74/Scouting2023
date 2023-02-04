@@ -50,6 +50,8 @@ public class UpdatePostMatchData extends AppCompatActivity {
                 myDB.updateData(matchId, matchNum, team1Num, autoHighCones1, autoMidCones1, autoLowCones1, autoHighCubes1, autoMidCubes1, autoLowCubes1, teleOpHighCones1,
                         teleOpMidCones1, teleOpLowCones1, teleOpHighCubes1, teleOpMidCubes1, teleOpLowCubes1, autoBalance1, teleOpBalance1);
 
+                Log.d("testing123", "Team Balance Int " + String.valueOf(autoBalance1));
+
                 Intent intent = new Intent(UpdatePostMatchData.this, MatchView.class);
                 activity.startActivityForResult(intent, 1);
                 /*

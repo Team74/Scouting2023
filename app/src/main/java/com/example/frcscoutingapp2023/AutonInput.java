@@ -591,5 +591,5 @@ public class AutonInput extends AppCompatActivity implements AdapterView.OnItemS
     public void onNothingSelected(AdapterView<?> adapterView) {
 
     }
-    
+
 }

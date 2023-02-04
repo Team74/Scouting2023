@@ -19,6 +19,8 @@ public class CSV {
 
     private  Context context;
 
+    String baseDir;
+
     public CSV(@Nullable Context context) {
         this.context = context;
     }

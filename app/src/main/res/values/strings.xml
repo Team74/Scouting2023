@@ -3,7 +3,7 @@
     <string-array name="balance">
         <item>Did not Attempt</item>
         <item>Failed Attempt</item>
-        <item>Docked</item>
         <item>Engaged</item>
+        <item>Docked</item>
     </string-array>
 </resources>

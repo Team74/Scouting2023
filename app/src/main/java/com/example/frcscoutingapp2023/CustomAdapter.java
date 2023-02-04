@@ -68,10 +68,10 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
                 holder.balance_txt.setText("Failed Attempt");
                 break;
             case "2":
-                holder.balance_txt.setText("Docked");
+                holder.balance_txt.setText("Engaged");
                 break;
             case "3":
-                holder.balance_txt.setText("Engaged");
+                holder.balance_txt.setText("Docked");
                 break;
             default:
                 holder.balance_txt.setText("Error");
