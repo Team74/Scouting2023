@@ -6,4 +6,10 @@
     android:layout_height="match_parent"
     tools:context=".TeamReview">
 
+    <TableLayout
+        android:id="@+id/teamReviewTable"
+        android:layout_width="729dp"
+        android:layout_height="409dp"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
