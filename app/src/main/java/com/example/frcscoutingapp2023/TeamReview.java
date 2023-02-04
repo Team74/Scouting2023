@@ -20,6 +20,6 @@ public class TeamReview extends AppCompatActivity {
 
         Cursor cursor = myDB.getTeamData(teamNumInput);
         Log.d("table test", String.valueOf(cursor.getCount()));
-        Log.d("table test", String.valueOf(cursor.getString(19)));
+       // Log.d("table test", String.valueOf(cursor.getString(19)));
     }
 }

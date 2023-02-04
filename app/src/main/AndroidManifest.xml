@@ -23,6 +23,7 @@
         </activity>
         <activity
             android:name=".DataReviewMain"
+            android:screenOrientation="landscape"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
