@@ -59,6 +59,8 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
 
     public static final String COLUMN_teleOpBalance = "teleOpBalance";
 
+    public static final String COLUMN_autonPercent = "autonPercent";
+    public static final String COLUMN_Broke = "broke";
     public static final String COLUMN_Defense = "Defence";
 
 
@@ -95,7 +97,9 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
                         COLUMN_teleOpCubesTotal + " INTEGER, " + //19
                         COLUMN_teleOpBalance + " INTEGER, " + // 20
 
-                        COLUMN_Defense + " INTEGER);"; // 21
+                        COLUMN_autonPercent + " INTEGER, " + // 21
+                        COLUMN_Broke + " INTEGER, " + // 22
+                        COLUMN_Defense + " INTEGER);"; // 23
 
         db.execSQL(query);
     }
@@ -215,17 +219,15 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
-    Cursor getTeamData(int teamNum)
+    Float getTeamData(int teamNum, String col)
     {
-        String query = "SELECT * FROM " + TABLE_NAME + " WHERE " + COLUMN_TEAMNUM + " = " + teamNum;
+        String query = "SELECT AVG(" + col + ") AS avg FROM " + TABLE_NAME+ " WHERE " + COLUMN_TEAMNUM + " = " + String.valueOf(teamNum);
         SQLiteDatabase db = this.getReadableDatabase();
 
-        Cursor cursor = null;
-        if(db != null)
-        {
-            cursor = db.rawQuery(query, null);
-        }
-        return cursor;
+        Cursor cursor = db.rawQuery(query, null);
+        cursor.moveToFirst();
+        Float avgVal = cursor.getFloat(0);
+        return avgVal;
     }
 
     Cursor getCertainTeamData(int teamNum)

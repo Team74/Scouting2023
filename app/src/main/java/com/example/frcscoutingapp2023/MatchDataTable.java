@@ -1,17 +1,14 @@
 package com.example.frcscoutingapp2023;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class TeamReview extends ScoutingReportActivity {
+public class MatchDataTable extends ScoutingReportActivity {
 
     MyDataBaseHelper myDB;
    int teamNumInput = 324;
@@ -19,9 +16,9 @@ public class TeamReview extends ScoutingReportActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_team_review);
+        setContentView(R.layout.activity_match_data_table);
 
-        myDB = new MyDataBaseHelper(TeamReview.this);
+        myDB = new MyDataBaseHelper(MatchDataTable.this);
         this.UpdateTable();
     }
 
@@ -40,7 +37,7 @@ public class TeamReview extends ScoutingReportActivity {
         Cursor cursor = db.rawQuery(query, null);
 
         // add the header strings as a row to our table
-        AddHeaderStringsAsRowToReportTable(R.id.teamReviewTable,
+        AddHeaderStringsAsRowToReportTable(R.id.matchDataTableHeader,
                 headings, null, 10);
 
         if(cursor.getCount() == 0) {
@@ -60,7 +57,7 @@ public class TeamReview extends ScoutingReportActivity {
                 String[] data = values.toArray(new String[0]);
 
                 // add the data strings as a row to our table
-                AddDataStringsAsRowToReportTable(R.id.teamReviewTable, data);
+                AddDataStringsAsRowToReportTable(R.id.matchDataTable, data);
             }
             while(cursor.moveToNext());
         }

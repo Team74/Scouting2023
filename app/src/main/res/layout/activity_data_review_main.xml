@@ -12,7 +12,17 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
-        android:text="Team Review"
+        android:text="Match Tables"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/teamStats_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Team Stats"
+        app:layout_constraintEnd_toEndOf="@+id/teamReview_btn"
+        app:layout_constraintStart_toStartOf="@+id/teamReview_btn"
+        app:layout_constraintTop_toBottomOf="@+id/teamReview_btn" />
 </androidx.constraintlayout.widget.ConstraintLayout>
