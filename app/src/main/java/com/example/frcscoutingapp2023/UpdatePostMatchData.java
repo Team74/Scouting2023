@@ -8,19 +8,62 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.Spinner;
+import android.widget.TextView;
 
 public class UpdatePostMatchData extends AppCompatActivity {
 
     Button pushBtn;
     Activity activity = UpdatePostMatchData.this;
+    CheckBox autonWorked1_cb, broke1_cb;
+    Spinner defence;
+    int defenceType1;
+    TextView teamNum;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_post_match_input);
+        setContentView(R.layout.activity_update_post_match_data);
 
         pushBtn = findViewById(R.id.push_btn);
+        autonWorked1_cb = findViewById(R.id.autonWorked1_update_cb);
+        broke1_cb = findViewById(R.id.broke1_update_cb);
+        defence = findViewById(R.id.team1_update_Defence);
+        teamNum = findViewById(R.id.team1Num_update_tv);
+        teamNum.setText(String.valueOf(getIntent().getIntExtra("Team1Num", 0)));
+
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.defence, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        defence.setAdapter(adapter);
+        defence.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                String defenceType = adapterView.getItemAtPosition(i).toString();
+                switch (defenceType){
+                    case "None":
+                        defenceType1 = 0;
+                        break;
+                    case "Defended":
+                        defenceType1 = 1;
+                        break;
+                    case "Got Defended":
+                        defenceType1 = 2;
+                        break;
+                    default:
+                        defenceType1 = 0;
+                }
+                Log.d("Defence", String.valueOf(defenceType1));
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
 
         pushBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,10 +88,27 @@ public class UpdatePostMatchData extends AppCompatActivity {
                 int teleOpLowCubes1 = getIntent().getIntExtra("teleCubesLow", 0);
                 int teleOpBalance1 = getIntent().getIntExtra("teleBalance", 0);
 
+                //region Checkboxs
+                int autonWorked1;
+                if(autonWorked1_cb.isChecked())
+                {
+                    autonWorked1 = 1;
+                }else{
+                    autonWorked1 = 0;
+                }
+                int broke1;
+                if(broke1_cb.isChecked())
+                {
+                    broke1 = 1;
+                }else{
+                    broke1 = 0;
+                }
+                //endregion
+
                 Log.d("testing123", String.valueOf(autoLowCubes1));
                 MyDataBaseHelper myDB = new MyDataBaseHelper(UpdatePostMatchData.this);
                 myDB.updateData(matchId, matchNum, team1Num, autoHighCones1, autoMidCones1, autoLowCones1, autoHighCubes1, autoMidCubes1, autoLowCubes1, teleOpHighCones1,
-                        teleOpMidCones1, teleOpLowCones1, teleOpHighCubes1, teleOpMidCubes1, teleOpLowCubes1, autoBalance1, teleOpBalance1, 0,0,0);
+                        teleOpMidCones1, teleOpLowCones1, teleOpHighCubes1, teleOpMidCubes1, teleOpLowCubes1, autoBalance1, teleOpBalance1, autonWorked1,broke1,defenceType1);
 
                 Log.d("testing123", "Team Balance Int " + String.valueOf(autoBalance1));
 

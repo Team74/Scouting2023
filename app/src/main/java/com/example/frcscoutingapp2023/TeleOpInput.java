@@ -15,7 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 //Screen with the data input for teleop
-public class TeleOpInput extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class TeleOpInput extends AppCompatActivity {
 
     TextView team1Num_tv, team2Num_tv, team3Num_tv;
     String team1Name, team2Name, team3Name;
@@ -494,8 +494,93 @@ public class TeleOpInput extends AppCompatActivity implements AdapterView.OnItem
 
         //endregion
 
-        //TODO do the other 2 teams
-        team1Balance.setOnItemSelectedListener(this);
+        //region spinners
+        team1Balance.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                String balanceType = adapterView.getItemAtPosition(i).toString();
+                switch (balanceType){
+                    case "Did Not Attempt":
+                        team1BalanceInt = 0;
+                        break;
+                    case "Failed Attempt":
+                        team1BalanceInt = 1;
+                        break;
+                    case "Engaged":
+                        team1BalanceInt = 2;
+                        break;
+                    case "Docked":
+                        team1BalanceInt = 3;
+                        break;
+                    default:
+                        team1BalanceInt = 0;
+                }
+                Log.d("Balance", String.valueOf(team1BalanceInt));
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+        team2Balance.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                String balanceType = adapterView.getItemAtPosition(i).toString();
+                switch (balanceType){
+                    case "Did Not Attempt":
+                        team2BalanceInt = 0;
+                        break;
+                    case "Failed Attempt":
+                        team2BalanceInt = 1;
+                        break;
+                    case "Engaged":
+                        team2BalanceInt = 2;
+                        break;
+                    case "Docked":
+                        team2BalanceInt = 3;
+                        break;
+                    default:
+                        team2BalanceInt = 0;
+                }
+                Log.d("Balance", String.valueOf(team2BalanceInt));
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+        team3Balance.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                String balanceType = adapterView.getItemAtPosition(i).toString();
+                switch (balanceType){
+                    case "Did Not Attempt":
+                        team3BalanceInt = 0;
+                        break;
+                    case "Failed Attempt":
+                        team3BalanceInt = 1;
+                        break;
+                    case "Engaged":
+                        team3BalanceInt = 2;
+                        break;
+                    case "Docked":
+                        team3BalanceInt = 3;
+                        break;
+                    default:
+                        team3BalanceInt = 0;
+                }
+                Log.d("Balance", String.valueOf(team3BalanceInt));
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+        //endregion
 
         toTeleOp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -618,33 +703,6 @@ public class TeleOpInput extends AppCompatActivity implements AdapterView.OnItem
         }
     }
 
-
-    @Override
-    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) { //TODO dont hard code the switch in
-        String balanceType = adapterView.getItemAtPosition(i).toString();
-        switch (balanceType) {
-            case "Did Not Attempt":
-                team1BalanceInt = 0;
-                break;
-            case "Failed Attempt":
-                team1BalanceInt = 1;
-                break;
-            case "Engaged":
-                team1BalanceInt = 2;
-                break;
-            case "Docked":
-                team1BalanceInt = 3;
-                break;
-            default:
-                team1BalanceInt = 0;
-        }
-        Log.d("Balance", String.valueOf(team1BalanceInt));
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> adapterView) {
-
-    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
