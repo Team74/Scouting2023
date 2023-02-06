@@ -494,7 +494,7 @@ public class TeleOpInput extends AppCompatActivity implements AdapterView.OnItem
 
         //endregion
 
-
+        //TODO do the other 2 teams
         team1Balance.setOnItemSelectedListener(this);
 
         toTeleOp.setOnClickListener(new View.OnClickListener() {

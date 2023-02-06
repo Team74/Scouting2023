@@ -6,4 +6,9 @@
         <item>Engaged</item>
         <item>Docked</item>
     </string-array>
+    <string-array name="defence">
+        <item>None</item>
+        <item>Defended</item>
+        <item>Got Defended</item>
+    </string-array>
 </resources>

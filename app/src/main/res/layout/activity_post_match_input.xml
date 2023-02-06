@@ -6,14 +6,120 @@
     android:layout_height="match_parent"
     tools:context=".PostMatchInput">
 
+    <CheckBox
+        android:id="@+id/broke2_cb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="CheckBox"
+        app:layout_constraintStart_toStartOf="@+id/team2Defence"
+        app:layout_constraintTop_toBottomOf="@+id/team2Defence" />
+
+    <CheckBox
+        android:id="@+id/broke3_cb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="CheckBox"
+        app:layout_constraintStart_toStartOf="@+id/team3Defence"
+        app:layout_constraintTop_toBottomOf="@+id/team3Defence" />
+
+    <CheckBox
+        android:id="@+id/broke1_cb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="CheckBox"
+        app:layout_constraintStart_toStartOf="@+id/team1Defence"
+        app:layout_constraintTop_toBottomOf="@+id/team1Defence" />
+
     <Button
         android:id="@+id/push_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
+        android:text="Push"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/team1Num_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
-        android:text="Push"
+        android:text="TextView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/team2Num_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="150dp"
+        android:text="TextView"
+        app:layout_constraintStart_toEndOf="@+id/team1Num_tv"
+        app:layout_constraintTop_toTopOf="@+id/team1Num_tv" />
+
+    <TextView
+        android:id="@+id/team3Num_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="150dp"
+        android:text="TextView"
+        app:layout_constraintStart_toEndOf="@+id/team2Num_tv"
+        app:layout_constraintTop_toTopOf="@+id/team2Num_tv" />
+
+    <CheckBox
+        android:id="@+id/autonWorked1_cb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="CheckBox"
+        app:layout_constraintStart_toStartOf="@+id/team1Num_tv"
+        app:layout_constraintTop_toBottomOf="@+id/team1Num_tv" />
+
+    <CheckBox
+        android:id="@+id/autonWorked2_cb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="CheckBox"
+        app:layout_constraintStart_toStartOf="@+id/team2Num_tv"
+        app:layout_constraintTop_toBottomOf="@+id/team2Num_tv" />
+
+    <CheckBox
+        android:id="@+id/autonWorked3_cb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="CheckBox"
+        app:layout_constraintStart_toStartOf="@+id/team3Num_tv"
+        app:layout_constraintTop_toBottomOf="@+id/team3Num_tv" />
+
+    <Spinner
+        android:id="@+id/team1Defence"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="@+id/autonWorked1_cb"
+        app:layout_constraintTop_toBottomOf="@+id/autonWorked1_cb" />
+
+    <Spinner
+        android:id="@+id/team2Defence"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="@+id/autonWorked2_cb"
+        app:layout_constraintTop_toBottomOf="@+id/autonWorked2_cb" />
+
+    <Spinner
+        android:id="@+id/team3Defence"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="@+id/autonWorked3_cb"
+        app:layout_constraintTop_toBottomOf="@+id/autonWorked3_cb" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

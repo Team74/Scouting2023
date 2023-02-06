@@ -48,7 +48,7 @@ public class UpdatePostMatchData extends AppCompatActivity {
                 Log.d("testing123", String.valueOf(autoLowCubes1));
                 MyDataBaseHelper myDB = new MyDataBaseHelper(UpdatePostMatchData.this);
                 myDB.updateData(matchId, matchNum, team1Num, autoHighCones1, autoMidCones1, autoLowCones1, autoHighCubes1, autoMidCubes1, autoLowCubes1, teleOpHighCones1,
-                        teleOpMidCones1, teleOpLowCones1, teleOpHighCubes1, teleOpMidCubes1, teleOpLowCubes1, autoBalance1, teleOpBalance1);
+                        teleOpMidCones1, teleOpLowCones1, teleOpHighCubes1, teleOpMidCubes1, teleOpLowCubes1, autoBalance1, teleOpBalance1, 0,0,0);
 
                 Log.d("testing123", "Team Balance Int " + String.valueOf(autoBalance1));
 

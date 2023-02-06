@@ -59,7 +59,7 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
 
     public static final String COLUMN_teleOpBalance = "teleOpBalance";
 
-    public static final String COLUMN_autonPercent = "autonPercent";
+    public static final String COLUMN_autonWorked = "autonWorked";
     public static final String COLUMN_Broke = "broke";
     public static final String COLUMN_Defense = "Defence";
 
@@ -97,7 +97,7 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
                         COLUMN_teleOpCubesTotal + " INTEGER, " + //19
                         COLUMN_teleOpBalance + " INTEGER, " + // 20
 
-                        COLUMN_autonPercent + " INTEGER, " + // 21
+                        COLUMN_autonWorked + " INTEGER, " + // 21
                         COLUMN_Broke + " INTEGER, " + // 22
                         COLUMN_Defense + " INTEGER);"; // 23
 
@@ -115,14 +115,14 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
                   int autoHighCubes, int autoMidCubes, int autoLowCubes,
                   int teleHighCones, int teleMidCones, int teleLowCones,
                   int teleHighCubes, int teleMidCubes, int teleLowCubes,
-                  int autoBalance, int teleBalance) {
+                  int autoBalance, int teleBalance, int autonWorked, int broke, int defence) {
         long result = addMatch(matchNum, teamNum,
             autoHighCones, autoMidCones, autoLowCones,
             autoHighCubes, autoMidCubes, autoLowCubes,
             teleHighCones, teleMidCones, teleLowCones,
             teleHighCubes, teleMidCubes, teleLowCubes,
             autoBalance, teleBalance,
-            true);  // we want to see a toast!
+            true, autonWorked, broke, defence);  // we want to see a toast!
         return result;
     }
 
@@ -132,7 +132,7 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
                   int teleHighCones, int teleMidCones, int teleLowCones,
                   int teleHighCubes, int teleMidCubes, int teleLowCubes,
                   int autoBalance, int teleBalance,
-                  boolean dispToast) {
+                  boolean dispToast, int autonWorked, int broke, int defence) {
         Log.d("insertData", String.valueOf(teamNum));
         long result = addOrUpdateMatch(matchNum, teamNum,
                 autoHighCones, autoMidCones, autoLowCones,
@@ -141,7 +141,8 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
                 teleHighCubes, teleMidCubes, teleLowCubes,
                 autoBalance, teleBalance,
                 dispToast,  // user specified toasting
-                -1);  // we want to do an insert
+                -1,  // we want to do an insert
+                autonWorked, broke, defence);
         return result;
     }
 
@@ -151,7 +152,7 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
                   int teleHighCones, int teleMidCones, int teleLowCones,
                   int teleHighCubes, int teleMidCubes, int teleLowCubes,
                   int autoBalance, int teleBalance,
-                  boolean dispToast, int MatchID)
+                  boolean dispToast, int MatchID, int autonWorked, int broke, int defence)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -183,6 +184,9 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
         cv.put(COLUMN_teleOpCubesHigh, teleHighCubes);
         cv.put(COLUMN_teleOpCubesTotal, teleCubesTotal);
         cv.put(COLUMN_teleOpBalance, teleBalance);
+        cv.put(COLUMN_autonWorked, autonWorked);
+        cv.put(COLUMN_Broke, broke);
+        cv.put(COLUMN_Defense, defence);
 
         long result;
 
@@ -249,7 +253,7 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
                     int autoHighCubes, int autoMidCubes, int autoLowCubes,
                     int teleHighCones, int teleMidCones, int teleLowCones,
                     int teleHighCubes, int teleMidCubes, int teleLowCubes,
-                    int autoBalance, int teleBalance)
+                    int autoBalance, int teleBalance, int autonWorked, int broke, int defence)
     {
         Log.d("updateData", String.valueOf(teamNum));
         long result = addOrUpdateMatch(matchNum, teamNum,
@@ -259,7 +263,8 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
                 teleHighCubes, teleMidCubes, teleLowCubes,
                 autoBalance, teleBalance,
                 true,  // we want to see a toast!
-                MatchID);  // we want to update this match id
+                MatchID, // we want to update this match id
+                autonWorked, broke, defence);
         return result;
     }
 
@@ -345,7 +350,7 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
                         , r.nextInt(6) // int teleLowCubes,
                         , r.nextInt(1) // int autoBalance,  // (r.nextInt(2)==0) ? false : true;
                         , r.nextInt(1) // int teleBalance
-                        , false
+                        , false, 0,0,0
                 );
             }
         }

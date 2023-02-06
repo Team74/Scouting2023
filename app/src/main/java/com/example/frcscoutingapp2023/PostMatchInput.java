@@ -1,6 +1,5 @@
 package com.example.frcscoutingapp2023;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
@@ -8,19 +7,128 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
 
-public class PostMatchInput extends AppCompatActivity {
+public class PostMatchInput extends AppCompatActivity{
 
     Button pushBtn;
     Activity activity = PostMatchInput.this;
-    
+    TextView team1Num_tv, team2Num_tv, team3Num_tv;
+    Spinner team1Defence, team2Defence, team3Defence;
+    int defenceType1, defenceType2, defenceType3;
+    CheckBox autonWorked1_cb, autonWorked2_cb, autonWorked3_cb, broke1_cb, broke2_cb, broke3_cb;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post_match_input);
         
         pushBtn = findViewById(R.id.push_btn);
+        team1Num_tv = findViewById(R.id.team1Num_tv);
+        team2Num_tv = findViewById(R.id.team2Num_tv);
+        team3Num_tv = findViewById(R.id.team3Num_tv);
+
+        team1Defence = findViewById(R.id.team1Defence);
+        team2Defence = findViewById(R.id.team2Defence);
+        team3Defence = findViewById(R.id.team3Defence);
+
+        autonWorked1_cb = findViewById(R.id.autonWorked1_cb);
+        autonWorked2_cb = findViewById(R.id.autonWorked2_cb);
+        autonWorked3_cb = findViewById(R.id.autonWorked3_cb);
+        broke1_cb = findViewById(R.id.broke1_cb);
+        broke2_cb = findViewById(R.id.broke2_cb);
+        broke3_cb = findViewById(R.id.broke3_cb);
+
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.defence, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        team1Defence.setAdapter(adapter);
+        team1Defence.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                String defenceType = adapterView.getItemAtPosition(i).toString();
+                switch (defenceType){
+                    case "None":
+                        defenceType1 = 0;
+                        break;
+                    case "Defended":
+                        defenceType1 = 1;
+                        break;
+                    case "Got Defended":
+                        defenceType1 = 2;
+                        break;
+                    default:
+                        defenceType1 = 0;
+                }
+                Log.d("Defence", String.valueOf(defenceType1));
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+        team2Defence.setAdapter(adapter);
+        team2Defence.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                String defenceType = adapterView.getItemAtPosition(i).toString();
+                switch (defenceType){
+                    case "None":
+                        defenceType2 = 0;
+                        break;
+                    case "Defended":
+                        defenceType2 = 1;
+                        break;
+                    case "Got Defended":
+                        defenceType2 = 2;
+                        break;
+                    default:
+                        defenceType2 = 0;
+                }
+                Log.d("Defence", String.valueOf(defenceType2));
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+        team3Defence.setAdapter(adapter);
+        team3Defence.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                String defenceType = adapterView.getItemAtPosition(i).toString();
+                switch (defenceType){
+                    case "None":
+                        defenceType3 = 0;
+                        break;
+                    case "Defended":
+                        defenceType3 = 1;
+                        break;
+                    case "Got Defended":
+                        defenceType3 = 2;
+                        break;
+                    default:
+                        defenceType3 = 0;
+                }
+                Log.d("Defence", String.valueOf(defenceType3));
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+        getAndSetIntentData();
 
         pushBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,11 +154,26 @@ public class PostMatchInput extends AppCompatActivity {
                 int teleOpLowCubes1 = getIntent().getIntExtra("teleOpLowCubes1", 0);
                 int teleOpBalance1 = getIntent().getIntExtra("teleOpBalance1", 0);
 
-                Log.d("testing123", String.valueOf(autoLowCubes1));
+                //region Checkboxs
+                int autonWorked1;
+                if(autonWorked1_cb.isChecked())
+                {
+                    autonWorked1 = 1;
+                }else{
+                    autonWorked1 = 0;
+                }
+                int broke1;
+                if(broke1_cb.isChecked())
+                {
+                    broke1 = 1;
+                }else{
+                    broke1 = 0;
+                }
+                //endregion
 
                 MyDataBaseHelper myDB = new MyDataBaseHelper(PostMatchInput.this);
                 myDB.addMatch(matchNum, team1Num, autoHighCones1, autoMidCones1, autoLowCones1, autoHighCubes1, autoMidCubes1, autoLowCubes1, teleOpHighCones1,
-                        teleOpMidCones1, teleOpLowCones1, teleOpHighCubes1, teleOpMidCubes1, teleOpLowCubes1, autoBalance1, teleOpBalance1);
+                        teleOpMidCones1, teleOpLowCones1, teleOpHighCubes1, teleOpMidCubes1, teleOpLowCubes1, autoBalance1, teleOpBalance1, autonWorked1, broke1, defenceType1);
 
                 int autoHighCones2 = getIntent().getIntExtra("autoHighCones2", 0);
                 int autoMidCones2 = getIntent().getIntExtra("autoMidCones2", 0);
@@ -68,8 +191,25 @@ public class PostMatchInput extends AppCompatActivity {
                 int teleOpLowCubes2 = getIntent().getIntExtra("teleOpLowCubes2", 0);
                 int teleOpBalance2 = getIntent().getIntExtra("teleOpBalance2", 0);
 
+                //region Checkboxs
+                int autonWorked2;
+                if(autonWorked2_cb.isChecked())
+                {
+                    autonWorked2 = 1;
+                }else{
+                    autonWorked2 = 0;
+                }
+                int broke2;
+                if(broke2_cb.isChecked())
+                {
+                    broke2 = 1;
+                }else{
+                    broke2 = 0;
+                }
+                //endregion
+                
                 myDB.addMatch(matchNum, team2Num, autoHighCones2, autoMidCones2, autoLowCones2, autoHighCubes2, autoMidCubes2, autoLowCubes2, teleOpHighCones2,
-                        teleOpMidCones2, teleOpLowCones2, teleOpHighCubes2, teleOpMidCubes2, teleOpLowCubes2, autoBalance2, teleOpBalance2);
+                        teleOpMidCones2, teleOpLowCones2, teleOpHighCubes2, teleOpMidCubes2, teleOpLowCubes2, autoBalance2, teleOpBalance2, autonWorked2, broke2, defenceType2);
 
                 int autoHighCones3 = getIntent().getIntExtra("autoHighCones3", 0);
                 int autoMidCones3 = getIntent().getIntExtra("autoMidCones3", 0);
@@ -87,8 +227,25 @@ public class PostMatchInput extends AppCompatActivity {
                 int teleOpLowCubes3 = getIntent().getIntExtra("teleOpLowCubes3", 0);
                 int teleOpBalance3 = getIntent().getIntExtra("teleOpBalance3", 0);
 
+                //region Checkboxs
+                int autonWorked3;
+                if(autonWorked3_cb.isChecked())
+                {
+                    autonWorked3 = 1;
+                }else{
+                    autonWorked3 = 0;
+                }
+                int broke3;
+                if(broke3_cb.isChecked())
+                {
+                    broke3 = 1;
+                }else{
+                    broke3 = 0;
+                }
+                //endregion
+                
                 myDB.addMatch(matchNum, team3Num, autoHighCones3, autoMidCones3, autoLowCones3, autoHighCubes3, autoMidCubes3, autoLowCubes3, teleOpHighCones3,
-                        teleOpMidCones3, teleOpLowCones3, teleOpHighCubes3, teleOpMidCubes3, teleOpLowCubes3, autoBalance3, teleOpBalance3);
+                        teleOpMidCones3, teleOpLowCones3, teleOpHighCubes3, teleOpMidCubes3, teleOpLowCubes3, autoBalance3, teleOpBalance3, autonWorked3,broke3,defenceType3);
 
                 Intent intent = new Intent(PostMatchInput.this, MatchView.class);
                 activity.startActivityForResult(intent, 1);
@@ -152,6 +309,31 @@ public class PostMatchInput extends AppCompatActivity {
             }
         });
     }
+
+    void getAndSetIntentData()//TODO make sure it works with partial data
+    {
+        if ((getIntent().hasExtra("MatchNum"))) //TODO clean up
+        {
+            //region Getting
+            int team1Num = getIntent().getIntExtra("Team1Num", 0);
+            int team2Num = getIntent().getIntExtra("Team2Num", 0);
+            int team3Num = getIntent().getIntExtra("Team3Num", 0);
+            int matchNum = getIntent().getIntExtra("MatchNum", 0);
+
+            //endregion
+
+            //region Setting
+
+            team1Num_tv.setText(String.valueOf(team1Num));
+            team2Num_tv.setText(String.valueOf(team2Num));
+            team3Num_tv.setText(String.valueOf(team3Num));
+
+            //endregion
+        } else {
+            Toast.makeText(this, "No or Partial Data", Toast.LENGTH_SHORT).show();
+        }
+    }
+
 
     @Override
     public void onBackPressed()
