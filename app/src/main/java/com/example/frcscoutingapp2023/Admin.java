@@ -16,6 +16,7 @@ import android.os.storage.StorageManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.io.File;
@@ -25,6 +26,7 @@ public class Admin extends AppCompatActivity {
     EditText passwordInput;
     Button check;
     Context context = this;
+    ImageView secret;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,14 +35,19 @@ public class Admin extends AppCompatActivity {
 
         passwordInput = findViewById(R.id.passwordInput_et);
         check = findViewById(R.id.checkPassword_btn);
+        secret = findViewById(R.id.gullitine);
+        secret.setAlpha((float) 0);
 
         check.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(passwordInput.getText().toString().equals("chaos74"))
-                {
+                if(passwordInput.getText().toString().equals("chaos74")) {
                     Intent intent = new Intent(Admin.this, AdminPage.class);
                     startActivity(intent);
+                }
+                else if(passwordInput.getText().toString().equals("guillotine"))
+                {
+                    secret.setAlpha((float) 1);
                 }else{
                     Toast.makeText(context, "Not Correct", Toast.LENGTH_SHORT).show();
                     passwordInput.getText().clear();

@@ -3,6 +3,8 @@ package com.example.frcscoutingapp2023;
 import android.graphics.Typeface;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
@@ -14,16 +16,18 @@ import android.widget.TextView;
 
 import java.util.List;
 
-public class ScoutingReportActivity extends AppCompatActivity {
+public class ScoutingReportActivity extends AppCompatActivity{
 
     // These are used for sorting and filtering report tables
     protected String ReportFilteredTeamNumberStringList = "0";
     protected boolean ReportSortAsc = true;
     protected int ReportSortColumn = 0;
+    //MyDataBaseHelper myDB = new MyDataBaseHelper(this);
+
     // This interface is used for updating the sorting of a report when a heading is clicked
     public interface ReportUpdateCommand
     {
-        void update();
+        void update(String orderBy, String maxMin, String orderType);
     }
 
     // set layout background color
@@ -111,6 +115,7 @@ public class ScoutingReportActivity extends AppCompatActivity {
             // set an onclick handler for each header so we can update the sort when clicked
             hdrView.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
+                    String[] colomn = {"team_num", "autoConesTotal", "autoCubesTotal", "teleOpConesTotal", "teleOpCubesTotal"};
                     if (ReportSortColumn == headingIndex) {
                         // reverse the current sort order
                         ReportSortAsc = !ReportSortAsc;
@@ -123,7 +128,16 @@ public class ScoutingReportActivity extends AppCompatActivity {
                     }
                     // redisplay the entire table
                     // tbd this is used for sorting.  figure it out
-                    // reportUpdateCommand.update();
+                    if(ReportSortAsc == false)
+                    {
+                        reportUpdateCommand.update("DESC", "MAX", colomn[headingIndex]);
+                        Log.d("table123", "yes");
+                    }else{
+                        reportUpdateCommand.update("ASC", "MAX", colomn[headingIndex]);
+                        Log.d("table123", "no");
+                    }
+                    Log.d("table123", "Index is " + colomn[headingIndex]);
+
                 }
             });
             hdr.addView(hdrView);

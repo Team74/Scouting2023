@@ -336,12 +336,12 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
                 // now add random match data for that team
                 addMatch(matchNum
                         , teamNum
-                        , r.nextInt(1) // int autoHighCones,
-                        , r.nextInt(1) // int autoMidCones,
-                        , r.nextInt(1) // int autoLowCones,
-                        , r.nextInt(1) // int autoHighCubes,
-                        , r.nextInt(1) // int autoMidCubes,
-                        , r.nextInt(1) // int autoLowCubes,
+                        , r.nextInt(6) // int autoHighCones,
+                        , r.nextInt(6) // int autoMidCones,
+                        , r.nextInt(6) // int autoLowCones,
+                        , r.nextInt(6) // int autoHighCubes,
+                        , r.nextInt(6) // int autoMidCubes,
+                        , r.nextInt(6) // int autoLowCubes,
                         , r.nextInt(6) // int teleHighCones,
                         , r.nextInt(6) // int teleMidCones,
                         , r.nextInt(6) // int teleLowCones,
