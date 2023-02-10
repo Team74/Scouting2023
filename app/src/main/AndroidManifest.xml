@@ -26,6 +26,7 @@
         </activity>
         <activity
             android:name=".MatchDataTable"
+            android:parentActivityName=".DataReviewMain"
             android:exported="false"
             android:label="Team Review"
             android:screenOrientation="landscape">
@@ -35,6 +36,7 @@
         </activity>
         <activity
             android:name=".DataReviewMain"
+            android:parentActivityName=".MainActivity"
             android:exported="false"
             android:screenOrientation="landscape">
             <meta-data

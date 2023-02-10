@@ -12,7 +12,6 @@ import java.util.List;
 public class MatchDataTable extends ScoutingReportActivity{
 
     MyDataBaseHelper myDB;
-   int teamNumInput = 324;
 
     public class UpdateMatchDataTable implements ReportUpdateCommand {
 
@@ -22,10 +21,10 @@ public class MatchDataTable extends ScoutingReportActivity{
             String headings[] = {"Team #", "Max Auto Cones", "Max Auto Cubes", "Max Tele Cones", "Max Tele Cubes"};
 
             String query = "SELECT " + myDB.COLUMN_TEAMNUM +
-                    " , MAX(autoConesTotal) AS Max_autoConesTotal " +
-                    " , MAX(autoCubesTotal) AS Max_autoCubesTotal " +
-                    " , MAX(teleOpConesTotal) AS Max_teleOpConesTotal " +
-                    " , MAX(teleOpCubesTotal) AS Max_teleOpCubesTotal " +
+                    " , ROUND(AVG(autoConesTotal), 2) AS Max_autoConesTotal " +
+                    " , ROUND(AVG(autoCubesTotal), 2) AS Max_autoCubesTotal " +
+                    " , ROUND(AVG(teleOpConesTotal), 2) AS Max_teleOpConesTotal " +
+                    " , ROUND(AVG(teleOpCubesTotal), 2) AS Max_teleOpCubesTotal " +
                     " FROM " + myDB.TABLE_NAME +
                     " GROUP BY " + myDB.COLUMN_TEAMNUM +
                     " ORDER BY " + orderType + " " + orderBy + " ";

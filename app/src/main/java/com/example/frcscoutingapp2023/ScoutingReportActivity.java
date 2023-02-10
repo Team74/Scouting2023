@@ -115,7 +115,7 @@ public class ScoutingReportActivity extends AppCompatActivity{
             // set an onclick handler for each header so we can update the sort when clicked
             hdrView.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-                    String[] colomn = {"team_num", "autoConesTotal", "autoCubesTotal", "teleOpConesTotal", "teleOpCubesTotal"};
+                    String[] colomn = {"team_num", "Max_autoConesTotal", "Max_autoCubesTotal", "Max_teleOpConesTotal", "Max_teleOpCubesTotal"};
                     if (ReportSortColumn == headingIndex) {
                         // reverse the current sort order
                         ReportSortAsc = !ReportSortAsc;
