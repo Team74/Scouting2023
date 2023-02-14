@@ -27,7 +27,7 @@ public class ScoutingReportActivity extends AppCompatActivity{
     // This interface is used for updating the sorting of a report when a heading is clicked
     public interface ReportUpdateCommand
     {
-        void update(String orderBy, String maxMin, String orderType);
+        void update(String orderBy, String orderType);
     }
 
     // set layout background color
@@ -115,7 +115,8 @@ public class ScoutingReportActivity extends AppCompatActivity{
             // set an onclick handler for each header so we can update the sort when clicked
             hdrView.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-                    String[] colomn = {"team_num", "Max_autoConesTotal", "Max_autoCubesTotal", "Max_teleOpConesTotal", "Max_teleOpCubesTotal"};
+                    //make sure this list has both the simple and advance strings
+                    String[] columns = {"team_num", "Max_autoConesTotal", "Max_autoCubesTotal", "Max_teleOpConesTotal", "Max_teleOpCubesTotal", "Max_autoBalance"};
                     if (ReportSortColumn == headingIndex) {
                         // reverse the current sort order
                         ReportSortAsc = !ReportSortAsc;
@@ -130,13 +131,13 @@ public class ScoutingReportActivity extends AppCompatActivity{
                     // tbd this is used for sorting.  figure it out
                     if(ReportSortAsc == false)
                     {
-                        reportUpdateCommand.update("DESC", "MAX", colomn[headingIndex]);
+                        reportUpdateCommand.update("DESC", columns[headingIndex]);
                         Log.d("table123", "yes");
                     }else{
-                        reportUpdateCommand.update("ASC", "MAX", colomn[headingIndex]);
+                        reportUpdateCommand.update("ASC", columns[headingIndex]);
                         Log.d("table123", "no");
                     }
-                    Log.d("table123", "Index is " + colomn[headingIndex]);
+                    Log.d("table123", "Index is " + columns[headingIndex]);
 
                 }
             });
