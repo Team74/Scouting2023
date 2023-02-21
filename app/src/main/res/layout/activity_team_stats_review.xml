@@ -6,124 +6,88 @@
     android:layout_height="match_parent"
     tools:context=".TeamStatsReview">
 
-    <TextView
-        android:id="@+id/textView20"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="High "
-        tools:layout_editor_absoluteX="412dp"
-        tools:layout_editor_absoluteY="179dp" />
-
-    <TextView
-        android:id="@+id/textView21"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Mid"
-        tools:layout_editor_absoluteX="464dp"
-        tools:layout_editor_absoluteY="179dp" />
-
-    <TextView
-        android:id="@+id/textView22"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Low"
-        tools:layout_editor_absoluteX="519dp"
-        tools:layout_editor_absoluteY="179dp" />
-
-    <TextView
-        android:id="@+id/textView23"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Broke %"
-        tools:layout_editor_absoluteX="602dp"
-        tools:layout_editor_absoluteY="179dp" />
-
-    <TextView
-        android:id="@+id/textView24"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Auton %"
-        tools:layout_editor_absoluteX="674dp"
-        tools:layout_editor_absoluteY="179dp" />
-
-    <EditText
-        android:id="@+id/teamNumInput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:ems="10"
-        android:hint="Team Number"
-        android:inputType="number"
+    <TableLayout
+        android:id="@+id/matchDataTableHeader"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/matchDataTableHeader">
+
+        <TableLayout
+            android:id="@+id/matchDataTable"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </ScrollView>
+
+    <Switch
+        android:id="@+id/switch1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@color/black"
+        android:backgroundTint="#FFFFFF"
+        android:text="Max?"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/teamInput_et"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:ems="10"
+        android:inputType="number"
+        android:text="Name"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/radioGroup"
+        app:layout_constraintTop_toTopOf="@+id/radioGroup" />
+
     <Button
-        android:id="@+id/teamSummit_btn"
+        android:id="@+id/updateTable"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="@+id/teamNumInput"
-        app:layout_constraintStart_toEndOf="@+id/teamNumInput"
-        app:layout_constraintTop_toTopOf="@+id/teamNumInput" />
+        android:text="update"
+        app:layout_constraintStart_toEndOf="@+id/teamInput_et"
+        app:layout_constraintTop_toTopOf="@+id/teamInput_et" />
 
-    <TextView
-        android:id="@+id/avgCones"
+    <RadioGroup
+        android:id="@+id/radioGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="120dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="@+id/teamNumInput"
-        app:layout_constraintHorizontal_bias="0.802"
-        app:layout_constraintStart_toStartOf="@+id/teamNumInput"
-        app:layout_constraintTop_toBottomOf="@+id/teamNumInput" />
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/white"
+        android:backgroundTint="#FEFEFE"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/switch1">
 
-    <TextView
-        android:id="@+id/textView16"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Auton"
-        tools:layout_editor_absoluteX="72dp"
-        tools:layout_editor_absoluteY="182dp" />
+        <RadioButton
+            android:id="@+id/radioSimple"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Simple" />
 
-    <TextView
-        android:id="@+id/textView18"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Cones"
-        tools:layout_editor_absoluteX="155dp"
-        tools:layout_editor_absoluteY="143dp" />
+        <RadioButton
+            android:id="@+id/radioAdvance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Advance" />
 
-    <TextView
-        android:id="@+id/textView19"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Cubes"
-        tools:layout_editor_absoluteX="235dp"
-        tools:layout_editor_absoluteY="143dp" />
+        <RadioButton
+            android:id="@+id/radioAll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="All" />
+    </RadioGroup>
 
-    <TextView
-        android:id="@+id/textView17"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TeleOp"
-        tools:layout_editor_absoluteX="65dp"
-        tools:layout_editor_absoluteY="257dp" />
-
-    <TextView
-        android:id="@+id/textView25"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Total"
-        tools:layout_editor_absoluteX="65dp"
-        tools:layout_editor_absoluteY="305dp" />
-
-    <TextView
-        android:id="@+id/textView26"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Total"
-        tools:layout_editor_absoluteX="306dp"
-        tools:layout_editor_absoluteY="143dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

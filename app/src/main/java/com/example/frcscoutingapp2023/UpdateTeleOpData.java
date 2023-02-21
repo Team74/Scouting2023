@@ -211,6 +211,10 @@ public class UpdateTeleOpData extends AppCompatActivity implements AdapterView.O
                 int autoHighCubeInt = getIntent().getIntExtra("autoCubesHigh", 0);
                 int autoTeamBalanceInt = getIntent().getIntExtra("autoBalance", 0);
 
+                int brokeInt = getIntent().getIntExtra("Broke", 0);
+                int defenceInt = getIntent().getIntExtra("Defence", 0);
+                int autonWorkedInt = getIntent().getIntExtra("AutonWorked", 0);
+
                 Intent intent = new Intent(UpdateTeleOpData.this, UpdatePostMatchData.class);
                 intent.putExtra("Team1Num", team1Num);
                 intent.putExtra("MatchNum", matchNum);
@@ -231,6 +235,10 @@ public class UpdateTeleOpData extends AppCompatActivity implements AdapterView.O
                 intent.putExtra("autoCubesMid", autoMidCubeInt);
                 intent.putExtra("autoCubesLow", autoLowCubeInt);
                 intent.putExtra("autoBalance", autoTeamBalanceInt);
+
+                intent.putExtra("Broke", brokeInt);
+                intent.putExtra("Defence", defenceInt);
+                intent.putExtra("AutonWorked", autonWorkedInt);
 
                 Log.d("testing123", "Team Balance Int " + String.valueOf(autoTeamBalanceInt));
                 activity.startActivityForResult(intent, 1);

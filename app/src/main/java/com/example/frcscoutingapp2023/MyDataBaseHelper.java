@@ -5,11 +5,15 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.net.Uri;
 import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
+import com.opencsv.CSVReader;
+
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -348,14 +352,78 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
                         , r.nextInt(6) // int teleHighCubes,
                         , r.nextInt(6) // int teleMidCubes,
                         , r.nextInt(6) // int teleLowCubes,
-                        , r.nextInt(1) // int autoBalance,  // (r.nextInt(2)==0) ? false : true;
-                        , r.nextInt(1) // int teleBalance
-                        , false, 0,0,0
+                        , r.nextInt(4) // int autoBalance,  // (r.nextInt(2)==0) ? false : true;
+                        , r.nextInt(4) // int teleBalance
+                        , false,
+                        r.nextInt(2),
+                        r.nextInt(2),
+                        r.nextInt(3)
                 );
             }
         }
 
         Toast.makeText(context, "Sample Data Created", Toast.LENGTH_SHORT).show();
     }
+
+        /* public void importTeamData(Uri teamDataUri) {
+        try {
+            // make sure DB started
+
+            // open file and attach a file reader to the uri
+            FileReader fileReader = new FileReader(
+                    this.getDatabaseName()
+                            .openFileDescriptor(teamDataUri, "r")
+                            .getFileDescriptor()
+            );
+
+            // now attach a CSV reader to file reader
+            CSVReader reader = new CSVReader(fileReader);
+
+            // create a CSV and DB record that we will fill in
+            String[] csvLine;
+            entityTeamData = new EntityTeamData();
+
+            // for each record returned from the CSV file, add a record to DB
+            while ((csvLine = reader.readNext()) != null) {
+
+                // check for the CSV header row and skip it
+                if (csvLine[0].equals("TeamNumber")) {
+                    continue;
+                }
+
+                // initial CSV import files for events will only have team number and name
+                if (csvLine.length == 2) {
+                    entityTeamData.TeamNumber = Integer.valueOf(csvLine[0]);
+                    entityTeamData.TeamName = csvLine[1];
+                } else {
+                    // convert all the data strings to the appropriate DB type
+                    entityTeamData.TeamNumber = Integer.valueOf(csvLine[0]);
+                    entityTeamData.TeamName = csvLine[1];
+                    entityTeamData.PitScouter = csvLine[2];
+                    entityTeamData.RobotWeight = Integer.valueOf(csvLine[3]);
+                    entityTeamData.ShootingLocation1 = Boolean.valueOf(csvLine[4]);
+                    entityTeamData.ShootingLocation2 = Boolean.valueOf(csvLine[5]);
+                    entityTeamData.ShootingLocation3 = Boolean.valueOf(csvLine[6]);
+                    entityTeamData.StartLocationLeft = Boolean.valueOf(csvLine[7]);
+                    entityTeamData.StartLocationCenter = Boolean.valueOf(csvLine[8]);
+                    entityTeamData.StartLocationRight = Boolean.valueOf(csvLine[9]);
+                }
+
+                // if it's a valid record...
+                // TBD: are there other things would we NOT want in the DB?
+                if (entityTeamData.TeamNumber>0) {
+                    // ...add the team data record to the DB
+                    daoTeamData.insert(entityTeamData);
+                }
+            }
+            // close the CSV file
+            reader.close();
+            Toast.makeText(this, "TeamData CSV file successfully imported", Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(this, "Error reading TeamData CSV file", Toast.LENGTH_SHORT).show();
+        }
+    }*/
+
 
 }

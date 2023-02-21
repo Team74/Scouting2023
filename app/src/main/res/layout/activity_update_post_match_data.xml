@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="CheckBox"
+        android:text="Broke?"
         app:layout_constraintStart_toStartOf="@+id/team1_update_Defence"
         app:layout_constraintTop_toBottomOf="@+id/team1_update_Defence" />
 
@@ -28,7 +28,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="CheckBox"
+        android:text="Auton Worked?"
         app:layout_constraintStart_toStartOf="@+id/team1Num_update_tv"
         app:layout_constraintTop_toBottomOf="@+id/team1Num_update_tv" />
 

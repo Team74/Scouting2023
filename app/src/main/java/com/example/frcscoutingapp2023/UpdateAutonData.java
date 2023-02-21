@@ -215,6 +215,10 @@ public class UpdateAutonData extends AppCompatActivity implements AdapterView.On
                 int teleMidCubeInt = getIntent().getIntExtra("teleCubesMid", 0);
                 int teleHighCubeInt = getIntent().getIntExtra("teleCubesHigh", 0);
                 int teleTeamBalanceInt = getIntent().getIntExtra("teleBalance", 0);
+
+                int brokeInt = getIntent().getIntExtra("Broke", 0);
+                int defenceInt = getIntent().getIntExtra("Defence", 0);
+                int autonWorkedInt = getIntent().getIntExtra("AutonWorked", 0);
                 
                 Intent intent = new Intent(UpdateAutonData.this, UpdateTeleOpData.class);
                 intent.putExtra("Team1Num", team1Num);
@@ -236,6 +240,10 @@ public class UpdateAutonData extends AppCompatActivity implements AdapterView.On
                 intent.putExtra("teleCubesMid", teleMidCubeInt);
                 intent.putExtra("teleCubesLow", teleLowCubeInt);
                 intent.putExtra("teleBalance", teleTeamBalanceInt);
+
+                intent.putExtra("Broke", brokeInt);
+                intent.putExtra("Defence", defenceInt);
+                intent.putExtra("AutonWorked", autonWorkedInt);
                 
                 activity.startActivityForResult(intent, 1);
             }

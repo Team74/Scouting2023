@@ -20,9 +20,12 @@ public class UpdatePreMatchData extends AppCompatActivity {
     int matchId;
     int matchNumInt, teamNumInt, autoConesLowInt, autoConesMidInt, autoConesHighInt, autoCubesLowInt, autoCubesMidInt, autoCubesHighInt, autoBalanceInt,
     teleConesLowInt, teleConesMidInt, teleConesHighInt, teleCubesLowInt, teleCubesMidInt, teleCubesHighInt, teleBalanceInt;
+
+    int brokeInt, defenceInt, autonWorkedInt;
     
     ArrayList al_matchNum, al_teamNum, al_autoConesLow, al_autoConesMid, al_autoConesHigh, al_autoCubesLow, al_autoCubesMid, al_autoCubesHigh, al_autoBalance,
             al_teleConesLow, al_teleConesMid, al_teleConesHigh, al_teleCubesLow, al_teleCubesMid, al_teleCubesHigh, al_teleBalance;
+    ArrayList al_broke, al_autonWorked, al_defence;
 
     MyDataBaseHelper myDB = new MyDataBaseHelper(UpdatePreMatchData.this);
 
@@ -53,6 +56,10 @@ public class UpdatePreMatchData extends AppCompatActivity {
         al_teleCubesMid = new ArrayList<>();
         al_teleCubesHigh = new ArrayList<>();
         al_teleBalance = new ArrayList<>();
+
+        al_broke = new ArrayList<>();
+        al_defence = new ArrayList<>();
+        al_autonWorked = new ArrayList<>();
         //endregion
 
         teamNumInput_et = findViewById(R.id.team1_input_et);
@@ -96,6 +103,10 @@ public class UpdatePreMatchData extends AppCompatActivity {
 
                     intent.putExtra("autoBalance", autoBalanceInt);
                     intent.putExtra("teleBalance", teleBalanceInt);
+
+                    intent.putExtra("Broke", brokeInt);
+                    intent.putExtra("Defence", defenceInt);
+                    intent.putExtra("AutonWorked", autonWorkedInt);
                     activity.startActivityForResult(intent, 1);
                 }
             }
@@ -133,6 +144,10 @@ public class UpdatePreMatchData extends AppCompatActivity {
                 al_teleCubesMid.add(cursor.getString(17));
                 al_teleCubesHigh.add(cursor.getString(18));
                 al_teleBalance.add(cursor.getString(20));
+
+                al_broke.add(cursor.getString(22));
+                al_defence.add(cursor.getString(23));
+                al_autonWorked.add(cursor.getString(21));
             }
             while(cursor.moveToNext()); //TODO make it strings and not ids
 
@@ -156,6 +171,11 @@ public class UpdatePreMatchData extends AppCompatActivity {
         teleCubesMidInt = Integer.parseInt(al_teleCubesMid.get(matchId-1).toString());
         teleCubesHighInt = Integer.parseInt(al_teleCubesHigh.get(matchId-1).toString());
         teleBalanceInt = Integer.parseInt(al_teleBalance.get(matchId-1).toString());
+
+        autonWorkedInt = Integer.parseInt(al_autonWorked.get(matchId-1).toString());
+        brokeInt = Integer.parseInt(al_broke.get(matchId-1).toString());
+        defenceInt = Integer.parseInt(al_defence.get(matchId-1).toString());
+
         Log.d("testing123", String.valueOf(autoCubesLowInt));
         
     }

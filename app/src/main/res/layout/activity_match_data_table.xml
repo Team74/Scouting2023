@@ -9,26 +9,22 @@
     <TableLayout
         android:id="@+id/matchDataTableHeader"
         android:layout_width="match_parent"
-        android:layout_height="30dp" />
+        android:layout_height="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/matchDataTableHeader"
-        tools:layout_editor_absoluteX="-119dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/matchDataTableHeader">
 
             <TableLayout
                 android:id="@+id/matchDataTable"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
-        </LinearLayout>
     </ScrollView>
 
     <Switch
@@ -43,13 +39,35 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Switch
-        android:id="@+id/advSimple"
+    <RadioGroup
+        android:id="@+id/radioGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
         android:background="@color/white"
-        android:text="Advance"
-        app:layout_constraintBottom_toBottomOf="@+id/switch1"
-        app:layout_constraintStart_toEndOf="@+id/switch1" />
+        android:backgroundTint="#FEFEFE"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/switch1">
+
+        <RadioButton
+            android:id="@+id/radioSimple"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Simple" />
+
+        <RadioButton
+            android:id="@+id/radioAdvance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Advance" />
+
+        <RadioButton
+            android:id="@+id/radioAll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="All" />
+    </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

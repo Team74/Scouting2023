@@ -14,6 +14,7 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class ScoutingReportActivity extends AppCompatActivity{
@@ -90,7 +91,7 @@ public class ScoutingReportActivity extends AppCompatActivity{
         // get handle to display table (TableLayout)
         TableLayout table = (TableLayout)findViewById(tableId);
         table.removeAllViews();
-
+        Log.d("string array124", Arrays.deepToString(headerStrings));
         // create a common layout param group for all of our rows
         TableRow.LayoutParams lpRow = new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT, headerStrings.length);
         TableRow.LayoutParams lpItem = new TableRow.LayoutParams(0, TableRow.LayoutParams.MATCH_PARENT, 1);
@@ -99,7 +100,7 @@ public class ScoutingReportActivity extends AppCompatActivity{
         TableRow hdr = new TableRow(this);
         hdr.setLayoutParams(lpRow);
         hdr.setBackgroundResource(R.color.colorWhiteBackground);
-
+        Log.d("table123", String.valueOf(headerStrings.length));
         // add each heading string to our header row
         for(int i = 0; i < headerStrings.length; i++) {
             final int headingIndex = i; // needs to be final for onClick
@@ -116,7 +117,7 @@ public class ScoutingReportActivity extends AppCompatActivity{
             hdrView.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                     //make sure this list has both the simple and advance strings
-                    String[] columns = {"team_num", "Max_autoConesTotal", "Max_autoCubesTotal", "Max_teleOpConesTotal", "Max_teleOpCubesTotal", "Max_autoBalance"};
+                    String[] columns = {"team_num", "Max_autoPiecesTotal", "Max_teleOpConesTotal", "Max_teleOpCubesTotal", "Max_teleOpCubesTotal", "Max_autoBalance"};
                     if (ReportSortColumn == headingIndex) {
                         // reverse the current sort order
                         ReportSortAsc = !ReportSortAsc;

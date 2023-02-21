@@ -36,9 +36,24 @@ public class UpdatePostMatchData extends AppCompatActivity {
         teamNum = findViewById(R.id.team1Num_update_tv);
         teamNum.setText(String.valueOf(getIntent().getIntExtra("Team1Num", 0)));
 
+        if(getIntent().getIntExtra("Broke", 0) == 1)
+        {
+            broke1_cb.setChecked(true);
+        }else{
+            broke1_cb.setChecked(false);
+        }
+        if(getIntent().getIntExtra("AutonWorked", 0) == 1)
+        {
+            autonWorked1_cb.setChecked(true);
+        }else{
+            autonWorked1_cb.setChecked(false);
+        }
+
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.defence, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         defence.setAdapter(adapter);
+        defenceType1 = getIntent().getIntExtra("Defence", 0);
+        defence.setSelection(defenceType1);
         defence.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
