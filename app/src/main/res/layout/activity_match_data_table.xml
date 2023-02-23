@@ -6,26 +6,27 @@
     android:layout_height="match_parent"
     tools:context=".MatchDataTable">
 
-    <TableLayout
-        android:id="@+id/matchDataTableHeader"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ScrollView
-        android:id="@+id/scrollView2"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/matchDataTableHeader">
 
             <TableLayout
-                android:id="@+id/matchDataTable"
+                android:id="@+id/matchDataTableHeader"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-    </ScrollView>
+                android:layout_height="30dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ScrollView
+                android:id="@+id/scrollView2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/matchDataTableHeader">
+
+                <TableLayout
+                    android:id="@+id/matchDataTable"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </ScrollView>
 
     <Switch
         android:id="@+id/switch1"

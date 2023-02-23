@@ -22,8 +22,9 @@ public class MatchDataTable extends ScoutingReportActivity{
     RadioGroup radioGroup;
     RadioButton radioButton;
     int radioIndex = 0;
+    String simpleData = "";
     String advData = "";
-    String allData = ""; //TODO add a way to scale horizontally
+    String allData = ""; //TODO Decide if its better to have all data show just the weird data or have all of the data just small
 
     //region TeleOp Points and Auton Points strings
     String totalTeleopPoints = "(teleOpConesLow * 2) + (teleOpConesMid * 3) + (teleOpConesHigh * 5) + (teleOpCubesLow * 2) + (teleOpCubesMid * 3) + (teleOpCubesHigh * 5)";
@@ -37,19 +38,16 @@ public class MatchDataTable extends ScoutingReportActivity{
             // get all the data records from the DB
             String simpleColumns[] = {myDB.COLUMN_TEAMNUM, "Total_Points", "Max_autoPiecesTotal","Max_teleOpConesTotal", "Max_teleOpCubesTotal"};
             String advColumns[] = {"MAX_autoBalance", "_teleOpBalance", "_autoConesTotal", "_autoCubesTotal", "_autonWorked", "_broke", "_Defence"};
-            String allColumns[] = {"_autoConesLow, _autoConesMid, _autoConesHigh, _autoCubesLow, _autoCubesMid, _autoCubesHigh, " +
-                    "_teleOpConesLow, _teleOpConesMid, _teleOpConesHigh, _teleOpCubesLow, _teleOpCubesMid, _teleOpCubesHigh,"};
+            String allColumns[] = {"_autoConesLow", "_autoConesMid", "_autoConesHigh", "_autoCubesLow", "_autoCubesMid", "_autoCubesHigh",
+                    "_teleOpConesLow", "_teleOpConesMid", "_teleOpConesHigh", "_teleOpCubesLow", "_teleOpCubesMid", "_teleOpCubesHigh"};
 
             String simpleHeadings[] = {"Team #", "Total Points", "Avg Auto Cubes", "Avg Tele Cones", "Avg Tele Cubes"};
             String advHeadings[] = {"Auton Balance", "_teleOpBalance", "_autoConesTotal", "_autoCubesTotal", "_autonWorked", "_broke", "_Defence"};
-            String allHeadings[] = {"_autoConesLow, _autoConesMid, _autoConesHigh, _autoCubesLow, _autoCubesMid, _autoCubesHigh, " +
-                    "_teleOpConesLow, _teleOpConesMid, _teleOpConesHigh, _teleOpCubesLow, _teleOpCubesMid, _teleOpCubesHigh,"};
+            String allHeadings[] = {"Team #", "_autoConesLow", "_autoConesMid", "_autoConesHigh", "_autoCubesLow", "_autoCubesMid", "_autoCubesHigh",
+                    "_teleOpConesLow", "_teleOpConesMid", "_teleOpConesHigh", "_teleOpCubesLow", "_teleOpCubesMid", "_teleOpCubesHigh"};
 
             String query = "SELECT " + myDB.COLUMN_TEAMNUM +
-                    " , ROUND("+ minMax + " (" + totalTeleopPoints + "+" + totalAutoPoints + "), 2) AS Total_Points " +
-                    " , ROUND("+ minMax + "(autoCubesTotal + autoConesTotal), 2) AS Max_autoPiecesTotal " +
-                    " , ROUND("+ minMax + "(teleOpConesTotal), 2) AS Max_teleOpConesTotal " +
-                    " , ROUND("+ minMax + "(teleOpCubesTotal), 2) AS Max_teleOpCubesTotal " +
+                    simpleData +
                     advData + allData +
                     " FROM " + myDB.TABLE_NAME +
                     " GROUP BY " + myDB.COLUMN_TEAMNUM +
@@ -69,10 +67,8 @@ public class MatchDataTable extends ScoutingReportActivity{
                 AddHeaderStringsAsRowToReportTable(R.id.matchDataTableHeader,
                         simpleHeadings, this, 10);
             } else if (radioIndex == 2) {
-                String[] headings1 = combine2Strings(simpleHeadings, advHeadings);
-                String[] headings2 = combine2Strings(headings1, allHeadings);
                 AddHeaderStringsAsRowToReportTable(R.id.matchDataTableHeader,
-                        headings2, this, 10);
+                        allHeadings, this, 10);
             }
 
 
@@ -86,10 +82,12 @@ public class MatchDataTable extends ScoutingReportActivity{
                 do {
                     // add each data value to an array of strings
                     List<String> values = new ArrayList<String>();
-                    for (String col : simpleColumns) {
-                        Integer idx = cursor.getColumnIndex(col);
-                        if (idx >= 0) {
-                            values.add(cursor.getString(idx));
+                    if(radioIndex == 0 || radioIndex ==1) {
+                        for (String col : simpleColumns) {
+                            Integer idx = cursor.getColumnIndex(col);
+                            if (idx >= 0) {
+                                values.add(cursor.getString(idx));
+                            }
                         }
                     }
                     if(radioIndex == 1)
@@ -103,12 +101,6 @@ public class MatchDataTable extends ScoutingReportActivity{
                     }
                     if(radioIndex == 2)
                     {
-                        for (String col : advColumns) {
-                            Integer idx = cursor.getColumnIndex(col);
-                            if (idx >= 0) {
-                                values.add(cursor.getString(idx));
-                            }
-                        }
                         for (String col : allColumns) {
                             Integer idx = cursor.getColumnIndex(col);
                             if (idx >= 0) {
@@ -131,6 +123,11 @@ public class MatchDataTable extends ScoutingReportActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_match_data_table);
+
+        simpleData = " , ROUND("+ minMax + " (" + totalTeleopPoints + "+" + totalAutoPoints + "), 2) AS Total_Points " +
+                    " , ROUND("+ minMax + "(autoCubesTotal + autoConesTotal), 2) AS Max_autoPiecesTotal " +
+                    " , ROUND("+ minMax + "(teleOpConesTotal), 2) AS Max_teleOpConesTotal " +
+                    " , ROUND("+ minMax + "(teleOpCubesTotal), 2) AS Max_teleOpCubesTotal ";
 
         myDB = new MyDataBaseHelper(MatchDataTable.this);
         minMaxSwitch = findViewById(R.id.switch1);

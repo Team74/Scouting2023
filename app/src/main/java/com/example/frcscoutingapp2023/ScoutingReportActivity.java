@@ -31,6 +31,7 @@ public class ScoutingReportActivity extends AppCompatActivity{
         void update(String orderBy, String orderType);
     }
 
+    //region set background color UNUSED
     // set layout background color
     protected void SetLayoutBackgroundColor(int layoutId, String teamColor) {
         if (layoutId != 0) {
@@ -43,6 +44,7 @@ public class ScoutingReportActivity extends AppCompatActivity{
         }
     }
 
+
     // this sets layout background color
     protected void UpdateCommonLayoutItems(int layoutId) {
         if (layoutId != 0) {
@@ -50,7 +52,9 @@ public class ScoutingReportActivity extends AppCompatActivity{
             // SetLayoutBackgroundColor(layoutId, "Red");
         }
     }
+    //endregion
 
+    //region  add string to spinner UNUSED
     // add strings to spinner and set font size
     protected void AddStringsToSpinner(int spinnerViewId, List<String> stringList, final int fontSize) {
         if ((spinnerViewId != 0) && (stringList != null)) {
@@ -84,6 +88,7 @@ public class ScoutingReportActivity extends AppCompatActivity{
             });
         }
     }
+    //endregion
 
     // add heading strings to specified table.  used for reports.
     protected void AddHeaderStringsAsRowToReportTable(int tableId, String[] headerStrings,
@@ -113,6 +118,7 @@ public class ScoutingReportActivity extends AppCompatActivity{
             hdrView.setTypeface(null, (ReportSortColumn == headingIndex) ? Typeface.BOLD_ITALIC : Typeface.BOLD);
             hdrView.setPadding(2, 0, 2, 0);
             hdrView.setGravity(Gravity.CENTER);
+            Log.d("table test", String.valueOf(table.getMeasuredWidth()));
             // set an onclick handler for each header so we can update the sort when clicked
             hdrView.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
