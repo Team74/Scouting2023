@@ -176,6 +176,7 @@ public class AdminPage extends AppCompatActivity {
     void importCSV(String mCSVfile)
     {
         Context context = this;
+        mCSVfile = "test_data.csv";
         AssetManager manager = context.getAssets();
         InputStream inStream = null;
         try {
@@ -193,44 +194,44 @@ public class AdminPage extends AppCompatActivity {
         try {
             while ((line = buffer.readLine()) != null) {
                 String[] colums = line.split(",");
-                if (colums.length != 22) {
-                    Log.d("CSVParser", "Skipping Bad CSV Row");
+                Log.d("path123", String.valueOf(colums.length));
+                if (colums.length != 23) {
+                    Log.d("path123", "Skipping Bad CSV Row");
                     continue;
                 }
                 ContentValues cv = new ContentValues(3);
-                cv.put(myDB.COLUMN_ID, colums[0].trim());
-                cv.put(myDB.COLUMN_MATCHNUM, colums[1].trim());
-                cv.put(myDB.COLUMN_TEAMNUM, colums[2].trim());
+                cv.put(myDB.COLUMN_MATCHNUM, colums[0].trim());
+                cv.put(myDB.COLUMN_TEAMNUM, colums[1].trim());
                 
-                cv.put(myDB.COLUMN_autoConesLow, colums[3].trim());
-                cv.put(myDB.COLUMN_autoConesMid, colums[4].trim());
-                cv.put(myDB.COLUMN_autoConesHigh, colums[5].trim());
-                cv.put(myDB.COLUMN_autoConesTotal, colums[6].trim());
-                cv.put(myDB.COLUMN_autoCubesLow, colums[7].trim());
-                cv.put(myDB.COLUMN_autoCubesMid, colums[8].trim());
-                cv.put(myDB.COLUMN_autoCubesHigh, colums[9].trim());
-                cv.put(myDB.COLUMN_autoCubesTotal, colums[10].trim());
-                cv.put(myDB.COLUMN_autoBalance, colums[11].trim());
+                cv.put(myDB.COLUMN_autoConesLow, colums[2].trim());
+                cv.put(myDB.COLUMN_autoConesMid, colums[3].trim());
+                cv.put(myDB.COLUMN_autoConesHigh, colums[4].trim());
+                cv.put(myDB.COLUMN_autoConesTotal, colums[5].trim());
+                cv.put(myDB.COLUMN_autoCubesLow, colums[6].trim());
+                cv.put(myDB.COLUMN_autoCubesMid, colums[7].trim());
+                cv.put(myDB.COLUMN_autoCubesHigh, colums[8].trim());
+                cv.put(myDB.COLUMN_autoCubesTotal, colums[9].trim());
+                cv.put(myDB.COLUMN_autoBalance, colums[10].trim());
 
-                cv.put(myDB.COLUMN_teleOpConesLow, colums[12].trim());
-                cv.put(myDB.COLUMN_teleOpConesMid, colums[13].trim());
-                cv.put(myDB.COLUMN_teleOpConesHigh, colums[14].trim());
-                cv.put(myDB.COLUMN_teleOpConesTotal, colums[15].trim());
-                cv.put(myDB.COLUMN_teleOpCubesLow, colums[16].trim());
-                cv.put(myDB.COLUMN_teleOpCubesMid, colums[17].trim());
-                cv.put(myDB.COLUMN_teleOpCubesHigh, colums[18].trim());
-                cv.put(myDB.COLUMN_teleOpCubesTotal, colums[19].trim());
-                cv.put(myDB.COLUMN_teleOpBalance, colums[20].trim());
+                cv.put(myDB.COLUMN_teleOpConesLow, colums[11].trim());
+                cv.put(myDB.COLUMN_teleOpConesMid, colums[12].trim());
+                cv.put(myDB.COLUMN_teleOpConesHigh, colums[13].trim());
+                cv.put(myDB.COLUMN_teleOpConesTotal, colums[14].trim());
+                cv.put(myDB.COLUMN_teleOpCubesLow, colums[15].trim());
+                cv.put(myDB.COLUMN_teleOpCubesMid, colums[16].trim());
+                cv.put(myDB.COLUMN_teleOpCubesHigh, colums[17].trim());
+                cv.put(myDB.COLUMN_teleOpCubesTotal, colums[18].trim());
+                cv.put(myDB.COLUMN_teleOpBalance, colums[19].trim());
 
-                cv.put(myDB.COLUMN_autonWorked, colums[21].trim());
-                cv.put(myDB.COLUMN_Broke, colums[22].trim());
-                cv.put(myDB.COLUMN_Defense, colums[23].trim());
+                cv.put(myDB.COLUMN_autonWorked, colums[20].trim());
+                cv.put(myDB.COLUMN_Broke, colums[21].trim());
+                cv.put(myDB.COLUMN_Defense, colums[22].trim());
 
                 db.insert("Match_Data", null, cv);
-                Log.d("import csv", "yes");
+                Log.d("path123", "yes");
             }
         } catch (IOException e) {
-            Log.d("import csv", "no");
+            Log.d("path123", "no");
             e.printStackTrace();
         }
     }
