@@ -192,6 +192,7 @@ public class AdminPage extends AppCompatActivity {
         MyDataBaseHelper myDB = new MyDataBaseHelper(this);
         SQLiteDatabase db = myDB.getWritableDatabase();
         try {
+            boolean skipLine = true;
             while ((line = buffer.readLine()) != null) {
                 String[] colums = line.split(",");
                 Log.d("path123", String.valueOf(colums.length));
@@ -199,36 +200,41 @@ public class AdminPage extends AppCompatActivity {
                     Log.d("path123", "Skipping Bad CSV Row");
                     continue;
                 }
-                ContentValues cv = new ContentValues(3);
-                cv.put(myDB.COLUMN_MATCHNUM, colums[0].trim());
-                cv.put(myDB.COLUMN_TEAMNUM, colums[1].trim());
-                
-                cv.put(myDB.COLUMN_autoConesLow, colums[2].trim());
-                cv.put(myDB.COLUMN_autoConesMid, colums[3].trim());
-                cv.put(myDB.COLUMN_autoConesHigh, colums[4].trim());
-                cv.put(myDB.COLUMN_autoConesTotal, colums[5].trim());
-                cv.put(myDB.COLUMN_autoCubesLow, colums[6].trim());
-                cv.put(myDB.COLUMN_autoCubesMid, colums[7].trim());
-                cv.put(myDB.COLUMN_autoCubesHigh, colums[8].trim());
-                cv.put(myDB.COLUMN_autoCubesTotal, colums[9].trim());
-                cv.put(myDB.COLUMN_autoBalance, colums[10].trim());
 
-                cv.put(myDB.COLUMN_teleOpConesLow, colums[11].trim());
-                cv.put(myDB.COLUMN_teleOpConesMid, colums[12].trim());
-                cv.put(myDB.COLUMN_teleOpConesHigh, colums[13].trim());
-                cv.put(myDB.COLUMN_teleOpConesTotal, colums[14].trim());
-                cv.put(myDB.COLUMN_teleOpCubesLow, colums[15].trim());
-                cv.put(myDB.COLUMN_teleOpCubesMid, colums[16].trim());
-                cv.put(myDB.COLUMN_teleOpCubesHigh, colums[17].trim());
-                cv.put(myDB.COLUMN_teleOpCubesTotal, colums[18].trim());
-                cv.put(myDB.COLUMN_teleOpBalance, colums[19].trim());
+                if(!skipLine) { //TODO do the parse int for all of them.
+                    ContentValues cv = new ContentValues();
+                    cv.put(myDB.COLUMN_MATCHNUM, colums[0].trim());
+                    cv.put(myDB.COLUMN_TEAMNUM, Integer.parseInt(colums[1].trim().substring(1,colums[1].length()-1)));
 
-                cv.put(myDB.COLUMN_autonWorked, colums[20].trim());
-                cv.put(myDB.COLUMN_Broke, colums[21].trim());
-                cv.put(myDB.COLUMN_Defense, colums[22].trim());
+                    cv.put(myDB.COLUMN_autoConesLow, colums[2].trim());
+                    cv.put(myDB.COLUMN_autoConesMid, colums[3].trim());
+                    cv.put(myDB.COLUMN_autoConesHigh, colums[4].trim());
+                    cv.put(myDB.COLUMN_autoConesTotal, colums[5].trim());
+                    cv.put(myDB.COLUMN_autoCubesLow, colums[6].trim());
+                    cv.put(myDB.COLUMN_autoCubesMid, colums[7].trim());
+                    cv.put(myDB.COLUMN_autoCubesHigh, colums[8].trim());
+                    cv.put(myDB.COLUMN_autoCubesTotal, colums[9].trim());
+                    cv.put(myDB.COLUMN_autoBalance, colums[10].trim());
 
-                db.insert("Match_Data", null, cv);
-                Log.d("path123", "yes");
+                    cv.put(myDB.COLUMN_teleOpConesLow, colums[11].trim());
+                    cv.put(myDB.COLUMN_teleOpConesMid, colums[12].trim());
+                    cv.put(myDB.COLUMN_teleOpConesHigh, colums[13].trim());
+                    cv.put(myDB.COLUMN_teleOpConesTotal, colums[14].trim());
+                    cv.put(myDB.COLUMN_teleOpCubesLow, colums[15].trim());
+                    cv.put(myDB.COLUMN_teleOpCubesMid, colums[16].trim());
+                    cv.put(myDB.COLUMN_teleOpCubesHigh, colums[17].trim());
+                    cv.put(myDB.COLUMN_teleOpCubesTotal, colums[18].trim());
+                    cv.put(myDB.COLUMN_teleOpBalance, colums[19].trim());
+
+                    cv.put(myDB.COLUMN_autonWorked, Integer.parseInt(colums[1].trim().substring(1,colums[20].length()-1)));
+                    cv.put(myDB.COLUMN_Broke, colums[21].trim());
+                    cv.put(myDB.COLUMN_Defense, colums[22].trim());
+
+                    db.insert("Match_Data", null, cv);
+                    Log.d("path123", "yes");
+                }else{
+                    skipLine = false;
+                }
             }
         } catch (IOException e) {
             Log.d("path123", "no");

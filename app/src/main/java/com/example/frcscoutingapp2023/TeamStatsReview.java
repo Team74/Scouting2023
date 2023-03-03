@@ -150,7 +150,7 @@ public class TeamStatsReview extends ScoutingReportActivity{
             @Override
             public void onClick(View view) {
                 teamInputNum = teamInput_et.getText().toString();
-                updateMatchDataTable.update("DESC", "match_num");
+                updateMatchDataTable.update("DESC", "match_num");//TODO check if it is a vaild number
             }
         });
 
