@@ -20,6 +20,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.opencsv.CSVReader;
+import com.opencsv.exceptions.CsvValidationException;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -173,74 +176,75 @@ public class AdminPage extends AppCompatActivity {
         }
     }
 
-    void importCSV(String mCSVfile)
+    void importCSV(Uri csvFileUri)
     {
         Context context = this;
-        mCSVfile = "test_data.csv";
-        AssetManager manager = context.getAssets();
-        InputStream inStream = null;
-        try {
-            inStream = manager.open(mCSVfile);
-            Log.d("path123", "confirm");
-        } catch (IOException e) {
-            Log.d("path123", "error");
-            e.printStackTrace();
-        }
 
-        BufferedReader buffer = new BufferedReader(new InputStreamReader(inStream));
-        String line = "";
-        MyDataBaseHelper myDB = new MyDataBaseHelper(this);
-        SQLiteDatabase db = myDB.getWritableDatabase();
         try {
-            boolean skipLine = true;
-            while ((line = buffer.readLine()) != null) {
-                String[] colums = line.split(",");
-                Log.d("path123", String.valueOf(colums.length));
-                if (colums.length != 23) {
-                    Log.d("path123", "Skipping Bad CSV Row");
+            MyDataBaseHelper myDB = new MyDataBaseHelper(this);
+            SQLiteDatabase db = myDB.getWritableDatabase();
+
+            // open file and attach a file reader to the uri
+            FileReader fileReader = new FileReader(
+                    this.getContentResolver()
+                            .openFileDescriptor(csvFileUri, "r")
+                            .getFileDescriptor()
+            );
+
+            // now attach a CSV reader to file reader
+            CSVReader reader = new CSVReader(fileReader);
+
+            // create a CSV and DB record that we will fill in
+            String[] csvLine;
+
+            // for each record returned from the CSV file, add a record to DB
+            while ((csvLine = reader.readNext()) != null) {
+
+                // check for the CSV header row and skip it
+                if (csvLine[0].equals("match_num")) {
                     continue;
                 }
 
-                if(!skipLine) { //TODO do the parse int for all of them.
-                    ContentValues cv = new ContentValues();
-                    cv.put(myDB.COLUMN_MATCHNUM, Integer.parseInt(colums[0].trim().substring(1,colums[0].length()-1)));
-                    cv.put(myDB.COLUMN_TEAMNUM, Integer.parseInt(colums[1].trim().substring(1,colums[1].length()-1)));
+                ContentValues cv = new ContentValues();
+                cv.put(myDB.COLUMN_MATCHNUM, Integer.parseInt(csvLine[0]));
+                cv.put(myDB.COLUMN_TEAMNUM, Integer.parseInt(csvLine[1]));
 
-                    cv.put(myDB.COLUMN_autoConesLow, Integer.parseInt(colums[2].trim().substring(1,colums[2].length()-1)));
-                    cv.put(myDB.COLUMN_autoConesMid, Integer.parseInt(colums[3].trim().substring(1,colums[3].length()-1)));
-                    cv.put(myDB.COLUMN_autoConesHigh, Integer.parseInt(colums[4].trim().substring(1,colums[4].length()-1)));
-                    cv.put(myDB.COLUMN_autoConesTotal, Integer.parseInt(colums[5].trim().substring(1,colums[5].length()-1)));
-                    cv.put(myDB.COLUMN_autoCubesLow, Integer.parseInt(colums[6].trim().substring(1,colums[6].length()-1)));
-                    cv.put(myDB.COLUMN_autoCubesMid, Integer.parseInt(colums[7].trim().substring(1,colums[7].length()-1)));
-                    cv.put(myDB.COLUMN_autoCubesHigh, Integer.parseInt(colums[8].trim().substring(1,colums[8].length()-1)));
-                    cv.put(myDB.COLUMN_autoCubesTotal, Integer.parseInt(colums[9].trim().substring(1,colums[9].length()-1)));
-                    cv.put(myDB.COLUMN_autoBalance, Integer.parseInt(colums[10].trim().substring(1,colums[10].length()-1)));
+                cv.put(myDB.COLUMN_autoConesLow, Integer.parseInt(csvLine[2]));
+                cv.put(myDB.COLUMN_autoConesMid, Integer.parseInt(csvLine[3]));
+                cv.put(myDB.COLUMN_autoConesHigh, Integer.parseInt(csvLine[4]));
+                cv.put(myDB.COLUMN_autoConesTotal, Integer.parseInt(csvLine[5]));
+                cv.put(myDB.COLUMN_autoCubesLow, Integer.parseInt(csvLine[6]));
+                cv.put(myDB.COLUMN_autoCubesMid, Integer.parseInt(csvLine[7]));
+                cv.put(myDB.COLUMN_autoCubesHigh, Integer.parseInt(csvLine[8]));
+                cv.put(myDB.COLUMN_autoCubesTotal, Integer.parseInt(csvLine[9]));
+                cv.put(myDB.COLUMN_autoBalance, Integer.parseInt(csvLine[10]));
 
-                    cv.put(myDB.COLUMN_teleOpConesLow, Integer.parseInt(colums[11].trim().substring(1,colums[11].length()-1)));
-                    cv.put(myDB.COLUMN_teleOpConesMid, Integer.parseInt(colums[12].trim().substring(1,colums[12].length()-1)));
-                    cv.put(myDB.COLUMN_teleOpConesHigh, Integer.parseInt(colums[13].trim().substring(1,colums[13].length()-1)));
-                    cv.put(myDB.COLUMN_teleOpConesTotal, Integer.parseInt(colums[14].trim().substring(1,colums[14].length()-1)));
-                    cv.put(myDB.COLUMN_teleOpCubesLow, Integer.parseInt(colums[15].trim().substring(1,colums[15].length()-1)));
-                    cv.put(myDB.COLUMN_teleOpCubesMid, Integer.parseInt(colums[16].trim().substring(1,colums[16].length()-1)));
-                    cv.put(myDB.COLUMN_teleOpCubesHigh, Integer.parseInt(colums[17].trim().substring(1,colums[17].length()-1)));
-                    cv.put(myDB.COLUMN_teleOpCubesTotal, Integer.parseInt(colums[18].trim().substring(1,colums[18].length()-1)));
-                    cv.put(myDB.COLUMN_teleOpBalance, Integer.parseInt(colums[19].trim().substring(1,colums[19].length()-1)));
+                cv.put(myDB.COLUMN_teleOpConesLow, Integer.parseInt(csvLine[11]));
+                cv.put(myDB.COLUMN_teleOpConesMid, Integer.parseInt(csvLine[12]));
+                cv.put(myDB.COLUMN_teleOpConesHigh, Integer.parseInt(csvLine[13]));
+                cv.put(myDB.COLUMN_teleOpConesTotal, Integer.parseInt(csvLine[14]));
+                cv.put(myDB.COLUMN_teleOpCubesLow, Integer.parseInt(csvLine[15]));
+                cv.put(myDB.COLUMN_teleOpCubesMid, Integer.parseInt(csvLine[16]));
+                cv.put(myDB.COLUMN_teleOpCubesHigh, Integer.parseInt(csvLine[17]));
+                cv.put(myDB.COLUMN_teleOpCubesTotal, Integer.parseInt(csvLine[18]));
+                cv.put(myDB.COLUMN_teleOpBalance, Integer.parseInt(csvLine[19]));
 
-                    cv.put(myDB.COLUMN_autonWorked, Integer.parseInt(colums[20].trim().substring(1,colums[20].length()-1)));
-                    cv.put(myDB.COLUMN_Broke, Integer.parseInt(colums[21].trim().substring(1,colums[21].length()-1)));
-                    cv.put(myDB.COLUMN_Defense, Integer.parseInt(colums[22].trim().substring(1,colums[22].length()-1)));
+                cv.put(myDB.COLUMN_autonWorked, Integer.parseInt(csvLine[20]));
+                cv.put(myDB.COLUMN_Broke, Integer.parseInt(csvLine[21]));
+                cv.put(myDB.COLUMN_Defense, Integer.parseInt(csvLine[22]));
 
-                    db.insert("Match_Data", null, cv);
-                    Toast.makeText(context, "Imported CSV", Toast.LENGTH_SHORT).show();
-                    Log.d("path123", "yes");
-                }else{
-                    skipLine = false;
-                }
+                db.insert("Match_Data", null, cv);
+                Toast.makeText(context, "Imported CSV", Toast.LENGTH_SHORT).show();
+                Log.d("path123", "yes");
+
             }
         } catch (IOException e) {
             Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
             Log.d("path123", "no");
             e.printStackTrace();
+
+        } catch (CsvValidationException e) {
+            throw new RuntimeException(e);
         }
     }
 
