@@ -203,40 +203,42 @@ public class AdminPage extends AppCompatActivity {
 
                 if(!skipLine) { //TODO do the parse int for all of them.
                     ContentValues cv = new ContentValues();
-                    cv.put(myDB.COLUMN_MATCHNUM, colums[0].trim());
+                    cv.put(myDB.COLUMN_MATCHNUM, Integer.parseInt(colums[0].trim().substring(1,colums[0].length()-1)));
                     cv.put(myDB.COLUMN_TEAMNUM, Integer.parseInt(colums[1].trim().substring(1,colums[1].length()-1)));
 
-                    cv.put(myDB.COLUMN_autoConesLow, colums[2].trim());
-                    cv.put(myDB.COLUMN_autoConesMid, colums[3].trim());
-                    cv.put(myDB.COLUMN_autoConesHigh, colums[4].trim());
-                    cv.put(myDB.COLUMN_autoConesTotal, colums[5].trim());
-                    cv.put(myDB.COLUMN_autoCubesLow, colums[6].trim());
-                    cv.put(myDB.COLUMN_autoCubesMid, colums[7].trim());
-                    cv.put(myDB.COLUMN_autoCubesHigh, colums[8].trim());
-                    cv.put(myDB.COLUMN_autoCubesTotal, colums[9].trim());
-                    cv.put(myDB.COLUMN_autoBalance, colums[10].trim());
+                    cv.put(myDB.COLUMN_autoConesLow, Integer.parseInt(colums[2].trim().substring(1,colums[2].length()-1)));
+                    cv.put(myDB.COLUMN_autoConesMid, Integer.parseInt(colums[3].trim().substring(1,colums[3].length()-1)));
+                    cv.put(myDB.COLUMN_autoConesHigh, Integer.parseInt(colums[4].trim().substring(1,colums[4].length()-1)));
+                    cv.put(myDB.COLUMN_autoConesTotal, Integer.parseInt(colums[5].trim().substring(1,colums[5].length()-1)));
+                    cv.put(myDB.COLUMN_autoCubesLow, Integer.parseInt(colums[6].trim().substring(1,colums[6].length()-1)));
+                    cv.put(myDB.COLUMN_autoCubesMid, Integer.parseInt(colums[7].trim().substring(1,colums[7].length()-1)));
+                    cv.put(myDB.COLUMN_autoCubesHigh, Integer.parseInt(colums[8].trim().substring(1,colums[8].length()-1)));
+                    cv.put(myDB.COLUMN_autoCubesTotal, Integer.parseInt(colums[9].trim().substring(1,colums[9].length()-1)));
+                    cv.put(myDB.COLUMN_autoBalance, Integer.parseInt(colums[10].trim().substring(1,colums[10].length()-1)));
 
-                    cv.put(myDB.COLUMN_teleOpConesLow, colums[11].trim());
-                    cv.put(myDB.COLUMN_teleOpConesMid, colums[12].trim());
-                    cv.put(myDB.COLUMN_teleOpConesHigh, colums[13].trim());
-                    cv.put(myDB.COLUMN_teleOpConesTotal, colums[14].trim());
-                    cv.put(myDB.COLUMN_teleOpCubesLow, colums[15].trim());
-                    cv.put(myDB.COLUMN_teleOpCubesMid, colums[16].trim());
-                    cv.put(myDB.COLUMN_teleOpCubesHigh, colums[17].trim());
-                    cv.put(myDB.COLUMN_teleOpCubesTotal, colums[18].trim());
-                    cv.put(myDB.COLUMN_teleOpBalance, colums[19].trim());
+                    cv.put(myDB.COLUMN_teleOpConesLow, Integer.parseInt(colums[11].trim().substring(1,colums[11].length()-1)));
+                    cv.put(myDB.COLUMN_teleOpConesMid, Integer.parseInt(colums[12].trim().substring(1,colums[12].length()-1)));
+                    cv.put(myDB.COLUMN_teleOpConesHigh, Integer.parseInt(colums[13].trim().substring(1,colums[13].length()-1)));
+                    cv.put(myDB.COLUMN_teleOpConesTotal, Integer.parseInt(colums[14].trim().substring(1,colums[14].length()-1)));
+                    cv.put(myDB.COLUMN_teleOpCubesLow, Integer.parseInt(colums[15].trim().substring(1,colums[15].length()-1)));
+                    cv.put(myDB.COLUMN_teleOpCubesMid, Integer.parseInt(colums[16].trim().substring(1,colums[16].length()-1)));
+                    cv.put(myDB.COLUMN_teleOpCubesHigh, Integer.parseInt(colums[17].trim().substring(1,colums[17].length()-1)));
+                    cv.put(myDB.COLUMN_teleOpCubesTotal, Integer.parseInt(colums[18].trim().substring(1,colums[18].length()-1)));
+                    cv.put(myDB.COLUMN_teleOpBalance, Integer.parseInt(colums[19].trim().substring(1,colums[19].length()-1)));
 
-                    cv.put(myDB.COLUMN_autonWorked, Integer.parseInt(colums[1].trim().substring(1,colums[20].length()-1)));
-                    cv.put(myDB.COLUMN_Broke, colums[21].trim());
-                    cv.put(myDB.COLUMN_Defense, colums[22].trim());
+                    cv.put(myDB.COLUMN_autonWorked, Integer.parseInt(colums[20].trim().substring(1,colums[20].length()-1)));
+                    cv.put(myDB.COLUMN_Broke, Integer.parseInt(colums[21].trim().substring(1,colums[21].length()-1)));
+                    cv.put(myDB.COLUMN_Defense, Integer.parseInt(colums[22].trim().substring(1,colums[22].length()-1)));
 
                     db.insert("Match_Data", null, cv);
+                    Toast.makeText(context, "Imported CSV", Toast.LENGTH_SHORT).show();
                     Log.d("path123", "yes");
                 }else{
                     skipLine = false;
                 }
             }
         } catch (IOException e) {
+            Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
             Log.d("path123", "no");
             e.printStackTrace();
         }

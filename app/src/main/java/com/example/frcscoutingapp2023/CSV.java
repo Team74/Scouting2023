@@ -14,8 +14,12 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class CSV {
 
@@ -51,8 +55,9 @@ public class CSV {
             } else {
 
                 // makes the filepath
+                String currentDate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
                 String androidId = Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
-                String filePath = baseDir + File.separator + "MatchData-" + androidId + ".csv";
+                String filePath = baseDir + File.separator + "MatchData-" + androidId + currentDate + ".csv";
 
                 // creates file and attaches CSV writer to it
                 CSVWriter writer = new CSVWriter(new FileWriter(filePath, false));

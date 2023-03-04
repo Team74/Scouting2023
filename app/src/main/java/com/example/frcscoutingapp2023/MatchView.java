@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ import java.util.ArrayList;
 public class MatchView extends AppCompatActivity {
 
     RecyclerView recyclerView;
-    FloatingActionButton add_button;
+    ExtendedFloatingActionButton add_button, add_one_btn;
 
     MyDataBaseHelper myDB;
     ArrayList<String> _id, matchNum, teamNum, autonTotal, teleCones, teleCubes, scout_balance;//todo make it not just strings
@@ -35,11 +36,20 @@ public class MatchView extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recyclerView);
         add_button = findViewById(R.id.addMatchButton);
+        add_one_btn = findViewById(R.id.addMatchButton2);
 
         add_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MatchView.this, PreMatchInput.class);
+                startActivity(intent);
+            }
+        });
+
+        add_one_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MatchView.this, UpdatePreMatchData.class);
                 startActivity(intent);
             }
         });

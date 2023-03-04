@@ -66,7 +66,13 @@ public class UpdatePreMatchData extends AppCompatActivity {
         matchNumInput_et = findViewById(R.id.matchNum_input_et);
         nextButton = findViewById(R.id.toAutonButton);
 
-        getIntentData();
+        Intent intent = getIntent();
+        if(intent.hasExtra("id"))
+        {
+            getIntentData();
+        }else{
+
+        }
 
         teamNumInput_et.setText(String.valueOf(teamNumInt));
         matchNumInput_et.setText(String.valueOf(matchNumInt));

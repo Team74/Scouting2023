@@ -85,8 +85,11 @@ public class UpdatePostMatchData extends AppCompatActivity {
             public void onClick(View view) {
                 int team1Num = getIntent().getIntExtra("Team1Num", 0);
                 int matchNum = getIntent().getIntExtra("MatchNum", 0);
-                int matchId = getIntent().getIntExtra("MatchID", 0);
-
+                int matchId = 0;
+                if(getIntent().hasExtra("MatchId"))
+                {
+                    matchId = getIntent().getIntExtra("MatchID", 0);
+                }
                 int autoHighCones1 = getIntent().getIntExtra("autoConesHigh", 0);
                 int autoMidCones1 = getIntent().getIntExtra("autoConesMid", 0);
                 int autoLowCones1 = getIntent().getIntExtra("autoConesLow", 0);
@@ -122,8 +125,15 @@ public class UpdatePostMatchData extends AppCompatActivity {
 
                 Log.d("testing123", String.valueOf(autoLowCubes1));
                 MyDataBaseHelper myDB = new MyDataBaseHelper(UpdatePostMatchData.this);
-                myDB.updateData(matchId, matchNum, team1Num, autoHighCones1, autoMidCones1, autoLowCones1, autoHighCubes1, autoMidCubes1, autoLowCubes1, teleOpHighCones1,
-                        teleOpMidCones1, teleOpLowCones1, teleOpHighCubes1, teleOpMidCubes1, teleOpLowCubes1, autoBalance1, teleOpBalance1, autonWorked1,broke1,defenceType1);
+
+                if(getIntent().hasExtra("MatchId"))
+                {
+                    myDB.updateData(matchId, matchNum, team1Num, autoHighCones1, autoMidCones1, autoLowCones1, autoHighCubes1, autoMidCubes1, autoLowCubes1, teleOpHighCones1,
+                            teleOpMidCones1, teleOpLowCones1, teleOpHighCubes1, teleOpMidCubes1, teleOpLowCubes1, autoBalance1, teleOpBalance1, autonWorked1,broke1,defenceType1);
+                }else{
+                    myDB.addMatch(matchNum, team1Num, autoHighCones1, autoMidCones1, autoLowCones1, autoHighCubes1, autoMidCubes1, autoLowCubes1, teleOpHighCones1,
+                            teleOpMidCones1, teleOpLowCones1, teleOpHighCubes1, teleOpMidCubes1, teleOpLowCubes1, autoBalance1, teleOpBalance1, autonWorked1,broke1,defenceType1);
+                }
 
                 Log.d("testing123", "Team Balance Int " + String.valueOf(autoBalance1));
 

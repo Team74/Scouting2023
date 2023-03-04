@@ -11,4 +11,6 @@
         <item>Defended</item>
         <item>Got Defended</item>
     </string-array>
+    <string name="plus3">+3</string>
+    <string name="plus1">+1</string>
 </resources>
