@@ -50,6 +50,7 @@ public class MatchView extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MatchView.this, UpdatePreMatchData.class);
+                intent.putExtra("update", -1);
                 startActivity(intent);
             }
         });

@@ -41,7 +41,7 @@ public class Admin extends AppCompatActivity {
         check.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(passwordInput.getText().toString().equals("chaos74")) {
+                if(passwordInput.getText().toString().equals("ch33z")) {
                     Intent intent = new Intent(Admin.this, AdminPage.class);
                     startActivity(intent);
                 }

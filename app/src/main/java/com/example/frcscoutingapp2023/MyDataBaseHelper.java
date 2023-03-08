@@ -358,7 +358,7 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
                         , false,
                         r.nextInt(2),
                         r.nextInt(2),
-                        r.nextInt(3)
+                        r.nextInt(3) - 1
                 );
             }
         }

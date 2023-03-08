@@ -66,7 +66,7 @@ public class UpdatePostMatchData extends AppCompatActivity {
                         defenceType1 = 1;
                         break;
                     case "Got Defended":
-                        defenceType1 = 2;
+                        defenceType1 = -1;
                         break;
                     default:
                         defenceType1 = 0;
@@ -85,8 +85,8 @@ public class UpdatePostMatchData extends AppCompatActivity {
             public void onClick(View view) {
                 int team1Num = getIntent().getIntExtra("Team1Num", 0);
                 int matchNum = getIntent().getIntExtra("MatchNum", 0);
-                int matchId = 0;
-                if(getIntent().hasExtra("MatchId"))
+                int matchId = getIntent().getIntExtra("MatchID", 0);
+                if(getIntent().getIntExtra("id", 0) != -1)
                 {
                     matchId = getIntent().getIntExtra("MatchID", 0);
                 }
@@ -126,7 +126,8 @@ public class UpdatePostMatchData extends AppCompatActivity {
                 Log.d("testing123", String.valueOf(autoLowCubes1));
                 MyDataBaseHelper myDB = new MyDataBaseHelper(UpdatePostMatchData.this);
 
-                if(getIntent().hasExtra("MatchId"))
+                Log.d("path123", String.valueOf(matchId));
+                if(matchId != -1)
                 {
                     myDB.updateData(matchId, matchNum, team1Num, autoHighCones1, autoMidCones1, autoLowCones1, autoHighCubes1, autoMidCubes1, autoLowCubes1, teleOpHighCones1,
                             teleOpMidCones1, teleOpLowCones1, teleOpHighCubes1, teleOpMidCubes1, teleOpLowCubes1, autoBalance1, teleOpBalance1, autonWorked1,broke1,defenceType1);

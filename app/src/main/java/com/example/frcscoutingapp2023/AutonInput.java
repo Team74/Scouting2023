@@ -17,6 +17,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.Checkable;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -53,6 +55,8 @@ public class AutonInput extends AppCompatActivity {
 
     int highConeInt3 = 0, midConeInt3 = 0, lowConeInt3 = 0, highCubeInt3 = 0, midCubeInt3 = 0, lowCubeInt3 = 0;
     int team3BalanceInt;
+
+    CheckBox auton1_ch, auton2_ch, auton3_ch;
 
     Activity activity = AutonInput.this; //make sure the activity is defined
 
@@ -157,6 +161,10 @@ public class AutonInput extends AppCompatActivity {
 
         highCone1.setText(String.valueOf(highConeInt1));
 
+        auton1_ch = findViewById(R.id.auton1);
+        auton2_ch = findViewById(R.id.auton2);
+        auton3_ch = findViewById(R.id.auton3);
+
         getAndSetIntentData();
 
         highCone1.setText(String.valueOf(highConeInt1));
@@ -179,6 +187,7 @@ public class AutonInput extends AppCompatActivity {
         highCube3.setText(String.valueOf(highCubeInt3));
         midCube3.setText(String.valueOf(midCubeInt3));
         lowCube3.setText(String.valueOf(lowCubeInt3));
+
 
 
 
@@ -622,6 +631,12 @@ public class AutonInput extends AppCompatActivity {
                 intent.putExtra("autoLowCubes3", lowCubeInt3);
                 intent.putExtra("autoBalance3", team3BalanceInt);
 
+                Log.d("path123", String.valueOf(auton1_ch.isChecked()));
+                intent.putExtra("auton1Worked", auton1_ch.isChecked() ? 1 : 0);
+                intent.putExtra("auton2Worked", auton2_ch.isChecked() ? 1 : 0);
+                intent.putExtra("auton3Worked", auton3_ch.isChecked() ? 1 : 0);
+
+
                 Log.d("testing123", String.valueOf(lowCubeInt1));
 
                 activity.startActivityForResult(intent, 1);
@@ -638,12 +653,15 @@ public class AutonInput extends AppCompatActivity {
             //Setting intent from data
             team1Name = String.valueOf(getIntent().getIntExtra("Team1Num", 0));
             team1Num_tv.setText(team1Name);
+            auton1_ch.setText(team1Name + " Auton Worked");
 
             team2Name = String.valueOf(getIntent().getIntExtra("Team2Num", 0));
             team2Num_tv.setText(team2Name);
+            auton2_ch.setText(team2Name + " Auton Worked");
 
             team3Name = String.valueOf(getIntent().getIntExtra("Team3Num", 0));
             team3Num_tv.setText(team3Name);
+            auton3_ch.setText(team3Name + " Auton Worked");
 
         }else{
             Toast.makeText(this, "No or Partial Data", Toast.LENGTH_SHORT).show();

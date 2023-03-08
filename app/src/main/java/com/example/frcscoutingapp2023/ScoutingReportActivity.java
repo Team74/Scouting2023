@@ -123,7 +123,8 @@ public class ScoutingReportActivity extends AppCompatActivity{
             hdrView.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                     //make sure this list has both the simple and advance strings
-                    String[] columns = {"team_num", "Max_autoPiecesTotal", "Max_teleOpConesTotal", "Max_teleOpCubesTotal", "Max_teleOpCubesTotal", "Max_autoBalance"};
+                    String[] columns = {"team_num", "Total_Points", "Max_autoPiecesTotal","Max_teleOpConesTotal", "Max_teleOpCubesTotal",
+                            "MAX_autoBalance", "_teleOpBalance", "_autoConesTotal", "_autoCubesTotal", "_autonWorked", "_broke", "_Defence"};
                     if (ReportSortColumn == headingIndex) {
                         // reverse the current sort order
                         ReportSortAsc = !ReportSortAsc;

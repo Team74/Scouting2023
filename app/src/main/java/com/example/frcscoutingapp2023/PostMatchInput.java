@@ -60,7 +60,7 @@ public class PostMatchInput extends AppCompatActivity{
                         defenceType1 = 1;
                         break;
                     case "Got Defended":
-                        defenceType1 = 2;
+                        defenceType1 = -1;
                         break;
                     default:
                         defenceType1 = 0;
@@ -87,7 +87,7 @@ public class PostMatchInput extends AppCompatActivity{
                         defenceType2 = 1;
                         break;
                     case "Got Defended":
-                        defenceType2 = 2;
+                        defenceType2 = -1;
                         break;
                     default:
                         defenceType2 = 0;
@@ -114,7 +114,7 @@ public class PostMatchInput extends AppCompatActivity{
                         defenceType3 = 1;
                         break;
                     case "Got Defended":
-                        defenceType3 = 2;
+                        defenceType3 = -1;
                         break;
                     default:
                         defenceType3 = 0;
@@ -320,9 +320,18 @@ public class PostMatchInput extends AppCompatActivity{
             int team3Num = getIntent().getIntExtra("Team3Num", 0);
             int matchNum = getIntent().getIntExtra("MatchNum", 0);
 
+            Intent intent = this.getIntent();
+            int auton1 = getIntent().getIntExtra("auton1Worked", 1);
+            int auton2 = getIntent().getIntExtra("auton2Worked", 1);
+            int auton3 = getIntent().getIntExtra("auton3Worked", 1);
             //endregion
 
+            Log.d("path123", String.valueOf(auton1));
             //region Setting
+
+            autonWorked1_cb.setChecked(auton1 == 1);
+            autonWorked2_cb.setChecked(auton2 == 1);
+            autonWorked3_cb.setChecked(auton3 == 1);
 
             team1Num_tv.setText(String.valueOf(team1Num));
             team2Num_tv.setText(String.valueOf(team2Num));

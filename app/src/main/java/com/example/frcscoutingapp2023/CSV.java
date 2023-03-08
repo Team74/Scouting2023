@@ -20,6 +20,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.Random;
 
 public class CSV {
 
@@ -45,9 +46,10 @@ public class CSV {
     }
 
     // export MatchData to CSV
-    public void exportMatchData(String baseDir) {
+    public void exportMatchData(String baseDir, String message) {
         try {
             MyDataBaseHelper myDB = new MyDataBaseHelper(this.context);
+            Random r = new Random();
 
             Cursor cursor = myDB.readAllData();
             if(cursor.getCount() == 0) {
@@ -57,7 +59,7 @@ public class CSV {
                 // makes the filepath
                 String currentDate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
                 String androidId = Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
-                String filePath = baseDir + File.separator + "MatchData-" + androidId + currentDate + ".csv";
+                String filePath = baseDir + File.separator + "MatchData-" + androidId + r.nextInt(1000) + message + currentDate + ".csv"; //todo add note to file name
 
                 // creates file and attaches CSV writer to it
                 CSVWriter writer = new CSVWriter(new FileWriter(filePath, false));

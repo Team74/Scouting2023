@@ -67,11 +67,11 @@ public class UpdatePreMatchData extends AppCompatActivity {
         nextButton = findViewById(R.id.toAutonButton);
 
         Intent intent = getIntent();
-        if(intent.hasExtra("id"))
+        if(intent.hasExtra("update"))
         {
-            getIntentData();
+            matchId = -1;
         }else{
-
+            getIntentData();
         }
 
         teamNumInput_et.setText(String.valueOf(teamNumInt));
@@ -85,6 +85,7 @@ public class UpdatePreMatchData extends AppCompatActivity {
                     FailedToast();
                 }else
                 {
+                    Log.d("path123", String.valueOf(matchId));
                     int teamNumInt = Integer.parseInt(teamNumInput_et.getText().toString());
                     int matchNumInt = Integer.parseInt(matchNumInput_et.getText().toString());
 
@@ -122,7 +123,14 @@ public class UpdatePreMatchData extends AppCompatActivity {
 
     void getIntentData()
     {
-        matchId = getIntent().getIntExtra("id", 0);
+        if(getIntent().hasExtra("id"))
+        {
+            matchId = getIntent().getIntExtra("id", 0);
+        }else{
+           matchId = -1;
+           return;
+        }
+
 
         Cursor cursor = myDB.readAllData();
         if(cursor.getCount() == 0)

@@ -668,6 +668,15 @@ public class TeleOpInput extends AppCompatActivity {
                 intent.putExtra("teleOpMidCubes3", midCubeInt3);
                 intent.putExtra("teleOpLowCubes3", lowCubeInt3);
                 intent.putExtra("teleOpBalance3", team3BalanceInt);
+
+                int auton1 = getIntent().getIntExtra("auton1Worked", 1);
+                int auton2 = getIntent().getIntExtra("auton2Worked", 1);
+                int auton3 = getIntent().getIntExtra("auton3Worked", 1);
+
+                Log.d("path123", String.valueOf(auton1));
+                intent.putExtra("auton1Worked", auton1);
+                intent.putExtra("auton2Worked", auton2);
+                intent.putExtra("auton3Worked", auton3);
                 //endregion
 
                 Log.d("testing123", String.valueOf(autoLowCubes1));

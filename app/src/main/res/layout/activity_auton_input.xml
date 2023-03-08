@@ -567,7 +567,7 @@
         android:id="@+id/team1Num_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="250dp"
+        android:layout_marginStart="230dp"
         android:layout_marginTop="8dp"
         android:text="Team 1"
         android:textSize="20sp"
@@ -728,5 +728,29 @@
         app:layout_constraintEnd_toStartOf="@+id/textView13"
         app:layout_constraintTop_toTopOf="@+id/textView12"
         app:srcCompat="@drawable/frc_cube_pic" />
+
+    <CheckBox
+        android:id="@+id/auton1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Team 1 Auton Worked"
+        app:layout_constraintStart_toEndOf="@+id/HC_plus_3_btn"
+        app:layout_constraintTop_toTopOf="@+id/HC_plus_3_btn" />
+
+    <CheckBox
+        android:id="@+id/auton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Team 2 Auton Worked"
+        app:layout_constraintStart_toEndOf="@+id/LC_plus_3_btn"
+        app:layout_constraintTop_toBottomOf="@+id/MC_plus_3_btn" />
+
+    <CheckBox
+        android:id="@+id/auton3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Team 3 Auton Worked"
+        app:layout_constraintStart_toEndOf="@+id/MCu_plus_3_btn"
+        app:layout_constraintTop_toTopOf="@+id/MCu_plus_3_btn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
