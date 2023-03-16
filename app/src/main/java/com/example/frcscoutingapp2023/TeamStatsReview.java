@@ -43,13 +43,13 @@ public class TeamStatsReview extends ScoutingReportActivity{
             // get all the data records from the DB
             String simpleColumns[] = {myDB.COLUMN_MATCHNUM, "Total_Points", "Max_autoPiecesTotal","Max_teleOpConesTotal", "Max_teleOpCubesTotal"};
             String advColumns[] = {"MAX_autoBalance", "_teleOpBalance", "_autoConesTotal", "_autoCubesTotal", "_autonWorked", "_broke", "_Defence"};
-            String allColumns[] = {"_autoConesLow, _autoConesMid, _autoConesHigh, _autoCubesLow, _autoCubesMid, _autoCubesHigh, " +
-                    "_teleOpConesLow, _teleOpConesMid, _teleOpConesHigh, _teleOpCubesLow, _teleOpCubesMid, _teleOpCubesHigh,"};
+            String allColumns[] = {"_autoConesLow", "_autoConesMid", "_autoConesHigh", "_autoCubesLow", "_autoCubesMid", "_autoCubesHigh",
+                    "_teleOpConesLow", "_teleOpConesMid", "_teleOpConesHigh", "_teleOpCubesLow", "_teleOpCubesMid", "_teleOpCubesHigh"};
 
-            String simpleHeadings[] = {"Team #", "Total Points", "Avg Auto Cubes", "Avg Tele Cones", "Avg Tele Cubes"};
+            String simpleHeadings[] = {"Match #", "Total Points", "Avg Auto Cubes", "Avg Tele Cones", "Avg Tele Cubes"};
             String advHeadings[] = {"Auton Balance", "_teleOpBalance", "_autoConesTotal", "_autoCubesTotal", "_autonWorked", "_broke", "_Defence"};
-            String allHeadings[] = {"_autoConesLow, _autoConesMid, _autoConesHigh, _autoCubesLow, _autoCubesMid, _autoCubesHigh, " +
-                    "_teleOpConesLow, _teleOpConesMid, _teleOpConesHigh, _teleOpCubesLow, _teleOpCubesMid, _teleOpCubesHigh,"};
+            String allHeadings[] = {"Team #", "_autoConesLow", "_autoConesMid", "_autoConesHigh", "_autoCubesLow", "_autoCubesMid", "_autoCubesHigh",
+                    "_teleOpConesLow", "_teleOpConesMid", "_teleOpConesHigh", "_teleOpCubesLow", "_teleOpCubesMid", "_teleOpCubesHigh"};
 
             String query = "SELECT " + myDB.COLUMN_MATCHNUM +
                     " , "+ minMax + " (" + totalTeleopPoints + "+" + totalAutoPoints + ") AS Total_Points " +

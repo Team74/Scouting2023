@@ -2,7 +2,6 @@ package com.example.frcscoutingapp2023;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.Constraints;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -14,7 +13,6 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
@@ -36,7 +34,7 @@ public class MatchView extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recyclerView);
         add_button = findViewById(R.id.addMatchButton);
-        add_one_btn = findViewById(R.id.addMatchButton2);
+        add_one_btn = findViewById(R.id.addTeam_btn);
 
         add_button.setOnClickListener(new View.OnClickListener() {
             @Override

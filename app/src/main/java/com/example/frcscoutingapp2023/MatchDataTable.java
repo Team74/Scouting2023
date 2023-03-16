@@ -36,12 +36,12 @@ public class MatchDataTable extends ScoutingReportActivity{
 
         public void update(String orderBy, String orderType) {
             // get all the data records from the DB
-            String simpleColumns[] = {myDB.COLUMN_TEAMNUM, "Total_Points", "Max_autoPiecesTotal","Max_teleOpConesTotal", "Max_teleOpCubesTotal"};
+            String simpleColumns[] = {myDB.COLUMN_TEAMNUM, "Total_Points", "Max_autoPiecesTotal","_Cycles","Max_teleOpConesTotal", "Max_teleOpCubesTotal"};
             String advColumns[] = {"MAX_autoBalance", "_teleOpBalance", "_autoConesTotal", "_autoCubesTotal", "_autonWorked", "_broke", "_Defence"};
             String allColumns[] = {"_autoConesLow", "_autoConesMid", "_autoConesHigh", "_autoCubesLow", "_autoCubesMid", "_autoCubesHigh",
                     "_teleOpConesLow", "_teleOpConesMid", "_teleOpConesHigh", "_teleOpCubesLow", "_teleOpCubesMid", "_teleOpCubesHigh"};
 
-            String simpleHeadings[] = {"Team #", "Total Points", "Avg Auto Cubes", "Avg Tele Cones", "Avg Tele Cubes"};
+            String simpleHeadings[] = {"Team #", "Total Points", "Auto", "Cycles", "Avg Tele Cones", "Avg Tele Cubes"};
             String advHeadings[] = {"Auton Balance", "_teleOpBalance", "_autoConesTotal", "_autoCubesTotal", "_autonWorked", "_broke", "_Defence"};
             String allHeadings[] = {"Team #", "_autoConesLow", "_autoConesMid", "_autoConesHigh", "_autoCubesLow", "_autoCubesMid", "_autoCubesHigh",
                     "_teleOpConesLow", "_teleOpConesMid", "_teleOpConesHigh", "_teleOpCubesLow", "_teleOpCubesMid", "_teleOpCubesHigh"};
@@ -50,6 +50,7 @@ public class MatchDataTable extends ScoutingReportActivity{
                     simpleData +
                     advData + allData +
                     " FROM " + myDB.TABLE_NAME +
+                    " WHERE " + myDB.COLUMN_TEAMNUM + " NOT IN (74, 1, 28)" +
                     " GROUP BY " + myDB.COLUMN_TEAMNUM +
                     " ORDER BY " + orderType + " " + orderBy + " ";
 
@@ -124,11 +125,7 @@ public class MatchDataTable extends ScoutingReportActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_match_data_table);
 
-        simpleData = " , ROUND("+ minMax + " (" + totalTeleopPoints + "+" + totalAutoPoints + "), 2) AS Total_Points " +
-                    " , ROUND("+ minMax + "(autoCubesTotal + autoConesTotal), 2) AS Max_autoPiecesTotal " +
-                    " , ROUND("+ minMax + "(teleOpConesTotal), 2) AS Max_teleOpConesTotal " +
-                    " , ROUND("+ minMax + "(teleOpCubesTotal), 2) AS Max_teleOpCubesTotal ";
-
+        refreshData();
         myDB = new MyDataBaseHelper(MatchDataTable.this);
         minMaxSwitch = findViewById(R.id.switch1);
         radioGroup = findViewById(R.id.radioGroup);
@@ -141,15 +138,17 @@ public class MatchDataTable extends ScoutingReportActivity{
                 if(minMaxSwitch.isChecked())
                 {
                     minMax = "MAX";
-                    updateMatchDataTable.update("DESC", "teleOpConesTotal");
+                    refreshData();
+                    updateMatchDataTable.update("DESC", myDB.COLUMN_TEAMNUM);
                 }else if(!minMaxSwitch.isChecked())
                 {
                     minMax = "AVG";
-                    updateMatchDataTable.update("DESC", "teleOpConesTotal");
+                    refreshData();
+                    updateMatchDataTable.update("DESC", myDB.COLUMN_TEAMNUM);
                 }
             }
         });
-
+            //TODO finish the max min bug
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
@@ -201,6 +200,16 @@ public class MatchDataTable extends ScoutingReportActivity{
             }
         }
         return result;
+    }
+
+    void refreshData()
+    {
+        simpleData = " , ROUND("+ minMax + " (" + totalTeleopPoints + "+" + totalAutoPoints + "), 2) AS Total_Points " +
+                " , ROUND("+ minMax + "(autoCubesTotal + autoConesTotal), 2) AS Max_autoPiecesTotal " +
+                " , ROUND("+ minMax + "(teleOpConesTotal + teleOpCubesTotal), 2) AS _Cycles " +
+                " , ROUND("+ minMax + "(teleOpConesTotal), 2) AS Max_teleOpConesTotal " +
+                " , ROUND("+ minMax + "(teleOpCubesTotal), 2) AS Max_teleOpCubesTotal ";
+
     }
 
 }

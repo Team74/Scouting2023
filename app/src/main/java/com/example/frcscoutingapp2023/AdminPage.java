@@ -303,8 +303,9 @@ public class AdminPage extends AppCompatActivity {
                 }
 
                 int i = 0;
+
                 for(String col : csvHeaderLine) {
-                    cv.put(myDB.COLUMN_MATCHNUM, Integer.parseInt(csvLine[i]));
+                    cv.put(col, Integer.parseInt(csvLine[i]));
                     i++;
                 }
 

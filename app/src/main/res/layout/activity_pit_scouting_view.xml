@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MatchView">
+    tools:context=".PitScoutingView">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
@@ -16,27 +16,11 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-        android:id="@+id/addMatchButton"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="40dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:gravity="center"
-        android:text="@string/plus3"
-        android:textSize="30dp"
-        app:fabCustomSize="80dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:maxImageSize="40dp" />
-
-    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/addTeam_btn"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginEnd="40dp"
-        android:layout_marginBottom="152dp"
+        android:layout_marginBottom="32dp"
         android:clickable="true"
         android:focusable="true"
         android:gravity="center"
@@ -65,7 +49,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="Match Number"
+        android:text="Team Number"
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/textView4"
         app:layout_constraintTop_toTopOf="parent" />
@@ -76,53 +60,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="Team Number"
+        android:text="Team Name"
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="Auton Total"
-        android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="TeleOp Cones"
-        android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/textView3"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="TeleOp Cubes"
-        android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/textView5"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="Balance"
-        android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/textView6"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

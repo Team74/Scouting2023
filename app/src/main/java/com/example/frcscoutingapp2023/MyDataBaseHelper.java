@@ -5,16 +5,11 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.net.Uri;
 import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
-import com.opencsv.CSVReader;
-
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -69,6 +64,12 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
     public static final String COLUMN_Defense = "Defence";
 
 
+    //Pit Scouting
+    public static final String PIT_TABLE_NAME = "Pit_Scouting_Data";
+    public static final String COLUMN_PIT_ID = "_pit_id";
+    public static final String COLUMN_PIT_TEAMNUM = "_pit_teamnum";
+
+
 
     public MyDataBaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, VERSION);
@@ -106,12 +107,22 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
                         COLUMN_Broke + " INTEGER, " + // 22
                         COLUMN_Defense + " INTEGER);"; // 23
 
+        Log.d("path123", "table 1");
         db.execSQL(query);
+
+        Log.d("path123", "table 2");
+        String pitScoutingQuery = "CREATE TABLE " + PIT_TABLE_NAME +
+                " (" + COLUMN_PIT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + // 0  Keep in mind the ids! put the right id into the storeDataInArray() for the add string method
+                COLUMN_PIT_TEAMNUM + " INTEGER);"; // 1
+
+        Log.d("path123", "table 2");
+        db.execSQL(pitScoutingQuery);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + PIT_TABLE_NAME);
         onCreate(db);
     }
 
@@ -218,6 +229,19 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
     Cursor readAllData()
     {
         String query = "SELECT * FROM " + TABLE_NAME;
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = null;
+        if(db != null)
+        {
+            cursor = db.rawQuery(query, null);
+        }
+        return cursor;
+    }
+
+    Cursor readAllPitScoutingData()
+    {
+        String query = "SELECT * FROM " + PIT_TABLE_NAME;
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = null;
@@ -366,65 +390,27 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
         Toast.makeText(context, "Sample Data Created", Toast.LENGTH_SHORT).show();
     }
 
-        /* public void importTeamData(Uri teamDataUri) {
-        try {
-            // make sure DB started
+    void addPitScoutingTeam(int MatchID, ContentValues cv, Boolean dispToast)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
 
-            // open file and attach a file reader to the uri
-            FileReader fileReader = new FileReader(
-                    this.getDatabaseName()
-                            .openFileDescriptor(teamDataUri, "r")
-                            .getFileDescriptor()
-            );
+        long result;
 
-            // now attach a CSV reader to file reader
-            CSVReader reader = new CSVReader(fileReader);
-
-            // create a CSV and DB record that we will fill in
-            String[] csvLine;
-            entityTeamData = new EntityTeamData();
-
-            // for each record returned from the CSV file, add a record to DB
-            while ((csvLine = reader.readNext()) != null) {
-
-                // check for the CSV header row and skip it
-                if (csvLine[0].equals("TeamNumber")) {
-                    continue;
-                }
-
-                // initial CSV import files for events will only have team number and name
-                if (csvLine.length == 2) {
-                    entityTeamData.TeamNumber = Integer.valueOf(csvLine[0]);
-                    entityTeamData.TeamName = csvLine[1];
-                } else {
-                    // convert all the data strings to the appropriate DB type
-                    entityTeamData.TeamNumber = Integer.valueOf(csvLine[0]);
-                    entityTeamData.TeamName = csvLine[1];
-                    entityTeamData.PitScouter = csvLine[2];
-                    entityTeamData.RobotWeight = Integer.valueOf(csvLine[3]);
-                    entityTeamData.ShootingLocation1 = Boolean.valueOf(csvLine[4]);
-                    entityTeamData.ShootingLocation2 = Boolean.valueOf(csvLine[5]);
-                    entityTeamData.ShootingLocation3 = Boolean.valueOf(csvLine[6]);
-                    entityTeamData.StartLocationLeft = Boolean.valueOf(csvLine[7]);
-                    entityTeamData.StartLocationCenter = Boolean.valueOf(csvLine[8]);
-                    entityTeamData.StartLocationRight = Boolean.valueOf(csvLine[9]);
-                }
-
-                // if it's a valid record...
-                // TBD: are there other things would we NOT want in the DB?
-                if (entityTeamData.TeamNumber>0) {
-                    // ...add the team data record to the DB
-                    daoTeamData.insert(entityTeamData);
-                }
-            }
-            // close the CSV file
-            reader.close();
-            Toast.makeText(this, "TeamData CSV file successfully imported", Toast.LENGTH_SHORT).show();
-        } catch (Exception e) {
-            e.printStackTrace();
-            Toast.makeText(this, "Error reading TeamData CSV file", Toast.LENGTH_SHORT).show();
+        // if a valid match id was passed in, do an update
+        if (MatchID < 0) {
+            result = db.insert(PIT_TABLE_NAME, null, cv);
+        } else {
+            String row_id = String.valueOf(MatchID);
+            result = db.update(PIT_TABLE_NAME, cv, "_id=?", new String[]{row_id});
         }
-    }*/
 
-
+        if (dispToast) {
+            if (result == -1)//failed
+            {
+                Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
 }

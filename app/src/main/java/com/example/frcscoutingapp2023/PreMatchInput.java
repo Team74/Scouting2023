@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class PreMatchInput extends AppCompatActivity {
 
@@ -22,6 +23,7 @@ public class PreMatchInput extends AppCompatActivity {
 
     private Context context;
     Activity activity;
+    String[] teamList = {"27", "70", "74", "85", "107", "141", "494", "1025", "1918", "2054", "2959", "3234"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,11 +42,27 @@ public class PreMatchInput extends AppCompatActivity {
             @Override
             public void onClick(View view) { //TODO make the input and string more different
                 //Checks if the edit texts are empty, as if they are, it crashes
-                if((TextUtils.isEmpty(team1Input.getText().toString())) || (TextUtils.isEmpty(team2Input.getText().toString())) || (TextUtils.isEmpty(team3Input.getText().toString())) || (TextUtils.isEmpty(matchNumInput.getText().toString())))
+                if((TextUtils.isEmpty(team1Input.getText().toString())) || (TextUtils.isEmpty(team2Input.getText().toString()))
+                        || (TextUtils.isEmpty(team3Input.getText().toString())) || (TextUtils.isEmpty(matchNumInput.getText().toString())))
                 {
-                   FailedToast();
+                   FailedToast("-1");
                 }else
                 {
+                    if(!Arrays.asList(teamList).contains(team1Input.getText().toString()))
+                    {
+                        FailedToast("1");
+                        return;
+                    }
+                    if(!Arrays.asList(teamList).contains(team2Input.getText().toString()))
+                    {
+                        FailedToast("2");
+                        return;
+                    }
+                    if(!Arrays.asList(teamList).contains(team3Input.getText().toString()))
+                    {
+                        FailedToast("3");
+                        return;
+                    }
                     int team1Num = Integer.parseInt(team1Input.getText().toString());
                     int team2Num = Integer.parseInt(team2Input.getText().toString());
                     int team3Num = Integer.parseInt(team3Input.getText().toString());
@@ -61,8 +79,13 @@ public class PreMatchInput extends AppCompatActivity {
         });
     }
 
-    void FailedToast()
+    void FailedToast(String teamNum)
     {
-        Toast.makeText(this, "Please enter data into all boxes", Toast.LENGTH_SHORT).show();
+        if(teamNum == "-1")
+        {
+            Toast.makeText(this, "Please enter data into all boxes", Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(this, "Wrong Team Number in Box " + teamNum, Toast.LENGTH_SHORT).show();
+        }
     }
 }
