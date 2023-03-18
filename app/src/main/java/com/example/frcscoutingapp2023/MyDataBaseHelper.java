@@ -252,6 +252,19 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
+    Cursor getAllTeamNumbers()
+    {
+        String query = "SELECT * FROM " + TABLE_NAME + " GROUP BY " + COLUMN_TEAMNUM + " ORDER BY " + COLUMN_TEAMNUM + " DESC";
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = null;
+        if(db != null)
+        {
+            cursor = db.rawQuery(query, null);
+        }
+        return cursor;
+    }
+
     Float getTeamData(int teamNum, String col)
     {
         String query = "SELECT AVG(" + col + ") AS avg FROM " + TABLE_NAME+ " WHERE " + COLUMN_TEAMNUM + " = " + String.valueOf(teamNum);

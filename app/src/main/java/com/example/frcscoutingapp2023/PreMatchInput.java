@@ -23,7 +23,8 @@ public class PreMatchInput extends AppCompatActivity {
 
     private Context context;
     Activity activity;
-    String[] teamList = {"27", "70", "74", "85", "107", "141", "494", "1025", "1918", "2054", "2959", "3234"};
+    String[] teamList = {"27", "70", "74", "85", "107", "141", "494", "1025", "1918", "2054", "2959", "3234", "3357", "3458", "4003", "4337", "4395", "4855", "4967", "5150",
+    "5248", "5462", "5470", "5567", "5610", "5702", "5927", "5980", "6090", "6094", "6114", "6128", "6428", "6877", "7248", "8612", "9206", "9222", "9248", "9266"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
