@@ -65,11 +65,25 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
 
 
     //Pit Scouting
+    //TODO make these not all caps like the other ones
     public static final String PIT_TABLE_NAME = "Pit_Scouting_Data";
     public static final String COLUMN_PIT_ID = "_pit_id";
     public static final String COLUMN_PIT_TEAMNUM = "_pit_teamnum";
-
-
+    public static final String COLUMN_PIT_NAME = "_pit_name";
+    public static final String COLUMN_DIMENSIONS = "_pit_dimensions";
+    public static final String COLUMN_AUTON_PIECES = "_pit_auton_pieces";
+    public static final String COLUMN_AUTON_LINE = "_pit_auton_line";
+    public static final String COLUMN_AUTON_CENTER = "_pit_auton_center";
+    public static final String COLUMN_TELEOP_LOW = "_pit_teleop_low";
+    public static final String COLUMN_TELEOP_MID = "_pit_teleop_mid";
+    public static final String COLUMN_TELEOP_HIGH = "_pit_teleop_high";
+    public static final String COLUMN_TELEOP_CLIMB = "_pit_teleop_climb";
+    public static final String COLUMN_TELEOP_FLOOR = "_pit_teleop_floor";
+    public static final String COLUMN_TELEOP_SUBSTATION = "_pit_teleop_substation";
+    public static final String COLUMN_TELEOP_CUBES = "_pit_teleop_cubes";
+    public static final String COLUMN_TELEOP_CONES = "_pit_teleop_cones";
+    public static final String COLUMN_PIT_LANGUAGE = "_pit_language";
+    public static final String COLUMN_IMAGE_FILEPATH = "file_path";
 
     public MyDataBaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, VERSION);
@@ -113,7 +127,22 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
         Log.d("path123", "table 2");
         String pitScoutingQuery = "CREATE TABLE " + PIT_TABLE_NAME +
                 " (" + COLUMN_PIT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + // 0  Keep in mind the ids! put the right id into the storeDataInArray() for the add string method
-                COLUMN_PIT_TEAMNUM + " INTEGER);"; // 1
+                COLUMN_PIT_TEAMNUM + " INTEGER," + // 1
+                COLUMN_PIT_NAME + " STRING," + // 1
+                COLUMN_DIMENSIONS + " INTEGER, " + // 2
+                COLUMN_AUTON_PIECES + " INTEGER, " + // 3
+                COLUMN_AUTON_LINE + " INTEGER, " + // 4
+                COLUMN_AUTON_CENTER + " INTEGER, " + // 5
+                COLUMN_TELEOP_LOW + " INTEGER, " + // 6
+                COLUMN_TELEOP_MID + " INTEGER, " + // 7
+                COLUMN_TELEOP_HIGH + " INTEGER, " + // 8
+                COLUMN_TELEOP_CLIMB + " INTEGER, " + // 9
+                COLUMN_TELEOP_FLOOR + " INTEGER, " + // 10
+                COLUMN_TELEOP_SUBSTATION + " INTEGER, " + // 11
+                COLUMN_TELEOP_CUBES + " INTEGER, " + // 12
+                COLUMN_TELEOP_CONES + " INTEGER, " + // 13
+                COLUMN_IMAGE_FILEPATH + " STRING, " + //14
+                COLUMN_PIT_LANGUAGE + " INTEGER);"; // 15
 
         Log.d("path123", "table 2");
         db.execSQL(pitScoutingQuery);
@@ -410,7 +439,7 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
         long result;
 
         // if a valid match id was passed in, do an update
-        if (MatchID < 0) {
+        if (MatchID <= 0) {
             result = db.insert(PIT_TABLE_NAME, null, cv);
         } else {
             String row_id = String.valueOf(MatchID);

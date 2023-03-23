@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".pit_scouting_input">
+
+    <CheckBox
+        android:id="@+id/high_cb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="High"
+        app:layout_constraintStart_toEndOf="@+id/mid_cb"
+        app:layout_constraintTop_toTopOf="@+id/mid_cb" />
+
+    <Button
+        android:id="@+id/takePicture_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:text="Picture"
+        app:layout_constraintEnd_toEndOf="@+id/lang_spin"
+        app:layout_constraintTop_toBottomOf="@+id/lang_spin" />
+
+    <Spinner
+        android:id="@+id/lang_spin"
+        android:layout_width="191dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/robotImageView"
+        android:layout_width="320dp"
+        android:layout_height="240dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <EditText
+        android:id="@+id/teamNumber_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Team Number"
+        android:inputType="number"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/Dimentions_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="80dp"
+        android:ems="10"
+        android:hint="Short Side"
+        android:inputType="number"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/teamNumber_txt" />
+
+    <EditText
+        android:id="@+id/autonPieces_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="64dp"
+        android:ems="10"
+        android:hint="Auton Pieces"
+        android:inputType="number"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Dimentions_txt" />
+
+    <CheckBox
+        android:id="@+id/mobility_cb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Mobility"
+        app:layout_constraintStart_toStartOf="@+id/autonPieces_txt"
+        app:layout_constraintTop_toBottomOf="@+id/autonPieces_txt" />
+
+    <CheckBox
+        android:id="@+id/autoBalance_cb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Auto Balance"
+        app:layout_constraintStart_toEndOf="@+id/mobility_cb"
+        app:layout_constraintTop_toBottomOf="@+id/autonPieces_txt" />
+
+    <CheckBox
+        android:id="@+id/low_cb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Low"
+        app:layout_constraintStart_toStartOf="@+id/textView16"
+        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+    <CheckBox
+        android:id="@+id/mid_cb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Mid"
+        app:layout_constraintStart_toEndOf="@+id/low_cb"
+        app:layout_constraintTop_toTopOf="@+id/low_cb" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="Auton"
+        app:layout_constraintBottom_toTopOf="@+id/autonPieces_txt"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="128dp"
+        android:layout_marginTop="16dp"
+        android:text="Tele Op"
+        app:layout_constraintStart_toEndOf="@+id/teamNumber_txt"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <CheckBox
+        android:id="@+id/floor_cb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Floor"
+        app:layout_constraintStart_toStartOf="@+id/climb_cb"
+        app:layout_constraintTop_toBottomOf="@+id/climb_cb" />
+
+    <CheckBox
+        android:id="@+id/substation_cb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Substation"
+        app:layout_constraintStart_toEndOf="@+id/floor_cb"
+        app:layout_constraintTop_toTopOf="@+id/floor_cb" />
+
+    <CheckBox
+        android:id="@+id/climb_cb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Climb"
+        app:layout_constraintStart_toStartOf="@+id/low_cb"
+        app:layout_constraintTop_toBottomOf="@+id/low_cb" />
+
+    <CheckBox
+        android:id="@+id/cones_cb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Cones"
+        app:layout_constraintStart_toStartOf="@+id/floor_cb"
+        app:layout_constraintTop_toBottomOf="@+id/floor_cb" />
+
+    <CheckBox
+        android:id="@+id/cubes_cb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Cubes"
+        app:layout_constraintStart_toEndOf="@+id/cones_cb"
+        app:layout_constraintTop_toTopOf="@+id/cones_cb" />
+
+    <Button
+        android:id="@+id/pitPush_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="Push"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/teamName_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Team Name"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="@+id/teamNumber_txt"
+        app:layout_constraintTop_toBottomOf="@+id/teamNumber_txt" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

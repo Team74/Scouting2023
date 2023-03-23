@@ -19,17 +19,18 @@ import java.util.ArrayList;
 public class PitScouting_CustomAdapter extends RecyclerView.Adapter<PitScouting_CustomAdapter.MyViewHolder> {
 
     private Context context;
-    private ArrayList pit_id, teamNum;
+    private ArrayList pit_id, teamNum, teamName;
     Activity activity;
 
 
     PitScouting_CustomAdapter(Activity activity, Context context, ArrayList pit_id,
-                              ArrayList teamNum)
+                              ArrayList teamNum, ArrayList teamName)
     {
         this.activity = activity;
         this.context = context;
         this.pit_id = pit_id;
         this.teamNum = teamNum;
+        this.teamName = teamName;
     }
 
     @NonNull
@@ -46,13 +47,13 @@ public class PitScouting_CustomAdapter extends RecyclerView.Adapter<PitScouting_
         Log.d("path123", "hi");
         holder.match_id_txt.setText(String.valueOf(pit_id.get(position)));
         holder.teamNum_txt.setText(String.valueOf(teamNum.get(position)));
+        holder.teamName_txt.setText(String.valueOf(teamName.get(position)));
 
         holder.mainLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, UpdatePreMatchData.class);
-                intent.putExtra("id", Integer.parseInt(pit_id.get(position).toString()));
-                intent.putExtra("teamNum", String.valueOf(teamNum.get(position)));
+                Intent intent = new Intent(context, PitScoutingTeamReview.class);
+                intent.putExtra("pit_id", Integer.parseInt(pit_id.get(position).toString()));
                 activity.startActivityForResult(intent, 1);
             }
         });
@@ -66,7 +67,7 @@ public class PitScouting_CustomAdapter extends RecyclerView.Adapter<PitScouting_
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
 
-        TextView match_id_txt, teamNum_txt;
+        TextView match_id_txt, teamNum_txt, teamName_txt;
         LinearLayout mainLayout;
 
         public MyViewHolder(@NonNull View itemView) {
@@ -74,7 +75,8 @@ public class PitScouting_CustomAdapter extends RecyclerView.Adapter<PitScouting_
             super(itemView);
             match_id_txt = itemView.findViewById(R.id.match_id_txt);
             mainLayout = itemView.findViewById(R.id.mainLayout);
-            teamNum_txt = itemView.findViewById(R.id.teamNum_txt);
+            teamNum_txt = itemView.findViewById(R.id.teamNum_view_txt);
+            teamName_txt = itemView.findViewById(R.id.teamName);
         }
     }
 }

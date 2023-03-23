@@ -117,7 +117,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
             balance_txt = itemView.findViewById(R.id.balance_txt);
             mainLayout = itemView.findViewById(R.id.mainLayout);
             matchNum_txt = itemView.findViewById(R.id.matchNum_txt);
-            teamNum_txt = itemView.findViewById(R.id.teamNum_txt);
+            teamNum_txt = itemView.findViewById(R.id.teamNum_view_txt);
         }
     }
 }

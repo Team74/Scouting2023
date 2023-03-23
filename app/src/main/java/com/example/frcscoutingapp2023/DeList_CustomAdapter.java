@@ -102,7 +102,7 @@ public class DeList_CustomAdapter extends RecyclerView.Adapter<DeList_CustomAdap
 
             super(itemView);
             mainLayout = itemView.findViewById(R.id.mainLayout);
-            teamNum_txt = itemView.findViewById(R.id.teamNum_txt);
+            teamNum_txt = itemView.findViewById(R.id.teamNum_view_txt);
             delist_box = itemView.findViewById(R.id.delist_cb);
         }
     }
