@@ -14,6 +14,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.w3c.dom.Text;
+
 //Screen with the data input for teleop
 public class TeleOpInput extends AppCompatActivity {
 

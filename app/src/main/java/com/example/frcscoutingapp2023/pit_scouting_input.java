@@ -70,7 +70,7 @@ public class pit_scouting_input extends AppCompatActivity implements AdapterView
         lang_spin.setOnItemSelectedListener(this);
 
 
-        
+
         takePic_btn = findViewById(R.id.takePicture_btn);
         takePic_btn.setOnClickListener(new View.OnClickListener() {
             @Override
